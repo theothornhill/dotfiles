@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: white
+# key: white
+# --
+(make-color :red 1.0 :green 1.0 :blue 1.0)

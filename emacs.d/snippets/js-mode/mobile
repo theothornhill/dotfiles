@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# contributor: Theodor Thornhill
+# name: Media query mobile
+# key: mobile
+# --
+@media only screen and (max-width: \$\{styles.sizes.screen.phone\}px) {
+  $0
+}

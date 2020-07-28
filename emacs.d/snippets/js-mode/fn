@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# contributor: Theodor Thornhill
+# name: Function statement
+# key: fn
+# --
+const ${1:name} = (${2:args}) => {
+  $3
+};
+$0

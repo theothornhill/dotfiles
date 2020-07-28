@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: ApiService
+# key: api
+# --
+useEffect(() => {
+  ApiService.getAction($1, (status: any, data: $2) => {
+    if (status) {
+      $3
+    }
+  })
+}, [$4])
+$0

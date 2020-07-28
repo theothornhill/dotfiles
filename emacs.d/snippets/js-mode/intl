@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: intl formatMessage
+# key: imess
+# --
+intl.formatMessage({ id: "${1:string}"});
+$0

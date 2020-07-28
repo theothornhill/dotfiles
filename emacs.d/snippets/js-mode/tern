@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# contributor: Theodor Thornhill      
+# name: Ternary operator
+# key: tern
+# --
+${1:predicate} ? ${2:consequence} : ${3:alternative};

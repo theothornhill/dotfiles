@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# contributor: Theodor Thornhill
+# name: Import React
+# key: imr
+# --
+import React from 'react';
+$0

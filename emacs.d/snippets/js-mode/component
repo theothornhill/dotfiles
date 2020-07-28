@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# contributor: Theodor Thornhill
+# name: JS React component
+# key: component
+# --
+import React from 'react';
+
+const ${1:`(file-name-base buffer-file-name)`} = (${2:props}) => {
+  return (
+    $0
+  );
+};
+
+export default $1;

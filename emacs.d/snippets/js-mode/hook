@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# contributor: Theodor Thornhill
+# name: React hook
+# key: hook
+# --
+const [${1:state}, set${1:$(capitalize yas-text)}] = useState($2);
+$0

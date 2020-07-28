@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# contributor: Theodor Thornhill
+# name: defparameter
+# key: param
+# --
+(defparameter *$1* $2)
+$0

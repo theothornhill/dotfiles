@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# contributor: Theodor Thornhill
+# name: Import React Component
+# key: impcomp
+# --
+import ${2:$1} from '${1:moduleName}';

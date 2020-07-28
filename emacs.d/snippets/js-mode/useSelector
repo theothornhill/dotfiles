@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: useSelector
+# key: selector
+# --
+const { ${1:value} } = useSelector((state: ${2:SystemState}) => state)

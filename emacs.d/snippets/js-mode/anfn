@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# contributor: Theodor Thornhill
+# name: Anonymous function
+# key: anfn
+# --
+(${1:args}) => {
+  $0
+}

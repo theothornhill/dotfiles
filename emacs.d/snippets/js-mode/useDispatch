@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: useDispatch
+# key: usedis
+# --
+const dispatch = useDispatch();$0

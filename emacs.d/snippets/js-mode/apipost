@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: apipost
+# key: apipost
+# --
+getUser().then((user: any) => {
+  ApiService.postAction(
+    ${1:url},
+    ${2:getFunction}(user?.profile?.pid),
+    (status: any, data: Charges) => {
+      if (status) {
+        dispatch(${3:setFunction}(data.charges));
+        setLoading(false);
+      }
+    },
+    ${4:extraConfigs}
+  );
+});

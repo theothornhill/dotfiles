@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: useEffect
+# key: effect
+# --
+useEffect((${1:args}) => {
+  $0
+}, [${2:dependencies}])

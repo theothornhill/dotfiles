@@ -1,0 +1,4 @@
+;;; -*- lisp-data -*-
+(("~/dotfiles/")
+ ("~/quicklisp/local-projects/lisp-tracer/")
+ ("~/quicklisp/local-projects/weather/"))

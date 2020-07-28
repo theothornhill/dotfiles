@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: fn1
+# key: fn1
+# --
+${1:name} : ${2:a} -> ${3:a}
+$1 ${4:a} =
+   $0

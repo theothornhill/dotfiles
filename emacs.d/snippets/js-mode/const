@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# contributor: Theodor Thornhill
+# name: const
+# key: const
+# --
+const ${1:name} = $0
