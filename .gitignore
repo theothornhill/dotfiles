@@ -4,3 +4,7 @@
 /emacs.d/transient/
 /vim/bundle/
 /emacs.d/projects
+/emacs.d/.cache/
+/emacs.d/.lsp-session-v1
+/emacs.d/server/
+/emacs.d/url/
