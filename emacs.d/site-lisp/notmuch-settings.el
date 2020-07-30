@@ -21,7 +21,7 @@
         send-mail-function 'sendmail-send-it
         message-sendmail-envelope-from 'header
         mail-envelope-from 'header
-        notmuch-fcc-dirs "protonmail/sent +sent -inbox -unread"
+        notmuch-fcc-dirs "main/Sent +sent -inbox -unread"
         notmuch-saved-searches '((:name "inbox" :query "tag:inbox" :key "i")
                                  (:name "unread" :query "tag:unread" :key "u")
                                  (:name "flagged" :query "tag:flagged" :key "f")
