@@ -17,7 +17,6 @@
   (use-package slime
     :defer t
     :config
-    (add-to-list 'load-path "~/.emacs.d/elpa/slime-*")
     (slime-setup '(slime-fancy
                    slime-repl
                    slime-autodoc
