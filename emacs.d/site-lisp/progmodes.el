@@ -78,6 +78,7 @@
 
 
 (use-package csharp-mode
+  :mode (("\\.cake$" . csharp-mode))
   :config
   (defun csharp-disable-clear-string-fences (orig-fun &rest args)
     "This turns off `c-clear-string-fences' for

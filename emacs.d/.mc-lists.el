@@ -8,6 +8,7 @@
         c-electric-semi&comma
         c-indent-line-or-region
         change-inner
+        company-complete
         counsel-M-x
         counsel-descbinds
         counsel-find-file
@@ -17,6 +18,7 @@
         downcase-region
         electric-newline-and-maybe-indent
         electric-pair-delete-pair
+        elm-indent-forward
         elm-indent-one-level
         end-of-buffer
         end-of-visual-line
@@ -30,6 +32,7 @@
         mark-sexp
         my-open-line-below
         open-line-above
+        open-line-below
         org-delete-char
         org-self-insert-command
         paredit-backward
@@ -66,5 +69,6 @@
       '(
         counsel-switch-buffer
         scroll-other-window
+        xref-find-definitions
         yaml-electric-backspace
         ))

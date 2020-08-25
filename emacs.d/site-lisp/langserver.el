@@ -29,7 +29,8 @@
   :bind (:map lsp-mode-map
               ("C-h ." . 'lsp-describe-thing-at-point)
               ("C-." . 'lsp-ui-imenu)
-              ("M-i M-i" . 'lsp-format-buffer))
+              ("M-i M-i" . 'lsp-format-buffer)
+              ("M-i c" . 'lsp-ui-flycheck-list))
   :config
   (setq lsp-eslint-auto-fix-on-save t
         lsp-prefer-capf t

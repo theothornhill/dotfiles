@@ -50,16 +50,16 @@
         ring-bell-function 'ignore
         initial-scratch-message ""))
 
-(let ((alist `((?- . ,(regexp-opt '("-->" "-<" "-<<" "->" "->>" "-}" "-~" "-<>")))
-               (?< . ,(regexp-opt '("<!--" "<$" "<$>" "<*" "<*>" "<+" "<+>" "<-" "<--" "<->" "</" "</>" "<<-" "<<=" "<=" "<=" "<=<" "<==" "<=>" "<>" "<|" "<|>" "<~" "<~~")))
-               (?= . ,(regexp-opt '("=<<" "==>" "=>" "=>>" "?=" "=" "==" "===")))
-               (?> . ,(regexp-opt '(">-" ">=" ">=>" ">>-" ">>=")))
-               (?| . ,(regexp-opt '("|=" "|>" "||=")))
-               (?/ . ,(regexp-opt '("/=" "/==")))
-               (?~ . ,(regexp-opt '("~-" "~=" "~>" "~@" "~~" "~~>"))))))
-  (dolist (char-regexp alist)
-    (set-char-table-range composition-function-table (car char-regexp)
-                          `([,(cdr char-regexp) 0 font-shape-gstring]))))
+;; (let ((alist `((?- . ,(regexp-opt '("-->" "-<" "-<<" "->" "->>" "-}" "-~" "-<>")))
+;;                (?< . ,(regexp-opt '("<!--" "<$" "<$>" "<*" "<*>" "<+" "<+>" "<-" "<--" "<->" "</" "</>" "<<-" "<<=" "<=" "<=" "<=<" "<==" "<=>" "<>" "<|" "<|>" "<~" "<~~")))
+;;                (?= . ,(regexp-opt '("=<<" "==>" "=>" "=>>" "?=" "=" "==" "===")))
+;;                (?> . ,(regexp-opt '(">-" ">=" ">=>" ">>-" ">>=")))
+;;                (?| . ,(regexp-opt '("|=" "|>" "||=")))
+;;                (?/ . ,(regexp-opt '("/=" "/==")))
+;;                (?~ . ,(regexp-opt '("~-" "~=" "~>" "~@" "~~" "~~>"))))))
+;;   (dolist (char-regexp alist)
+;;     (set-char-table-range composition-function-table (car char-regexp)
+;;                           `([,(cdr char-regexp) 0 font-shape-gstring]))))
 
 (use-package eldoc :ensure nil :delight)
 
@@ -76,8 +76,8 @@
   :config
   (setq company-tooltip-align-annotations t
         company-tooltip-maximum-width 70
-        company-minimum-prefix-length 1
-        company-idle-delay 0.0
+        company-minimum-prefix-length 50
+        company-idle-delay 0.2
         company-backends
         '((company-capf
            company-files
@@ -120,9 +120,8 @@
               ("C-p" . 'icomplete-backward-completions))
   :config
   (fido-mode t)
-  (setq icomplete-compute-delay 0
+  (setq icomplete-compute-delay 0.0
         icomplete-max-delay-chars 0
-        icomplete-prospects-height 1
         icomplete-in-buffer t
         read-buffer-completion-ignore-case t
         completion-ignore-case t
