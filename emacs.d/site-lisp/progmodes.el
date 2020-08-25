@@ -14,20 +14,24 @@
 
   (setq inferior-lisp-program "sbcl")
 
-  (use-package slime
+    (use-package slime
     :defer t
     :config
     (slime-setup '(slime-fancy
                    slime-repl
                    slime-autodoc
                    slime-references
+                   slime-cl-indent
                    slime-company
   		             slime-asdf
                    slime-fuzzy
   		             slime-fancy-inspector
   		             slime-xref-browser)))
   
-  (use-package slime-company :defer t))
+  (use-package slime-company :defer t)
+  ;; (use-package sly :defer t)
+  ;; (use-package sly-asdf :defer t)
+  )
 
 ;; F#
 (use-package fsharp-mode
@@ -94,5 +98,15 @@ an interpolated string or terminating simple string."
   :mode (("\\.http$" . restclient-mode)))
 
 (use-package rg :defer t)
+
+(use-package geiser
+  :defer t
+  :config
+  (setq geiser-active-implementations '(guile)
+        geiser-guile-binary "guile3.0"))
+
+(use-package cc-mode
+  :ensure nil
+  :bind (("C-c m" . 'man)))
 
 (provide 'progmodes)

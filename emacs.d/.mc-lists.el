@@ -58,8 +58,10 @@
         slime-compile-and-load-file
         sly-compile-and-load-file
         sly-compile-defun
+        tab-to-tab-stop
         transpose-sexps
         transpose-words
+        upcase-region
         wdired-abort-changes
         wdired-finish-edit
         yaml-electric-dash-and-dot
@@ -70,5 +72,6 @@
         counsel-switch-buffer
         scroll-other-window
         xref-find-definitions
+        slime-previous-note
         yaml-electric-backspace
         ))

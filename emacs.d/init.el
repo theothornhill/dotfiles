@@ -3,7 +3,13 @@
 (cd "~/")
 (blink-cursor-mode -1)
 
-(push '(font . "JetBrains Mono-12") default-frame-alist)
+;; (push '(font . "DejaVu Sans Mono-12") default-frame-alist)
+
+(set-face-attribute 'default nil
+                    :family "DejaVu Sans Mono"
+                    :height 150
+                    :weight 'normal
+                    :width 'normal)
 
 ;; Initialize packages
 (unless (bound-and-true-p package--initialized)
