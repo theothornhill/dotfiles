@@ -24,6 +24,7 @@
   (setq auto-mode-case-fold nil)
   (fset 'yes-or-no-p 'y-or-n-p)
   (electric-pair-mode t)
+  (load-theme 'modus-operandi)
   (show-paren-mode t)
   (column-number-mode)
   (line-number-mode)
@@ -76,7 +77,7 @@
   :config
   (setq company-tooltip-align-annotations t
         company-tooltip-maximum-width 70
-        company-minimum-prefix-length 50
+        company-minimum-prefix-length 1
         company-idle-delay 0.2
         company-backends
         '((company-capf
@@ -133,12 +134,6 @@
   :demand t
   :config
   (icomplete-vertical-mode))
-
-(use-package modus-operandi-theme)
-
-(use-package doom-themes
-  :config
-  (load-theme 'doom-tomorrow-night t))
 
 (use-package yasnippet
   :delight yas-minor-mode
