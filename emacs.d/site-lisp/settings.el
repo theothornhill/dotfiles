@@ -24,7 +24,7 @@
   (setq auto-mode-case-fold nil)
   (fset 'yes-or-no-p 'y-or-n-p)
   (electric-pair-mode t)
-  (load-theme 'modus-operandi)
+  (load-theme 'modus-operandi t)
   (show-paren-mode t)
   (column-number-mode)
   (line-number-mode)
