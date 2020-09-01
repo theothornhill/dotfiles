@@ -24,7 +24,7 @@
   (setq auto-mode-case-fold nil)
   (fset 'yes-or-no-p 'y-or-n-p)
   (electric-pair-mode t)
-  (load-theme 'modus-operandi t)
+  (load-theme 'modus-operandi)
   (show-paren-mode t)
   (column-number-mode)
   (line-number-mode)
@@ -33,7 +33,6 @@
                 indent-tabs-mode nil
                 truncate-lines t
                 scroll-step 1
-                tab-width 2
                 prettify-symbols-alist '(("fn" . "λ")
                                          ("lambda" . "λ")
                                          ("#+BEGIN_SRC" . "λ")
@@ -51,16 +50,16 @@
         ring-bell-function 'ignore
         initial-scratch-message ""))
 
-;; (let ((alist `((?- . ,(regexp-opt '("-->" "-<" "-<<" "->" "->>" "-}" "-~" "-<>")))
-;;                (?< . ,(regexp-opt '("<!--" "<$" "<$>" "<*" "<*>" "<+" "<+>" "<-" "<--" "<->" "</" "</>" "<<-" "<<=" "<=" "<=" "<=<" "<==" "<=>" "<>" "<|" "<|>" "<~" "<~~")))
-;;                (?= . ,(regexp-opt '("=<<" "==>" "=>" "=>>" "?=" "=" "==" "===")))
-;;                (?> . ,(regexp-opt '(">-" ">=" ">=>" ">>-" ">>=")))
-;;                (?| . ,(regexp-opt '("|=" "|>" "||=")))
-;;                (?/ . ,(regexp-opt '("/=" "/==")))
-;;                (?~ . ,(regexp-opt '("~-" "~=" "~>" "~@" "~~" "~~>"))))))
-;;   (dolist (char-regexp alist)
-;;     (set-char-table-range composition-function-table (car char-regexp)
-;;                           `([,(cdr char-regexp) 0 font-shape-gstring]))))
+(let ((alist `((?- . ,(regexp-opt '("-->" "-<" "-<<" "->" "->>" "-}" "-~" "-<>")))
+               (?< . ,(regexp-opt '("<!--" "<$" "<$>" "<*" "<*>" "<+" "<+>" "<-" "<--" "<->" "</" "</>" "<<-" "<<=" "<=" "<=" "<=<" "<==" "<=>" "<>" "<|" "<|>" "<~" "<~~")))
+               (?= . ,(regexp-opt '("=<<" "==>" "=>" "=>>" "?=" "=" "==" "===")))
+               (?> . ,(regexp-opt '(">-" ">=" ">=>" ">>-" ">>=")))
+               (?| . ,(regexp-opt '("|=" "|>" "||=")))
+               (?/ . ,(regexp-opt '("/=" "/==")))
+               (?~ . ,(regexp-opt '("~-" "~=" "~>" "~@" "~~" "~~>"))))))
+  (dolist (char-regexp alist)
+    (set-char-table-range composition-function-table (car char-regexp)
+                          `([,(cdr char-regexp) 0 font-shape-gstring]))))
 
 (use-package eldoc :ensure nil :delight)
 
@@ -144,6 +143,7 @@
 
 (use-package pdf-tools
   :mode ("\\.pdf\\'" . pdf-view-mode)
+  :defer t
   :config (progn (pdf-loader-install)
                  (setq-default pdf-view-display-size 'fit-page)))
 

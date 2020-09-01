@@ -83,6 +83,7 @@
 
 (use-package csharp-mode
   :mode (("\\.cake$" . csharp-mode))
+  :defer t
   :config
   (defun csharp-disable-clear-string-fences (orig-fun &rest args)
     "This turns off `c-clear-string-fences' for
@@ -107,6 +108,7 @@ an interpolated string or terminating simple string."
 
 (use-package cc-mode
   :ensure nil
+  :defer t
   :bind (("C-c m" . 'man)))
 
 (provide 'progmodes)
