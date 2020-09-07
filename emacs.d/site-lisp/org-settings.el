@@ -17,14 +17,14 @@
   (setq org-hide-leading-stars nil
 ;;        org-startup-truncated nil
         org-outline-path-complete-in-steps nil
-        org-agenda-files '("~/Dropbox/Notater")
+        org-agenda-files '("~/Dropbox/org")
         org-hide-emphasis-markers t
         org-use-speed-commands t
         org-refile-allow-creating-parent-nodes t
         org-refile-use-outline-path t
         org-log-done 'time
-        org-default-notes-file "~/Dropbox/Notater/index.org"
-        org-refile-targets '(("~/Dropbox/Notater/index.org" :maxlevel . 5))
+        org-default-notes-file "~/Dropbox/org/index.org"
+        org-refile-targets '(("~/Dropbox/org/index.org" :maxlevel . 5))
         org-latex-packages-alist '(("margin=2cm" "geometry" nil))
         org-todo-keywords '((sequence "TODO" "|" "DONE"))
         org-capture-templates '(("i"
@@ -44,6 +44,6 @@
 
 (defun find-org-index-file ()
   (interactive)
-  (find-file "~/Dropbox/Notater/index.org"))
+  (find-file "~/Dropbox/org/index.org"))
 
 (provide 'org-settings)
