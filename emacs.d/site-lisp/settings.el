@@ -22,6 +22,7 @@
   (prefer-coding-system 'utf-8)
   (setq locale-coding-system 'utf-8)  
   (setq auto-mode-case-fold nil)
+  (setq help-window-select t)
   (fset 'yes-or-no-p 'y-or-n-p)
   (electric-pair-mode t)
   (load-theme 'modus-operandi)
@@ -49,6 +50,22 @@
         split-width-threshold 80
         ring-bell-function 'ignore
         initial-scratch-message ""))
+
+(defun buffer-mode (buffer-or-string)
+  (with-current-buffer buffer-or-string
+    major-mode))
+
+(setq display-buffer-alist
+      `(("\\*help"
+         (display-buffer-reuse-window display-buffer-in-side-window)
+         (side . right)
+         (window-width . 80))
+        (,(lambda (buffer action)
+            (eql (buffer-mode buffer) 'dired-mode))
+         (display-buffer-reuse-window display-buffer-in-side-window)
+         (side . left)
+         (mode . 'dired-mode)
+         (window-width . 0.20))))
 
 (let ((alist `((?- . ,(regexp-opt '("-->" "-<" "-<<" "->" "->>" "-}" "-~" "-<>")))
                (?< . ,(regexp-opt '("<!--" "<$" "<$>" "<*" "<*>" "<+" "<+>" "<-" "<--" "<->" "</" "</>" "<<-" "<<=" "<=" "<=" "<=<" "<==" "<=>" "<>" "<|" "<|>" "<~" "<~~")))
