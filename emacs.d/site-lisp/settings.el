@@ -132,6 +132,8 @@
   :defer t
   :bind (("C-x g" . magit-status)))
 
+(use-package ssh-agency :defer t)
+
 (use-package icomplete
   :ensure nil
   :bind (:map icomplete-minibuffer-map
