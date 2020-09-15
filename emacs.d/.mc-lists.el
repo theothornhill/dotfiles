@@ -18,6 +18,7 @@
         downcase-region
         electric-newline-and-maybe-indent
         electric-pair-delete-pair
+        elm-indent-backward
         elm-indent-forward
         elm-indent-one-level
         end-of-buffer
@@ -71,7 +72,7 @@
       '(
         counsel-switch-buffer
         scroll-other-window
-        xref-find-definitions
         slime-previous-note
+        xref-find-definitions
         yaml-electric-backspace
         ))

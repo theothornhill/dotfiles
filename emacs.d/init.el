@@ -3,7 +3,7 @@
 (cd "~/")
 (blink-cursor-mode -1)
 
-(set-face-attribute 'default nil :font "JetBrains Mono-15")
+(set-face-attribute 'default nil :font "JetBrains Mono-12")
 
 ;; Initialize packages
 (unless (bound-and-true-p package--initialized)

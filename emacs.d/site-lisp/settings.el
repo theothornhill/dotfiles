@@ -17,6 +17,8 @@
   (global-unset-key (kbd "C-x C-z"))
   (global-unset-key (kbd "C-x C-c"))
   (global-unset-key (kbd "C-z"))
+  (define-key key-translation-map (kbd "M-|") (kbd "M-&"))
+  (define-key key-translation-map (kbd "M-&") (kbd "M-|"))
   (when (fboundp 'set-charset-priority)
     (set-charset-priority 'unicode))
   (prefer-coding-system 'utf-8)
