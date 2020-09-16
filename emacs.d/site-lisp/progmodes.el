@@ -3,7 +3,7 @@
 ;; Elm
 (add-to-list 'load-path "~/Git/elmo")
 (load "~/Git/elmo/elmo.el")
-(require 'elm-mode)
+(require 'elmo)
 
 ;; Common lisp
 (when (executable-find "sbcl")
