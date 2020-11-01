@@ -25,17 +25,21 @@
         end-of-visual-line
         eval-defun
         forward-sexp
+        fsharp-indent-backward
+        fsharp-indent-forward
         ignore
         indent-for-tab-command
         inline-props
         kill-region
         lsp-format-buffer
         mark-sexp
+        markdown-outdent-or-delete
         my-open-line-below
         open-line-above
         open-line-below
         org-delete-char
         org-self-insert-command
+        paredit-backslash
         paredit-backward
         paredit-backward-kill-word
         paredit-backward-up
@@ -70,6 +74,7 @@
 
 (setq mc/cmds-to-run-once
       '(
+        beginning-of-defun
         counsel-switch-buffer
         scroll-other-window
         slime-previous-note

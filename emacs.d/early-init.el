@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t; -*-
-(setq gc-cons-threshold (* 1024 1024 24))
+(setq gc-cons-threshold 100000000)
 
 (push '(menu-bar-lines . 0) default-frame-alist)
 (push '(tool-bar-lines . 0) default-frame-alist)

@@ -20,7 +20,7 @@
   :hook ((js-mode
           web-mode
           typescript-mode
-          elm-mode
+          elmo
           json-mode
           rust-mode
           csharp-mode
@@ -33,17 +33,9 @@
               ("M-i c" . 'lsp-ui-flycheck-list))
   :config
   (setq lsp-eslint-auto-fix-on-save t
-        lsp-prefer-capf t
-        read-process-output-max (* 1024 1024 10)
         lsp-elm-elm-analyse-trigger "save"
-        max-specpdl-size 5000
-        max-lisp-eval-depth 5000
-        lsp-clients-typescript-server-args '("--stdio" "--tsserver-log-file" "/tmp/.log")
-        lsp-eslint-server-command
-        '("node"
-          "c:/Users/theot/.vscode/extensions/dbaeumer.vscode-eslint-2.1.1/server/out/eslintServer.js"
-          "--stdio")
-        lsp-eslint-validate ["javascript" "javascriptreact" "typescript" "typescriptreact"]))
+        read-process-output-max (* 1024 1024 10))
+  (add-to-list 'lsp-language-id-configuration '(elmo . "elm")))
 
 (use-package lsp-ui
   :defer t
@@ -51,5 +43,17 @@
   (setq lsp-ui-sideline-enable nil
         lsp-ui-doc-max-height 15
         lsp-ui-doc-enable nil))
+
+(use-package lsp-mssql
+  :defer t
+  :hook ((sql-mode) . (lambda () (require 'lsp-mssql)))
+  :bind (:map sql-mode-map
+              ("C-c C-c" . 'lsp-mssql-execute-buffer))
+  :config
+  (setq lsp-mssql-connections
+      [(:server "Z63OS2SSQ13-T\\B104170"
+                :database ""
+                :authenticationType "Integrated"
+                :password "")]))
 
 (provide 'langserver)

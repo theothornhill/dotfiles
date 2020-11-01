@@ -5,6 +5,16 @@
 (load "~/Git/elmo/elmo.el")
 (require 'elmo)
 
+;; F#
+(add-to-list 'load-path "~/Git/fsharp-mode")
+(load "~/Git/fsharp-mode/fsharp-mode.el")
+(require 'fsharp-mode)
+
+;; C#
+(add-to-list 'load-path "~/Git/csharp-mode")
+(load "~/Git/csharp-mode/csharp-mode.el")
+(require 'csharp-mode)
+
 ;; Common lisp
 (when (executable-find "sbcl")
   (cl-font-lock-built-in-mode)
@@ -14,7 +24,7 @@
 
   (setq inferior-lisp-program "sbcl")
 
-    (use-package slime
+  (use-package slime
     :defer t
     :config
     (slime-setup '(slime-fancy
@@ -23,21 +33,15 @@
                    slime-references
                    slime-cl-indent
                    slime-company
-  		             slime-asdf
+  		   slime-asdf
                    slime-fuzzy
-  		             slime-fancy-inspector
-  		             slime-xref-browser)))
+  		   slime-fancy-inspector
+  		   slime-xref-browser)))
   
   (use-package slime-company :defer t)
   ;; (use-package sly :defer t)
   ;; (use-package sly-asdf :defer t)
   )
-
-;; F#
-(use-package fsharp-mode
-  :defer t
-  :config
-  (setq inferior-fsharp-program "dotnet fsi --readline-"))
 
 ;; Rust
 (use-package rust-mode
@@ -81,17 +85,17 @@
 (use-package json-mode :defer t)
 
 
-(use-package csharp-mode
-  :mode (("\\.cake$" . csharp-mode))
-  :defer t
-  :config
-  (defun csharp-disable-clear-string-fences (orig-fun &rest args)
-    "This turns off `c-clear-string-fences' for
-`csharp-mode'. When on for `csharp-mode' font lock breaks after
-an interpolated string or terminating simple string."
-    (unless (equal major-mode 'csharp-mode)
-      (apply orig-fun args))))
-(advice-add 'c-clear-string-fences :around 'csharp-disable-clear-string-fences)
+;; (use-package csharp-mode
+;;   :mode (("\\.cake$" . csharp-mode))
+;;   :defer t
+;;   :config
+;;   (defun csharp-disable-clear-string-fences (orig-fun &rest args)
+;;     "This turns off `c-clear-string-fences' for
+;; `csharp-mode'. When on for `csharp-mode' font lock breaks after
+;; an interpolated string or terminating simple string."
+;;     (unless (equal major-mode 'csharp-mode)
+;;       (apply orig-fun args))))
+;; (advice-add 'c-clear-string-fences :around 'csharp-disable-clear-string-fences)
 
 
 (use-package restclient

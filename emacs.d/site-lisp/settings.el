@@ -95,7 +95,6 @@
   :config
   (setq company-tooltip-align-annotations t
         company-tooltip-maximum-width 70
-        company-minimum-prefix-length 1
         company-idle-delay 0.2
         company-backends
         '((company-capf
@@ -147,7 +146,7 @@
         read-buffer-completion-ignore-case t
         completion-ignore-case t
         read-file-name-completion-ignore-case t
-        completion-styles '(initials basic flex)
+;;        completion-styles '(initials basic flex)
         icomplete-show-matches-on-no-input t))
 
 (use-package icomplete-vertical
