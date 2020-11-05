@@ -2,7 +2,7 @@
 
 (use-package flycheck :defer t
   :config
-  (setq flycheck-check-syntax-automatically '(save))
+  ;; (setq flycheck-check-syntax-automatically '(save))
   :bind (:map flycheck-mode-map
               ("M-n" . 'flycheck-next-error)
               ("M-p" . 'flycheck-previous-error)))
@@ -34,6 +34,8 @@
   :config
   (setq lsp-eslint-auto-fix-on-save t
         lsp-elm-elm-analyse-trigger "save"
+        lsp-enable-symbol-highlighting nil
+        lsp-idle-delay 0.25
         read-process-output-max (* 1024 1024 10))
   (add-to-list 'lsp-language-id-configuration '(elmo . "elm")))
 

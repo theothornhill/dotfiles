@@ -11,9 +11,11 @@
 (require 'fsharp-mode)
 
 ;; C#
+(setq csharp-codedoc-tag-face 'font-lock-type-face)
 (add-to-list 'load-path "~/Git/csharp-mode")
 (load "~/Git/csharp-mode/csharp-mode.el")
 (require 'csharp-mode)
+
 
 ;; Common lisp
 (when (executable-find "sbcl")

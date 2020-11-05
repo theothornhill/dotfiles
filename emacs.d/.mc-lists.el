@@ -6,6 +6,7 @@
         beginning-of-buffer
         c-electric-delete-forward
         c-electric-semi&comma
+        c-electric-slash
         c-indent-line-or-region
         change-inner
         company-complete
@@ -27,6 +28,7 @@
         forward-sexp
         fsharp-indent-backward
         fsharp-indent-forward
+        fsharp-indent-line
         ignore
         indent-for-tab-command
         inline-props
