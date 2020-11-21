@@ -20,7 +20,7 @@
   :hook ((js-mode
           web-mode
           typescript-mode
-          elmo
+          elm-mode
           json-mode
           rust-mode
           csharp-mode

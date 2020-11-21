@@ -1,30 +1,36 @@
 ;; -*- lexical-binding: t; -*-
 
 ;; Elm
-(add-to-list 'load-path "~/Git/elmo")
-(load "~/Git/elmo/elmo.el")
-(require 'elmo)
+(use-package elm-mode
+  :straight (elm-mode :type git
+                      :host nil
+                      :repo "https://git.sr.ht/~theothornhill/elm-mode"
+                      :branch "master"
+                      :files ("elm-mode.el")))
 
 ;; F#
-(add-to-list 'load-path "~/Git/fsharp-mode")
-(load "~/Git/fsharp-mode/fsharp-mode.el")
-(require 'fsharp-mode)
+(use-package fsharp-mode
+  :straight (fsharp-mode :type git
+                         :host nil
+                         :repo "https://git.sr.ht/~theothornhill/fsharp-mode"
+                         :branch "master"
+                         :files ("fsharp-mode.el")))
 
 ;; C#
-(setq csharp-codedoc-tag-face 'font-lock-type-face)
-(add-to-list 'load-path "~/Git/csharp-mode")
-(load "~/Git/csharp-mode/csharp-mode.el")
-(require 'csharp-mode)
-
+(use-package csharp-mode
+  :init
+  (setq csharp-codedoc-tag-face 'font-lock-type-face))
 
 ;; Common lisp
 (when (executable-find "sbcl")
-  (cl-font-lock-built-in-mode)
+  ;; (cl-font-lock-built-in-mode)
   (let ((slime-helper "~/.quicklisp/slime-helper.el"))
     (when (file-exists-p slime-helper)
       (load (expand-file-name slime-helper))))
 
   (setq inferior-lisp-program "sbcl")
+
+  (use-package slime-company :defer t)
 
   (use-package slime
     :defer t
@@ -39,23 +45,18 @@
                    slime-fuzzy
   		   slime-fancy-inspector
   		   slime-xref-browser)))
-  
-  (use-package slime-company :defer t)
   ;; (use-package sly :defer t)
   ;; (use-package sly-asdf :defer t)
   )
 
 ;; Rust
-(use-package rust-mode
-  :defer t
-  :bind (:map rust-mode-map
-              ("C-c C-c" . 'rust-run)))
+(use-package rustic :defer t)
 
 ;; Web dev
 
 (use-package js
   :defer t
-  :ensure nil
+  :straight nil
   :mode (("\\.tsx$" . js-mode))
   :config
   (setq js-indent-level 2
@@ -100,9 +101,14 @@
 ;; (advice-add 'c-clear-string-fences :around 'csharp-disable-clear-string-fences)
 
 
+(defun find-restclient-file ()
+  (interactive)
+  (find-file "~/Frende/test.http"))
+
 (use-package restclient
   :defer t
-  :mode (("\\.http$" . restclient-mode)))
+  :mode (("\\.http$" . restclient-mode))
+  :bind (("C-c r" . 'find-restclient-file)))
 
 (use-package rg :defer t)
 
@@ -113,7 +119,7 @@
         geiser-guile-binary "guile3.0"))
 
 (use-package cc-mode
-  :ensure nil
+  :straight nil
   :defer t
   :bind (("C-c m" . 'man)))
 

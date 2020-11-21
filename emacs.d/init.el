@@ -5,22 +5,41 @@
 
 (set-face-attribute 'default nil :font "JetBrains Mono-10")
 
-;; Initialize packages
-(unless (bound-and-true-p package--initialized)
-  (setq package-enable-at-startup nil)
-  (package-initialize))
+(setq straight-use-package-by-default t
+      ;; straight-disable-autoloads t
+      )
 
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+;; ;; Initialize packages
+;; (unless (bound-and-true-p package--initialized)
+;;   (setq package-enable-at-startup nil)
+;;   (package-initialize))
+
+;; (unless (package-installed-p 'use-package)
+;;   (package-refresh-contents)
+;;   (package-install 'use-package))
 
 (eval-and-compile
-  (setq use-package-always-ensure t)
-  (setq use-package-enable-imenu-support t))
+  ;; (setq use-package-always-ensure t)
+  ;; (setq use-package-enable-imenu-support t)
+  )
 
+(straight-use-package 'use-package)
 (eval-when-compile (require 'use-package))
 
-(use-package benchmark-init)
+;; (use-package benchmark-init)
 
 ;;; Keep custom file in a different spot
 (setq custom-file (concat user-emacs-directory "custom.el"))
@@ -33,8 +52,8 @@
 
 (mapc #'safe-require
       '(;; vim
-        defuns devenv langserver notmuch-settings org-settings
-         progmodes settings))
+        defuns devenv langserver notmuch-settings org-settings progmodes settings
+               ))
 
 (mapc (lambda (feature) (put feature 'disabled nil)) 
       (list 'upcase-region

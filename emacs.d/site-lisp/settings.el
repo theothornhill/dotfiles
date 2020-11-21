@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package emacs
-  :ensure nil
+  :straight nil
   :bind (("C-x r q" . 'save-buffers-kill-terminal)
          ("C-x -" . 'split-window-below)
          ("C-x |" . 'split-window-right)
@@ -27,7 +27,6 @@
   (setq help-window-select t)
   (fset 'yes-or-no-p 'y-or-n-p)
   (electric-pair-mode t)
-  (load-theme 'doom-tomorrow-night t)
   (show-paren-mode t)
   (setq compilation-scroll-output t)
   (column-number-mode)
@@ -81,10 +80,11 @@
 ;;     (set-char-table-range composition-function-table (car char-regexp)
 ;;                           `([,(cdr char-regexp) 0 font-shape-gstring]))))
 
-(use-package eldoc :ensure nil :delight)
+(use-package eldoc :straight nil :delight)
 
 (use-package company
   :defer t
+  :straight t
   :delight
   :hook ((prog-mode . company-mode)
          (sly-mrepl-mode . company-mode))
@@ -103,10 +103,15 @@
            company-keywords)
           (company-abbrev company-dabbrev))))
 
+(use-package project)
+
 (use-package dired
-  :ensure nil
+  :straight nil
   :bind (("C-x C-d" . 'dired))
   :hook ((dired-mode .  (lambda () (dired-hide-details-mode)))))
+
+(use-package doom-themes
+  :config (load-theme 'doom-tomorrow-night t))
 
 (use-package paredit
   :defer t
@@ -135,7 +140,7 @@
 (use-package ssh-agency :defer t)
 
 (use-package icomplete
-  :ensure nil
+  :straight nil
   :bind (:map icomplete-minibuffer-map
               ("C-n" . 'icomplete-forward-completions)
               ("C-p" . 'icomplete-backward-completions))
@@ -152,6 +157,7 @@
 
 (use-package icomplete-vertical
   :demand t
+  :straight t
   :config
   (icomplete-vertical-mode))
 
@@ -163,6 +169,7 @@
   (yas-global-mode t))
 
 (use-package pdf-tools
+  :straight nil
   :mode ("\\.pdf\\'" . pdf-view-mode)
   :defer t
   :config (progn (pdf-loader-install)
