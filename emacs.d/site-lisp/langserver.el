@@ -33,11 +33,11 @@
               ("M-i c" . 'lsp-ui-flycheck-list))
   :config
   (setq lsp-eslint-auto-fix-on-save t
-        lsp-elm-elm-analyse-trigger "save"
+        ;; lsp-elm-elm-analyse-trigger "save"
         lsp-enable-symbol-highlighting nil
         lsp-idle-delay 0.25
-        read-process-output-max (* 1024 1024 10))
-  (add-to-list 'lsp-language-id-configuration '(elmo . "elm")))
+        read-process-output-max (* 1024 1024 10)
+        lsp-rust-analyzer-server-display-inlay-hints t))
 
 (use-package lsp-ui
   :defer t

@@ -30,7 +30,7 @@
 
   (setq inferior-lisp-program "sbcl")
 
-  (use-package slime-company :defer t)
+  ;; (use-package slime-company :defer t)
 
   (use-package slime
     :defer t
@@ -40,7 +40,7 @@
                    slime-autodoc
                    slime-references
                    slime-cl-indent
-                   slime-company
+                   ;; slime-company
   		   slime-asdf
                    slime-fuzzy
   		   slime-fancy-inspector

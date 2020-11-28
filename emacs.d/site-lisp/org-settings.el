@@ -7,6 +7,8 @@
     ',(mapcar (lambda (language) (cons language t))
               languages)))
 
+(use-package ob-restclient :defer t)
+
 (use-package org
   :defer t
   :bind (("C-c a" . 'org-agenda)
@@ -40,7 +42,10 @@
     java
     scheme
     clojure
-    js))
+    js
+    python
+    lisp
+    restclient))
 
 (defun find-org-index-file ()
   (interactive)
