@@ -23,7 +23,7 @@
           elm-mode
           json-mode
           rust-mode
-          csharp-mode
+          ;; csharp-mode
           fsharp-mode) . lsp)
   :commands lsp
   :bind (:map lsp-mode-map

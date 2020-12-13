@@ -16,10 +16,27 @@
                          :branch "master"
                          :files ("fsharp-mode.el")))
 
+(use-package tree-sitter
+  :straight (tree-sitter :type git
+                         :host github
+                         :repo "ubolonton/emacs-tree-sitter"
+                         :fork "theothornhill/emacs-tree-sitter"))
+
+(use-package tree-sitter-langs
+  :straight (tree-sitter-langs :type git
+                               :host github
+                               :repo "ubolonton/emacs-tree-sitter"
+                               :fork "theothornhill/emacs-tree-sitter"
+                               :files ("langs/tree-sitter-langs-build.el"
+                                       "langs/tree-sitter-langs.el")))
+
 ;; C#
 (use-package csharp-mode
-  :init
-  (setq csharp-codedoc-tag-face 'font-lock-type-face))
+  :straight
+  (csharp-mode :type git
+               :host github
+               :repo "emacs-csharp/csharp-mode"
+               :branch "tree-sitter"))
 
 ;; Common lisp
 (when (executable-find "sbcl")
@@ -30,7 +47,7 @@
 
   (setq inferior-lisp-program "sbcl")
 
-  ;; (use-package slime-company :defer t)
+  (use-package slime-company :defer t)
 
   (use-package slime
     :defer t
@@ -40,12 +57,16 @@
                    slime-autodoc
                    slime-references
                    slime-cl-indent
-                   ;; slime-company
-  		   slime-asdf
+                   slime-company
+        	   slime-asdf
                    slime-fuzzy
-  		   slime-fancy-inspector
-  		   slime-xref-browser)))
-  ;; (use-package sly :defer t)
+        	   slime-fancy-inspector
+        	   slime-xref-browser)))
+  ;; (use-package sly
+  ;;   :defer t
+  ;;   :config
+  ;;   (setq sly-complete-symbol-function #'sly-simple-completions))
+  ;; (require 'sly-autoloads)
   ;; (use-package sly-asdf :defer t)
   )
 
