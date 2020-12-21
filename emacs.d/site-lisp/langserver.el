@@ -44,7 +44,8 @@
   :config
   (setq lsp-ui-sideline-enable nil
         lsp-ui-doc-max-height 15
-        lsp-ui-doc-enable nil))
+        lsp-ui-doc-enable nil
+        ))
 
 (use-package lsp-mssql
   :defer t

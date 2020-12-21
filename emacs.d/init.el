@@ -1,6 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 (cd "~/")
+
 (blink-cursor-mode -1)
 
 (set-face-attribute 'default nil :font "JetBrains Mono-10")
@@ -52,7 +53,8 @@
 
 (mapc #'safe-require
       '(;; vim
-        defuns devenv langserver notmuch-settings org-settings progmodes settings
+        defuns devenv langserver ;;notmuch-settings
+	       org-settings progmodes settings
                ))
 
 (mapc (lambda (feature) (put feature 'disabled nil)) 

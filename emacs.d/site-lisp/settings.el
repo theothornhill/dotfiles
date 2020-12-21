@@ -95,13 +95,15 @@
                ("C-d" . company-show-doc-buffer)))
   :config
   (setq company-tooltip-align-annotations t
+        company-minimum-prefix-length 1
         company-tooltip-maximum-width 70
         company-idle-delay 0.2
-        company-backends
-        '((company-capf
-           company-files
-           company-keywords)
-          (company-abbrev company-dabbrev))))
+        ;; company-backends
+        ;; '((company-capf
+        ;;    company-files
+        ;;    company-keywords)
+        ;;   (company-abbrev company-dabbrev))
+        ))
 
 (use-package project)
 
@@ -139,21 +141,34 @@
 
 (use-package ssh-agency :defer t)
 
-(use-package icomplete
-  :straight nil
-  :bind (:map icomplete-minibuffer-map
-              ("C-n" . 'icomplete-forward-completions)
-              ("C-p" . 'icomplete-backward-completions))
+(use-package prescient
   :config
-  (fido-mode t)
-  (setq icomplete-compute-delay 0.0
-        icomplete-max-delay-chars 0
-        icomplete-in-buffer t
-        read-buffer-completion-ignore-case t
-        completion-ignore-case t
-        read-file-name-completion-ignore-case t
-;;        completion-styles '(initials basic flex)
-        icomplete-show-matches-on-no-input t))
+  (setq prescient-filter-method '(fuzzy literal regexp initialism)))
+
+(use-package selectrum-prescient
+  :config
+  (selectrum-prescient-toggle-fuzzy +1))
+
+(use-package selectrum
+  :config
+  (selectrum-mode +1)
+  (selectrum-prescient-mode +1))
+
+;; (use-package icomplete
+;;   :straight nil
+;;   :bind (:map icomplete-minibuffer-map
+;;               ("C-n" . 'icomplete-forward-completions)
+;;               ("C-p" . 'icomplete-backward-completions))
+;;   :config
+;;   (fido-mode t)
+;;   (setq icomplete-compute-delay 0.0
+;;         icomplete-max-delay-chars 0
+;;         icomplete-in-buffer t
+;;         read-buffer-completion-ignore-case t
+;;         completion-ignore-case t
+;;         read-file-name-completion-ignore-case t
+;; ;;        completion-styles '(initials basic flex)
+;;         icomplete-show-matches-on-no-input t))
 
 (use-package icomplete-vertical
   :demand t

@@ -1,4 +1,4 @@
-;; -*- lexical-binding: t; -*-
+; -*- lexical-binding: t; -*-
 
 ;; Elm
 (use-package elm-mode
@@ -16,19 +16,15 @@
                          :branch "master"
                          :files ("fsharp-mode.el")))
 
-(use-package tree-sitter
-  :straight (tree-sitter :type git
-                         :host github
-                         :repo "ubolonton/emacs-tree-sitter"
-                         :fork "theothornhill/emacs-tree-sitter"))
+(use-package tree-sitter)
 
-(use-package tree-sitter-langs
-  :straight (tree-sitter-langs :type git
-                               :host github
-                               :repo "ubolonton/emacs-tree-sitter"
-                               :fork "theothornhill/emacs-tree-sitter"
-                               :files ("langs/tree-sitter-langs-build.el"
-                                       "langs/tree-sitter-langs.el")))
+(use-package tree-sitter-langs)
+
+;; (use-package tree-sitter-indent
+;;   :straight (tree-sitter-indent :type git
+;;                       :repo "https://codeberg.org/theo/tree-sitter-indent.el.git"
+;;                       :branch "main"
+;;                       :files ("tree-sitter-indent.el")))
 
 ;; C#
 (use-package csharp-mode
@@ -36,7 +32,9 @@
   (csharp-mode :type git
                :host github
                :repo "emacs-csharp/csharp-mode"
-               :branch "tree-sitter"))
+               :branch "tree-sitter")
+  :init
+  (setq csharp-mode-enable-tree-sitter t))
 
 ;; Common lisp
 (when (executable-find "sbcl")
@@ -70,8 +68,11 @@
   ;; (use-package sly-asdf :defer t)
   )
 
+;; ;; Rust
+;; (use-package rustic :defer t)
+
 ;; Rust
-(use-package rustic :defer t)
+(use-package rust-mode :defer t)
 
 ;; Web dev
 
