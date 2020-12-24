@@ -6,4 +6,17 @@
   (setq ediff-diff-program "C:\\Program Files\\Git\\usr\\bin\\diff.exe")
   (setq magit-git-executable "C:\\Program Files\\Git\\bin\\git.exe"))
 
+(when (eq system-type 'darwin)
+  (setq mac-command-modifier 'meta)
+  (setq mac-option-modifier nil))
+
+(when (memq window-system '(mac ns))
+  (add-to-list 'default-frame-alist '(ns-appearance . dark)) ; nil for dark text
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
+
+(when (memq window-system '(mac ns x))
+  (use-package exec-path-from-shell
+    :config
+    (exec-path-from-shell-initialize)))
+
 (provide 'devenv)

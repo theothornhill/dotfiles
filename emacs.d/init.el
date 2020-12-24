@@ -4,7 +4,7 @@
 
 (blink-cursor-mode -1)
 
-(set-face-attribute 'default nil :font "JetBrains Mono-10")
+(set-face-attribute 'default nil :font "JetBrains Mono-14")
 
 (setq straight-use-package-by-default t
       ;; straight-disable-autoloads t
