@@ -32,13 +32,13 @@
 ;;   (package-refresh-contents)
 ;;   (package-install 'use-package))
 
-(eval-and-compile
-  ;; (setq use-package-always-ensure t)
-  ;; (setq use-package-enable-imenu-support t)
-  )
+;; (eval-and-compile
+;;   (setq use-package-always-ensure t)
+;;   (setq use-package-enable-imenu-support t)
+;;   )
 
 (straight-use-package 'use-package)
-(eval-when-compile (require 'use-package))
+;; (eval-when-compile (require 'use-package))
 
 ;; (use-package benchmark-init)
 
@@ -52,10 +52,8 @@
 (add-to-list 'load-path (concat user-emacs-directory "site-lisp"))
 
 (mapc #'safe-require
-      '(;; vim
-        defuns devenv langserver ;;notmuch-settings
-	       org-settings progmodes settings
-               ))
+      '(defuns devenv langserver ;;notmuch-settings
+	 org-settings progmodes settings))
 
 (mapc (lambda (feature) (put feature 'disabled nil)) 
       (list 'upcase-region

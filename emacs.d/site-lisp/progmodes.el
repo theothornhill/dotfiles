@@ -33,8 +33,8 @@
                :host github
                :repo "emacs-csharp/csharp-mode"
                :branch "tree-sitter")
-  :init
-  (setq csharp-mode-enable-tree-sitter t))
+  :config
+  (add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-tree-sitter-mode)))
 
 ;; Common lisp
 (when (executable-find "sbcl")

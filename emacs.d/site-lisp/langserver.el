@@ -16,7 +16,12 @@
 
 (use-package lsp-mode
   :init
-  (setq lsp-keymap-prefix "M-i")
+  (setq lsp-keymap-prefix "M-i"
+        lsp-enable-symbol-highlighting nil
+        ;; lsp-diagnostics-provider :none
+        lsp-completion-provider :none
+        lsp-modeline-diagnostics-enable nil
+        lsp-headerline-breadcrumb-enable nil)
   :hook ((js-mode
           web-mode
           typescript-mode
@@ -33,8 +38,8 @@
               ("M-i c" . 'lsp-ui-flycheck-list))
   :config
   (setq lsp-eslint-auto-fix-on-save t
-        ;; lsp-elm-elm-analyse-trigger "save"
-        lsp-enable-symbol-highlighting nil
+        ;; Turn off all the things
+        lsp-elm-elm-analyse-trigger "save"
         lsp-idle-delay 0.25
         read-process-output-max (* 1024 1024 10)
         lsp-rust-analyzer-server-display-inlay-hints t))
