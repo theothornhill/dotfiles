@@ -2,6 +2,7 @@
 
 ;; Elm
 (use-package elm-mode
+  :defer t
   :straight (elm-mode :type git
                       :host nil
                       :repo "https://git.sr.ht/~theothornhill/elm-mode"
@@ -10,31 +11,32 @@
 
 ;; F#
 (use-package fsharp-mode
+  :defer t
   :straight (fsharp-mode :type git
                          :host nil
                          :repo "https://git.sr.ht/~theothornhill/fsharp-mode"
                          :branch "master"
                          :files ("fsharp-mode.el")))
 
-(use-package tree-sitter)
+(use-package tree-sitter
+  :defer t)
 
-(use-package tree-sitter-langs)
+(use-package tree-sitter-langs
+  :defer t)
 
-;; (use-package tree-sitter-indent
-;;   :straight (tree-sitter-indent :type git
-;;                       :repo "https://codeberg.org/theo/tree-sitter-indent.el.git"
-;;                       :branch "main"
-;;                       :files ("tree-sitter-indent.el")))
+(use-package tree-sitter-indent
+  :defer t)
 
 ;; C#
 (use-package csharp-mode
-  :straight
-  (csharp-mode :type git
-               :host github
-               :repo "emacs-csharp/csharp-mode"
-               :branch "tree-sitter")
+  ;; :straight
+  ;; (csharp-mode :type git
+  ;;              :host github
+  ;;              :repo "emacs-csharp/csharp-mode"
+  ;;              :branch "tree-sitter")
   :config
-  (add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-tree-sitter-mode)))
+  (add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-tree-sitter-mode))
+  )
 
 ;; Common lisp
 (when (executable-find "sbcl")
@@ -108,20 +110,6 @@
 (use-package yaml-mode :defer t)
 
 (use-package json-mode :defer t)
-
-
-;; (use-package csharp-mode
-;;   :mode (("\\.cake$" . csharp-mode))
-;;   :defer t
-;;   :config
-;;   (defun csharp-disable-clear-string-fences (orig-fun &rest args)
-;;     "This turns off `c-clear-string-fences' for
-;; `csharp-mode'. When on for `csharp-mode' font lock breaks after
-;; an interpolated string or terminating simple string."
-;;     (unless (equal major-mode 'csharp-mode)
-;;       (apply orig-fun args))))
-;; (advice-add 'c-clear-string-fences :around 'csharp-disable-clear-string-fences)
-
 
 (defun find-restclient-file ()
   (interactive)

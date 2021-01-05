@@ -40,7 +40,7 @@
 (straight-use-package 'use-package)
 ;; (eval-when-compile (require 'use-package))
 
-;; (use-package benchmark-init)
+(use-package benchmark-init)
 
 ;;; Keep custom file in a different spot
 (setq custom-file (concat user-emacs-directory "custom.el"))
