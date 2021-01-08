@@ -23,4 +23,9 @@
   (interactive)
   (view-buffer (current-buffer)))
 
+(defun ngw ()
+  (interactive)
+  (project-shell)
+  (insert "npx gulp watch"))
+
 (provide 'defuns)
