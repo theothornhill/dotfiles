@@ -57,17 +57,19 @@
   (with-current-buffer buffer-or-string
     major-mode))
 
-(setq display-buffer-alist
-      `(("\\*help"
-         (display-buffer-reuse-window display-buffer-in-side-window)
-         (side . right)
-         (window-width . 80))
-        (,(lambda (buffer action)
-            (eql (buffer-mode buffer) 'dired-mode))
-         (display-buffer-reuse-window display-buffer-in-side-window)
-         (side . left)
-         (mode . 'dired-mode)
-         (window-width . 0.20))))
+(setq display-buffer-base-action '(display-buffer-use-some-window))
+
+;; (setq display-buffer-alist
+;;       `(("\\*help"
+;;          (display-buffer-reuse-window display-buffer-in-side-window)
+;;          (side . right)
+;;          (window-width . 80))
+;;         (,(lambda (buffer action)
+;;             (eql (buffer-mode buffer) 'dired-mode))
+;;          (display-buffer-reuse-window display-buffer-in-side-window)
+;;          (side . left)
+;;          (mode . 'dired-mode)
+;;          (window-width . 0.20))))
 
 ;; (let ((alist `((?- . ,(regexp-opt '("-->" "-<" "-<<" "->" "->>" "-}" "-~" "-<>")))
 ;;                (?< . ,(regexp-opt '("<!--" "<$" "<$>" "<*" "<*>" "<+" "<+>" "<-" "<--" "<->" "</" "</>" "<<-" "<<=" "<=" "<=" "<=<" "<==" "<=>" "<>" "<|" "<|>" "<~" "<~~")))
