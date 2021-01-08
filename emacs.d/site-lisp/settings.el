@@ -172,11 +172,11 @@
 ;; ;;        completion-styles '(initials basic flex)
 ;;         icomplete-show-matches-on-no-input t))
 
-(use-package icomplete-vertical
-  :demand t
-  :straight t
-  :config
-  (icomplete-vertical-mode))
+;; (use-package icomplete-vertical
+;;   :demand t
+;;   :straight t
+;;   :config
+;;   (icomplete-vertical-mode))
 
 (use-package yasnippet
   :delight yas-minor-mode

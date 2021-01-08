@@ -18,10 +18,11 @@
   :init
   (setq lsp-keymap-prefix "M-i"
         lsp-enable-symbol-highlighting nil
-        ;; lsp-diagnostics-provider :none
-        lsp-completion-provider :none
-        lsp-modeline-diagnostics-enable nil
-        lsp-headerline-breadcrumb-enable nil)
+        ;; ;; lsp-diagnostics-provider :none
+        ;; lsp-completion-provider :none
+        ;; lsp-modeline-diagnostics-enable nil
+        lsp-headerline-breadcrumb-enable nil
+        )
   :hook ((js-mode
           web-mode
           typescript-mode
@@ -29,6 +30,7 @@
           json-mode
           rust-mode
           ;; csharp-mode
+          csharp-tree-sitter-mode
           fsharp-mode) . lsp)
   :commands lsp
   :bind (:map lsp-mode-map
