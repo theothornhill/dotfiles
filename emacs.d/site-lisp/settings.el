@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package emacs
-  :straight nil
+  :ensure nil
   :bind (("C-x r q" . 'save-buffers-kill-terminal)
          ("C-x -" . 'split-window-below)
          ("C-x |" . 'split-window-right)
@@ -57,32 +57,8 @@
   (with-current-buffer buffer-or-string
     major-mode))
 
-(setq display-buffer-base-action '(display-buffer-use-some-window))
 
-;; (setq display-buffer-alist
-;;       `(("\\*help"
-;;          (display-buffer-reuse-window display-buffer-in-side-window)
-;;          (side . right)
-;;          (window-width . 80))
-;;         (,(lambda (buffer action)
-;;             (eql (buffer-mode buffer) 'dired-mode))
-;;          (display-buffer-reuse-window display-buffer-in-side-window)
-;;          (side . left)
-;;          (mode . 'dired-mode)
-;;          (window-width . 0.20))))
-
-;; (let ((alist `((?- . ,(regexp-opt '("-->" "-<" "-<<" "->" "->>" "-}" "-~" "-<>")))
-;;                (?< . ,(regexp-opt '("<!--" "<$" "<$>" "<*" "<*>" "<+" "<+>" "<-" "<--" "<->" "</" "</>" "<<-" "<<=" "<=" "<=" "<=<" "<==" "<=>" "<>" "<|" "<|>" "<~" "<~~")))
-;;                (?= . ,(regexp-opt '("=<<" "==>" "=>" "=>>" "?=" "=" "==" "===")))
-;;                (?> . ,(regexp-opt '(">-" ">=" ">=>" ">>-" ">>=")))
-;;                (?| . ,(regexp-opt '("|=" "|>" "||=")))
-;;                (?/ . ,(regexp-opt '("/=" "/==")))
-;;                (?~ . ,(regexp-opt '("~-" "~=" "~>" "~@" "~~" "~~>"))))))
-;;   (dolist (char-regexp alist)
-;;     (set-char-table-range composition-function-table (car char-regexp)
-;;                           `([,(cdr char-regexp) 0 font-shape-gstring]))))
-
-(use-package eldoc :straight nil :delight)
+(setq display-buffer-base-action '(display-buffer-use-least-recent-window))
 
 ;; (use-package company
 ;;   :defer t
@@ -110,7 +86,7 @@
 (use-package project)
 
 (use-package dired
-  :straight nil
+  :ensure nil
   :bind (("C-x C-d" . 'dired))
   :hook ((dired-mode .  (lambda () (dired-hide-details-mode)))))
 
@@ -118,8 +94,6 @@
   :config (load-theme 'doom-tomorrow-night t))
 
 (use-package paredit
-  :defer t
-  :delight
   :hook ((scheme-mode
           clojure-mode
           cider-repl-mode
@@ -130,12 +104,6 @@
           sly-mrepl-mode
           slime-repl-mode
           geiser-repl-mode) . paredit-mode))
-
-(use-package multiple-cursors
-  :defer t
-  :bind (("C-\\" . 'mc/mark-next-like-this)
-         ("C-+" . 'mc/mark-previous-like-this)
-         ("C-c C-\\" . 'mc/mark-all-like-this-dwim)))
 
 (use-package magit
   :defer t
@@ -156,42 +124,10 @@
   (selectrum-mode +1)
   (selectrum-prescient-mode +1))
 
-;; (use-package icomplete
-;;   :straight nil
-;;   :bind (:map icomplete-minibuffer-map
-;;               ("C-n" . 'icomplete-forward-completions)
-;;               ("C-p" . 'icomplete-backward-completions))
-;;   :config
-;;   (fido-mode t)
-;;   (setq icomplete-compute-delay 0.0
-;;         icomplete-max-delay-chars 0
-;;         icomplete-in-buffer t
-;;         read-buffer-completion-ignore-case t
-;;         completion-ignore-case t
-;;         read-file-name-completion-ignore-case t
-;; ;;        completion-styles '(initials basic flex)
-;;         icomplete-show-matches-on-no-input t))
-
-;; (use-package icomplete-vertical
-;;   :demand t
-;;   :straight t
-;;   :config
-;;   (icomplete-vertical-mode))
-
 (use-package yasnippet
-  :delight yas-minor-mode
   :config
   (setq yas-snippet-dirs
         '("~/.emacs.d/snippets"))
   (yas-global-mode t))
-
-(use-package pdf-tools
-  :straight nil
-  :mode ("\\.pdf\\'" . pdf-view-mode)
-  :defer t
-  :config (progn (pdf-loader-install)
-                 (setq-default pdf-view-display-size 'fit-page)))
-
-(use-package delight)
 
 (provide 'settings)

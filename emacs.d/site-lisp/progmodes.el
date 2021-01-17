@@ -1,22 +1,22 @@
 ; -*- lexical-binding: t; -*-
 
-;; Elm
-(use-package elm-mode
-  :defer t
-  :straight (elm-mode :type git
-                      :host nil
-                      :repo "https://git.sr.ht/~theothornhill/elm-mode"
-                      :branch "master"
-                      :files ("elm-mode.el")))
+;; ;; Elm
+;; (use-package elm-mode
+;;   :defer t
+;;   :straight (elm-mode :type git
+;;                       :host nil
+;;                       :repo "https://git.sr.ht/~theothornhill/elm-mode"
+;;                       :branch "master"
+;;                       :files ("elm-mode.el")))
 
-;; F#
-(use-package fsharp-mode
-  :defer t
-  :straight (fsharp-mode :type git
-                         :host nil
-                         :repo "https://git.sr.ht/~theothornhill/fsharp-mode"
-                         :branch "master"
-                         :files ("fsharp-mode.el")))
+;; ;; F#
+;; (use-package fsharp-mode
+;;   :defer t
+;;   :straight (fsharp-mode :type git
+;;                          :host nil
+;;                          :repo "https://git.sr.ht/~theothornhill/fsharp-mode"
+;;                          :branch "master"
+;;                          :files ("fsharp-mode.el")))
 
 (use-package tree-sitter
   :defer t)
@@ -30,11 +30,6 @@
 ;; C#
 (use-package csharp-mode
   :defer t
-  ;; :straight
-  ;; (csharp-mode :type git
-  ;;              :host github
-  ;;              :repo "emacs-csharp/csharp-mode"
-  ;;              :branch "tree-sitter")
   :init
   (add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-tree-sitter-mode))
   )
@@ -63,16 +58,7 @@
                    slime-fuzzy
         	   slime-fancy-inspector
         	   slime-xref-browser)))
-  ;; (use-package sly
-  ;;   :defer t
-  ;;   :config
-  ;;   (setq sly-complete-symbol-function #'sly-simple-completions))
-  ;; (require 'sly-autoloads)
-  ;; (use-package sly-asdf :defer t)
   )
-
-;; ;; Rust
-;; (use-package rustic :defer t)
 
 ;; Rust
 (use-package rust-mode :defer t)
@@ -81,18 +67,13 @@
 
 (use-package js
   :defer t
-  :straight nil
+  :ensure nil
   :mode (("\\.tsx$" . js-mode))
   :config
   (setq js-indent-level 2
         js-jsx-indent-level 2
         js--prettify-symbols-alist nil)
   (unbind-key "M-." js-mode-map))
-
-;; (use-package nvm
-;;   :defer t
-;;   :if (memq window-system '(mac ns x))
-;;   :config (nvm-use "13.8.0"))
 
 (use-package web-mode
   :defer t
@@ -120,18 +101,5 @@
   :defer t
   :mode (("\\.http$" . restclient-mode))
   :bind (("C-c r" . 'find-restclient-file)))
-
-(use-package rg :defer t)
-
-(use-package geiser
-  :defer t
-  :config
-  (setq geiser-active-implementations '(guile)
-        geiser-guile-binary "guile3.0"))
-
-(use-package cc-mode
-  :straight nil
-  :defer t
-  :bind (("C-c m" . 'man)))
 
 (provide 'progmodes)

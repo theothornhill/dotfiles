@@ -6,44 +6,30 @@
 
 (set-face-attribute 'default nil :font "JetBrains Mono-10")
 
-(setq straight-use-package-by-default t
-      ;; straight-disable-autoloads t
-      )
+;; Initialize packages
+(unless (bound-and-true-p package--initialized)
+  ;; (setq package-enable-at-startup nil)
+  (require 'package)
+  (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                           ("nongnu" . "https://elpa.nongnu.org/nongnu/")
+                           ("melpa" . "https://melpa.org/packages/")))
+  (setq package-check-signature nil)
+  (package-initialize))
 
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 5))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
 
-;; ;; Initialize packages
-;; (unless (bound-and-true-p package--initialized)
-;;   (setq package-enable-at-startup nil)
-;;   (package-initialize))
+(eval-and-compile
+  (setq use-package-always-ensure t)
+  (setq use-package-enable-imenu-support t)
+  )
 
-;; (unless (package-installed-p 'use-package)
-;;   (package-refresh-contents)
-;;   (package-install 'use-package))
-
-;; (eval-and-compile
-;;   (setq use-package-always-ensure t)
-;;   (setq use-package-enable-imenu-support t)
-;;   )
-
-(straight-use-package 'use-package)
-;; (eval-when-compile (require 'use-package))
-
-(use-package benchmark-init)
+(eval-when-compile (require 'use-package))
 
 ;;; Keep custom file in a different spot
 (setq custom-file (concat user-emacs-directory "custom.el"))
+(load custom-file)
 
 (defun safe-require (package)
   (condition-case err (require package)
