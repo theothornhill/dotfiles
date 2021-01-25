@@ -28,27 +28,30 @@
 ;; Common lisp
 (when (executable-find "sbcl")
   ;; (cl-font-lock-built-in-mode)
-  (let ((slime-helper "~/.quicklisp/slime-helper.el"))
-    (when (file-exists-p slime-helper)
-      (load (expand-file-name slime-helper))))
+  ;; (let ((slime-helper "~/quicklisp/slime-helper.el"))
+  ;;   (when (file-exists-p slime-helper)
+  ;;     (load (expand-file-name slime-helper))))
 
   (setq inferior-lisp-program "sbcl")
 
-  ;; (use-package slime-company :defer t)
+  ;; ;; (use-package slime-company :defer t)
 
-  (use-package slime
-    :defer t
-    :config
-    (slime-setup '(slime-fancy
-                   slime-repl
-                   slime-autodoc
-                   slime-references
-                   slime-cl-indent
-                   ;; slime-company
-        	   slime-asdf
-                   slime-fuzzy
-        	   slime-fancy-inspector
-        	   slime-xref-browser)))
+  ;; (use-package slime
+  ;;   :defer t
+  ;;   :config
+  ;;   (slime-setup '(slime-fancy
+  ;;                  slime-repl
+  ;;                  slime-autodoc
+  ;;                  slime-references
+  ;;                  slime-cl-indent
+  ;;                  ;; slime-company
+  ;;       	   slime-asdf
+  ;;                  slime-fuzzy
+  ;;       	   slime-fancy-inspector
+  ;;       	   slime-xref-browser)))
+
+  (use-package sly :defer t)
+
   )
 
 ;; Rust

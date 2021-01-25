@@ -59,7 +59,8 @@
     major-mode))
 
 
-(setq display-buffer-base-action '(display-buffer-use-least-recent-window))
+(when (fboundp 'display-buffer-use-least-recent-window)
+  (setq display-buffer-base-action '(display-buffer-use-least-recent-window)))
 
 ;; (use-package company
 ;;   :defer t

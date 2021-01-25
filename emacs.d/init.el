@@ -1,10 +1,10 @@
-;; -*- lexical-binding: t; -*-
+; -*- lexical-binding: t; -*-
 
 (cd "~/")
 
 (blink-cursor-mode -1)
 
-(set-face-attribute 'default nil :font "JetBrains Mono-10")
+(set-face-attribute 'default nil :font "JetBrains Mono-14")
 
 ;; Initialize packages
 (unless (bound-and-true-p package--initialized)
@@ -14,7 +14,8 @@
                            ("nongnu" . "https://elpa.nongnu.org/nongnu/")
                            ("melpa" . "https://melpa.org/packages/")))
   (setq package-check-signature nil)
-  (package-initialize))
+  (package-initialize)
+  )
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -29,7 +30,6 @@
 
 ;;; Keep custom file in a different spot
 (setq custom-file (concat user-emacs-directory "custom.el"))
-(load custom-file)
 
 (defun safe-require (package)
   (condition-case err (require package)
