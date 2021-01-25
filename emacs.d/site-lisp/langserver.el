@@ -41,7 +41,6 @@
   :config
   (setq lsp-eslint-auto-fix-on-save t
         ;; Turn off all the things
-        lsp-elm-elm-analyse-trigger "save"
         lsp-idle-delay 0.25
         read-process-output-max (* 1024 1024 10)
         lsp-rust-analyzer-server-display-inlay-hints t))

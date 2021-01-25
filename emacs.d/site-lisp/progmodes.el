@@ -1,22 +1,12 @@
 ; -*- lexical-binding: t; -*-
 
-;; ;; Elm
-;; (use-package elm-mode
-;;   :defer t
-;;   :straight (elm-mode :type git
-;;                       :host nil
-;;                       :repo "https://git.sr.ht/~theothornhill/elm-mode"
-;;                       :branch "master"
-;;                       :files ("elm-mode.el")))
+(ignore-errors
+  (add-to-list 'load-path "~/Git/elm-mode")
+  (require 'elm-mode))
 
-;; ;; F#
-;; (use-package fsharp-mode
-;;   :defer t
-;;   :straight (fsharp-mode :type git
-;;                          :host nil
-;;                          :repo "https://git.sr.ht/~theothornhill/fsharp-mode"
-;;                          :branch "master"
-;;                          :files ("fsharp-mode.el")))
+(ignore-errors
+  (add-to-list 'load-path "~/Git/fsharp-mode")
+  (require 'fsharp-mode))
 
 (use-package tree-sitter
   :defer t)
@@ -32,6 +22,7 @@
   :defer t
   :init
   (add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-tree-sitter-mode))
+  :mode (("\\.csproj$" . nxml-mode))
   )
 
 ;; Common lisp
@@ -93,13 +84,6 @@
 
 (use-package json-mode :defer t)
 
-(defun find-restclient-file ()
-  (interactive)
-  (find-file "~/Frende/test.http"))
-
-(use-package restclient
-  :defer t
-  :mode (("\\.http$" . restclient-mode))
-  :bind (("C-c r" . 'find-restclient-file)))
+(use-package cider :defer t)
 
 (provide 'progmodes)

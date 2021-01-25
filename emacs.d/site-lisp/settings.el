@@ -5,6 +5,7 @@
   :bind (("C-x r q" . 'save-buffers-kill-terminal)
          ("C-x -" . 'split-window-below)
          ("C-x |" . 'split-window-right)
+         ("C-x C-b" . 'display-buffer)
          ("C-c v b" . 'view-this-buffer)
          ("C-." . 'imenu)
          ("M-'" . 'bookmark-map)

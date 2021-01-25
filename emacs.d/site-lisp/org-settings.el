@@ -9,6 +9,8 @@
 
 (use-package ob-restclient :defer t)
 
+(use-package verb :defer t)
+
 (use-package org
   :defer t
   :bind (("C-c a" . 'org-agenda)
@@ -16,6 +18,7 @@
          ("C-c l" . 'org-store-link)
          ("C-c t" . 'find-org-index-file))
   :config
+  (define-key org-mode-map (kbd "C-c C-r") verb-command-map)
   (setq org-hide-leading-stars nil
 ;;        org-startup-truncated nil
         org-outline-path-complete-in-steps nil
@@ -45,7 +48,8 @@
     js
     python
     lisp
-    restclient))
+    restclient
+    verb))
 
 (defun find-org-index-file ()
   (interactive)
