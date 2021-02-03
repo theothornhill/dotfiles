@@ -62,28 +62,20 @@
 (when (fboundp 'display-buffer-use-least-recent-window)
   (setq display-buffer-base-action '(display-buffer-use-least-recent-window)))
 
-;; (use-package company
-;;   :defer t
-;;   :straight t
-;;   :delight
-;;   :hook ((prog-mode . company-mode)
-;;          (sly-mrepl-mode . company-mode))
-;;   :bind (("C-x C-i" . 'company-complete)
-;;          (:map company-active-map
-;;                ("C-n" . company-select-next)
-;;                ("C-p" . company-select-previous)
-;;                ("C-d" . company-show-doc-buffer)))
-;;   :config
-;;   (setq company-tooltip-align-annotations t
-;;         company-minimum-prefix-length 1
-;;         company-tooltip-maximum-width 70
-;;         company-idle-delay 0.2
-;;         ;; company-backends
-;;         ;; '((company-capf
-;;         ;;    company-files
-;;         ;;    company-keywords)
-;;         ;;   (company-abbrev company-dabbrev))
-;;         ))
+(use-package company
+  :defer t
+  :hook ((prog-mode . company-mode)
+         (sly-mrepl-mode . company-mode))
+  :bind (("C-x C-i" . 'company-complete)
+         (:map company-active-map
+               ("C-n" . company-select-next)
+               ("C-p" . company-select-previous)
+               ("C-d" . company-show-doc-buffer)))
+  :config
+  (setq company-tooltip-align-annotations t
+        company-minimum-prefix-length 1
+        company-tooltip-maximum-width 70
+        company-idle-delay 0.2))
 
 (use-package project)
 

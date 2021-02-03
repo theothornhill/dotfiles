@@ -34,7 +34,7 @@
 
   (setq inferior-lisp-program "sbcl")
 
-  ;; ;; (use-package slime-company :defer t)
+  ;; (use-package slime-company :defer t)
 
   ;; (use-package slime
   ;;   :defer t
@@ -50,7 +50,13 @@
   ;;       	   slime-fancy-inspector
   ;;       	   slime-xref-browser)))
 
-  (use-package sly :defer t)
+  (use-package sly :defer t
+    :config
+    (setq sly-complete-symbol-function #'sly-simple-completions))
+
+  (use-package sly-asdf :defer t
+    :config
+    (add-to-list 'sly-contribs 'sly-asdf 'append))
 
   )
 

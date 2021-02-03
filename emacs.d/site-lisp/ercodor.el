@@ -9,6 +9,6 @@
        :nick "theothornhill"
        :password erc-pass))
 
-(setq erc-autojoin-channels-alist '(("freenode.net" "#lisp" "#emacs" "#sr.ht")))
+(setq erc-autojoin-channels-alist '(("freenode.net" "#sr.ht" "#lisp")))
 
 (provide 'ercodor)

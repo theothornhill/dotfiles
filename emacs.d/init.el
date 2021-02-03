@@ -38,7 +38,7 @@
 (add-to-list 'load-path (concat user-emacs-directory "site-lisp"))
 
 (mapc #'safe-require
-      '(defuns devenv ercodor langserver ;;notmuch-settings
+      '(defuns devenv ercodor langserver notmuch-settings
 	 org-settings progmodes settings))
 
 (mapc (lambda (feature) (put feature 'disabled nil)) 
