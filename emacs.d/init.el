@@ -4,7 +4,7 @@
 
 (blink-cursor-mode -1)
 
-(set-face-attribute 'default nil :font "JetBrains Mono-14")
+(set-face-attribute 'default nil :font "iosevka ss14-12")
 
 ;; Initialize packages
 (unless (bound-and-true-p package--initialized)

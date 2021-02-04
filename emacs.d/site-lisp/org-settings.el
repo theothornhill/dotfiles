@@ -9,7 +9,7 @@
 
 (use-package ob-restclient :defer t)
 
-(use-package verb :defer t)
+(use-package verb)
 
 (use-package org
   :defer t

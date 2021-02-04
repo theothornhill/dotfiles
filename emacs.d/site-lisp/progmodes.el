@@ -22,7 +22,8 @@
   :defer t
   :init
   (add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-tree-sitter-mode))
-  :mode (("\\.csproj$" . nxml-mode))
+  :mode (("\\.csproj$" . nxml-mode)
+         ("\\.cake$" . csharp-tree-sitter-mode))
   )
 
 ;; Common lisp
