@@ -68,9 +68,9 @@
                ("C-d" . company-show-doc-buffer)))
   :config
   (setq company-tooltip-align-annotations t
-        company-minimum-prefix-length 1
+        company-minimum-prefix-length 3
         company-tooltip-maximum-width 70
-        company-idle-delay 0.2))
+        company-idle-delay 0.0))
 
 (use-package project)
 
@@ -78,9 +78,6 @@
   :ensure nil
   :bind (("C-x C-d" . 'dired))
   :hook ((dired-mode .  (lambda () (dired-hide-details-mode)))))
-
-(use-package doom-themes
-  :config (load-theme 'doom-opera t))
 
 (use-package paredit
   :hook ((scheme-mode
