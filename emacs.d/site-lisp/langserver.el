@@ -18,6 +18,8 @@
   :init
   (setq lsp-keymap-prefix "M-i"
         lsp-enable-symbol-highlighting nil
+        lsp-semantic-tokens-enable t
+        lsp-enable-semantic-highlighting t
         ;; ;; lsp-diagnostics-provider :none
         ;; lsp-completion-provider :none
         ;; lsp-modeline-diagnostics-enable nil
@@ -42,6 +44,7 @@
   (setq lsp-eslint-auto-fix-on-save t
         ;; Turn off all the things
         lsp-idle-delay 0.25
+        lsp-elm-only-update-diagnostics-on-save t
         read-process-output-max (* 1024 1024 10)
         lsp-rust-analyzer-server-display-inlay-hints t))
 

@@ -8,12 +8,11 @@
 
 ;; Initialize packages
 (unless (bound-and-true-p package--initialized)
-  ;; (setq package-enable-at-startup nil)
   (require 'package)
   (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                            ("nongnu" . "https://elpa.nongnu.org/nongnu/")
                            ("melpa" . "https://melpa.org/packages/")))
-  (setq package-check-signature nil)
+  ;; (setq package-check-signature nil)
   (package-initialize)
   )
 
@@ -27,6 +26,8 @@
   )
 
 (eval-when-compile (require 'use-package))
+
+(use-package benchmark-init :ensure t)
 
 ;;; Keep custom file in a different spot
 (setq custom-file (concat user-emacs-directory "custom.el"))

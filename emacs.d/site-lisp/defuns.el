@@ -28,4 +28,8 @@
   (project-shell)
   (insert "npx gulp watch"))
 
+(defun dotnet-run-test-at-point ()
+  (interactive)
+  (project-compile (format "dotnet test --filter %s" (symbol-at-point))))
+
 (provide 'defuns)

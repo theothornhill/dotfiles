@@ -54,11 +54,6 @@
         ring-bell-function 'ignore
         initial-scratch-message ""))
 
-(defun buffer-mode (buffer-or-string)
-  (with-current-buffer buffer-or-string
-    major-mode))
-
-
 (when (fboundp 'display-buffer-use-least-recent-window)
   (setq display-buffer-base-action '(display-buffer-use-least-recent-window)))
 
@@ -85,7 +80,7 @@
   :hook ((dired-mode .  (lambda () (dired-hide-details-mode)))))
 
 (use-package doom-themes
-  :config (load-theme 'doom-tomorrow-night t))
+  :config (load-theme 'doom-opera t))
 
 (use-package paredit
   :hook ((scheme-mode

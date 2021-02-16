@@ -9,14 +9,13 @@
 
 (use-package ob-restclient :defer t)
 
-(use-package verb)
+(use-package verb :after org)
 
 (use-package org
   :defer t
   :bind (("C-c a" . 'org-agenda)
          ("C-c c" . 'org-capture)
-         ("C-c l" . 'org-store-link)
-         ("C-c t" . 'find-org-index-file))
+         ("C-c l" . 'org-store-link))
   :config
   (define-key org-mode-map (kbd "C-c C-r") verb-command-map)
   (setq org-hide-leading-stars nil
