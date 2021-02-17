@@ -90,32 +90,27 @@ defining them in this alist."
 
 (defvar themodor-default-colors-alist
   '(("themodor-fg-1"     . "#656555")
-    ("themodor-fg-05"    . "#989890")
     ("themodor-fg"       . "#C5C8C6")
     ("themodor-fg+1"     . "#FFFFEF")
-    ("themodor-fg+2"     . "#FFFFFD")
 
-    ("themodor-bg-2"     . "#000000")
-    ("themodor-bg-1"     . "#2B2B2B")
+    ("themodor-bg-1"     . "#1B1B1B")
     ("themodor-bg-08"    . "#303030")
     ("themodor-bg-05"    . "#383838")
-    ("themodor-bg"       . "#1D1F21")
-    ("themodor-bg+05"    . "#494949")
+    ("themodor-bg"       . "#252E37")
+    ("themodor-bg+05"    . "#2B3741")
     ("themodor-bg+1"     . "#4F4F4F")
     ("themodor-bg+2"     . "#5F5F5F")
     ("themodor-bg+3"     . "#6F6F6F")
 
     ("themodor-grey"     . "#5A5B5A")
+    ("themodor-brown"    . "#CCB59B")
 
-    ("themodor-red-6"    . "#6C3333")
-    ("themodor-red-5"    . "#7C4343")
-    ("themodor-red-4"    . "#8C5353")
-    ("themodor-red-3"    . "#9C6363")
-    ("themodor-red-2"    . "#AC7373")
-    ("themodor-red-1"    . "#BC8383")
-    ("themodor-red"      . "#CC6666")
+    ("themodor-red-4"    . "#B73F45")
+    ("themodor-red-3"    . "#B74C51")
+    ("themodor-red-2"    . "#C26065")
+    ("themodor-red-1"    . "#C17B7E")
+    ("themodor-red"      . "#DA9699")
     ("themodor-red+1"    . "#DCA3A3")
-    ("themodor-red+2"    . "#ECB3B3")
 
     ("themodor-purple"   . "#B294BB")
 
@@ -123,14 +118,11 @@ defining them in this alist."
 
     ("themodor-yellow-2" . "#D0BF8F")
     ("themodor-yellow-1" . "#E0CF9F")
-    ("themodor-yellow"   . "#F0C674")
+    ("themodor-yellow"   . "#C1AE7C")
 
-    ("themodor-green-5"  . "#2F4F2F")
-    ("themodor-green-4"  . "#3F5F3F")
-    ("themodor-green-3"  . "#4F6F4F")
     ("themodor-green-2"  . "#5F7F5F")
     ("themodor-green-1"  . "#6F8F6F")
-    ("themodor-green"    . "#B5Bd68")
+    ("themodor-green"    . "#94B68F")
     ("themodor-green+1"  . "#8FB28F")
     ("themodor-green+2"  . "#9FC59F")
     ("themodor-green+3"  . "#AFD8AF")
@@ -138,10 +130,8 @@ defining them in this alist."
 
     ("themodor-cyan"     . "#8ABEB7")
 
-    ("themodor-blue+3"   . "#BDE0F3")
-    ("themodor-blue+2"   . "#ACE0E3")
-    ("themodor-blue+1"   . "#94BFF3")
-    ("themodor-blue"     . "#81A2BE")
+    ("themodor-blue+1"   . "#ACEAEA")
+    ("themodor-blue"     . "#839CC2")
     ("themodor-blue-1"   . "#7CB8BB")
     ("themodor-blue-2"   . "#6CA0A3")
     ("themodor-blue-3"   . "#5C888B")
@@ -252,19 +242,19 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(trailing-whitespace ((t (:background ,themodor-red))))
    `(vertical-border ((t (:foreground ,themodor-fg))))
 ;;;;; font lock
-   `(font-lock-builtin-face ((t (:foreground ,themodor-blue :weight bold))))
+   `(font-lock-builtin-face ((t (:foreground ,themodor-red))))
    `(font-lock-comment-face ((t (:foreground ,themodor-grey :slant italic))))
    `(font-lock-comment-delimiter-face ((t (:foreground ,themodor-grey :slant italic))))
    `(font-lock-constant-face ((t (:foreground ,themodor-orange))))
    `(font-lock-doc-face ((t (:foreground ,themodor-grey))))
-   `(font-lock-function-name-face ((t (:foreground ,themodor-cyan))))
-   `(font-lock-keyword-face ((t (:foreground ,themodor-purple :weight bold))))
+   `(font-lock-function-name-face ((t (:foreground ,themodor-green))))
+   `(font-lock-keyword-face ((t (:foreground ,themodor-blue))))
    `(font-lock-negation-char-face ((t (:foreground ,themodor-yellow :weight bold))))
    `(font-lock-preprocessor-face ((t (:foreground ,themodor-blue+1))))
    `(font-lock-regexp-grouping-construct ((t (:foreground ,themodor-yellow :weight bold))))
    `(font-lock-regexp-grouping-backslash ((t (:foreground ,themodor-green :weight bold))))
-   `(font-lock-string-face ((t (:foreground ,themodor-green-1))))
-   `(font-lock-type-face ((t (:foreground ,themodor-blue-1))))
+   `(font-lock-string-face ((t (:foreground ,themodor-brown))))
+   `(font-lock-type-face ((t (:foreground ,themodor-blue+1))))
    `(font-lock-variable-name-face ((t (:foreground ,themodor-orange))))
    `(font-lock-warning-face ((t (:foreground ,themodor-yellow-2 :weight bold))))
 
@@ -288,17 +278,6 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(aw-background-face
      ((t (:foreground ,themodor-fg-1 :background ,themodor-bg :inverse-video nil))))
    `(aw-leading-char-face ((t (:inherit aw-mode-line-face))))
-;;;;; avy
-   `(avy-background-face
-     ((t (:foreground ,themodor-fg-1 :background ,themodor-bg :inverse-video nil))))
-   `(avy-lead-face-0
-     ((t (:foreground ,themodor-green+3 :background ,themodor-bg :inverse-video nil :weight bold))))
-   `(avy-lead-face-1
-     ((t (:foreground ,themodor-yellow :background ,themodor-bg :inverse-video nil :weight bold))))
-   `(avy-lead-face-2
-     ((t (:foreground ,themodor-red+1 :background ,themodor-bg :inverse-video nil :weight bold))))
-   `(avy-lead-face
-     ((t (:foreground ,themodor-cyan :background ,themodor-bg :inverse-video nil :weight bold))))
 ;;;;; company-mode
    `(company-tooltip ((t (:foreground ,themodor-fg :background ,themodor-bg+1))))
    `(company-tooltip-annotation ((t (:foreground ,themodor-orange :background ,themodor-bg+1))))
@@ -311,11 +290,6 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(company-scrollbar-bg ((t (:background ,themodor-bg+2))))
    `(company-preview ((t (:background ,themodor-green+2))))
    `(company-preview-common ((t (:foreground ,themodor-green+2 :background ,themodor-bg-1))))
-;;;;; bm
-   `(bm-face ((t (:background ,themodor-yellow-1 :foreground ,themodor-bg))))
-   `(bm-fringe-face ((t (:background ,themodor-yellow-1 :foreground ,themodor-bg))))
-   `(bm-fringe-persistent-face ((t (:background ,themodor-green-2 :foreground ,themodor-bg))))
-   `(bm-persistent-face ((t (:background ,themodor-green-2 :foreground ,themodor-bg))))
 ;;;;; cider
    `(cider-result-overlay-face ((t (:background unspecified))))
    `(cider-enlightened-face ((t (:box (:color ,themodor-orange :line-width -1)))))
@@ -543,53 +517,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(info-syntax-class-item ((t (:background ,themodor-bg-1 :foreground ,themodor-blue+1))))
    `(info-user-option-ref-item ((t (:background ,themodor-bg-1 :foreground ,themodor-red))))
    `(info-variable-ref-item ((t (:background ,themodor-bg-1 :foreground ,themodor-orange))))
-;;;;; ivy
-   `(ivy-confirm-face ((t (:foreground ,themodor-green :background ,themodor-bg))))
-   `(ivy-current-match ((t (:foreground ,themodor-yellow :weight bold :underline t))))
-   `(ivy-cursor ((t (:foreground ,themodor-bg :background ,themodor-fg))))
-   `(ivy-match-required-face ((t (:foreground ,themodor-red :background ,themodor-bg))))
-   `(ivy-minibuffer-match-face-1 ((t (:background ,themodor-bg+1))))
-   `(ivy-minibuffer-match-face-2 ((t (:background ,themodor-green-2))))
-   `(ivy-minibuffer-match-face-3 ((t (:background ,themodor-green))))
-   `(ivy-minibuffer-match-face-4 ((t (:background ,themodor-green+1))))
-   `(ivy-remote ((t (:foreground ,themodor-blue :background ,themodor-bg))))
-   `(ivy-subdir ((t (:foreground ,themodor-yellow :background ,themodor-bg))))
-;;;;; ido-mode
-   `(ido-first-match ((t (:foreground ,themodor-yellow :weight bold))))
-   `(ido-only-match ((t (:foreground ,themodor-orange :weight bold))))
-   `(ido-subdir ((t (:foreground ,themodor-yellow))))
-   `(ido-indicator ((t (:foreground ,themodor-yellow :background ,themodor-red-4))))
 ;;;;; iedit-mode
    `(iedit-occurrence ((t (:background ,themodor-bg+2 :weight bold))))
-;;;;; ledger-mode
-   `(ledger-font-payee-uncleared-face ((t (:foreground ,themodor-red-1 :weight bold))))
-   `(ledger-font-payee-cleared-face ((t (:foreground ,themodor-fg :weight normal))))
-   `(ledger-font-payee-pending-face ((t (:foreground ,themodor-red :weight normal))))
-   `(ledger-font-xact-highlight-face ((t (:background ,themodor-bg+1))))
-   `(ledger-font-auto-xact-face ((t (:foreground ,themodor-yellow-1 :weight normal))))
-   `(ledger-font-periodic-xact-face ((t (:foreground ,themodor-green :weight normal))))
-   `(ledger-font-pending-face ((t (:foreground ,themodor-orange weight: normal))))
-   `(ledger-font-other-face ((t (:foreground ,themodor-fg))))
-   `(ledger-font-posting-date-face ((t (:foreground ,themodor-orange :weight normal))))
-   `(ledger-font-posting-account-face ((t (:foreground ,themodor-blue-1))))
-   `(ledger-font-posting-account-cleared-face ((t (:foreground ,themodor-fg))))
-   `(ledger-font-posting-account-pending-face ((t (:foreground ,themodor-orange))))
-   `(ledger-font-posting-amount-face ((t (:foreground ,themodor-orange))))
-   `(ledger-occur-narrowed-face ((t (:foreground ,themodor-fg-1 :invisible t))))
-   `(ledger-occur-xact-face ((t (:background ,themodor-bg+1))))
-   `(ledger-font-comment-face ((t (:foreground ,themodor-green))))
-   `(ledger-font-reconciler-uncleared-face ((t (:foreground ,themodor-red-1 :weight bold))))
-   `(ledger-font-reconciler-cleared-face ((t (:foreground ,themodor-fg :weight normal))))
-   `(ledger-font-reconciler-pending-face ((t (:foreground ,themodor-orange :weight normal))))
-   `(ledger-font-report-clickable-face ((t (:foreground ,themodor-orange :weight normal))))
-;;;;; ruler-mode
-   `(ruler-mode-column-number ((t (:inherit 'ruler-mode-default :foreground ,themodor-fg))))
-   `(ruler-mode-fill-column ((t (:inherit 'ruler-mode-default :foreground ,themodor-yellow))))
-   `(ruler-mode-goal-column ((t (:inherit 'ruler-mode-fill-column))))
-   `(ruler-mode-comment-column ((t (:inherit 'ruler-mode-fill-column))))
-   `(ruler-mode-tab-stop ((t (:inherit 'ruler-mode-fill-column))))
-   `(ruler-mode-current-column ((t (:foreground ,themodor-yellow :box t))))
-   `(ruler-mode-default ((t (:foreground ,themodor-green+2 :background ,themodor-bg))))
 ;;;;; macrostep
    `(macrostep-gensym-1
      ((t (:foreground ,themodor-green+2 :background ,themodor-bg-1))))
@@ -826,24 +755,6 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(parenthesis ((t (:foreground ,themodor-fg-1))))
 ;;;;; perspective
    `(persp-selected-face ((t (:foreground ,themodor-yellow-2))))
-;;;;; powerline
-   `(powerline-active1 ((t (:background ,themodor-bg-05 :inherit mode-line))))
-   `(powerline-active2 ((t (:background ,themodor-bg+2 :inherit mode-line))))
-   `(powerline-inactive1 ((t (:background ,themodor-bg+1 :inherit mode-line-inactive))))
-   `(powerline-inactive2 ((t (:background ,themodor-bg+3 :inherit mode-line-inactive))))
-;;;;; rainbow-delimiters
-   `(rainbow-delimiters-depth-1-face ((t (:foreground ,themodor-fg))))
-   `(rainbow-delimiters-depth-2-face ((t (:foreground ,themodor-green+4))))
-   `(rainbow-delimiters-depth-3-face ((t (:foreground ,themodor-yellow-2))))
-   `(rainbow-delimiters-depth-4-face ((t (:foreground ,themodor-cyan))))
-   `(rainbow-delimiters-depth-5-face ((t (:foreground ,themodor-green+2))))
-   `(rainbow-delimiters-depth-6-face ((t (:foreground ,themodor-blue+1))))
-   `(rainbow-delimiters-depth-7-face ((t (:foreground ,themodor-yellow-1))))
-   `(rainbow-delimiters-depth-8-face ((t (:foreground ,themodor-green+1))))
-   `(rainbow-delimiters-depth-9-face ((t (:foreground ,themodor-blue-2))))
-   `(rainbow-delimiters-depth-10-face ((t (:foreground ,themodor-orange))))
-   `(rainbow-delimiters-depth-11-face ((t (:foreground ,themodor-green))))
-   `(rainbow-delimiters-depth-12-face ((t (:foreground ,themodor-blue-5))))
 ;;;;; re-builder
    `(reb-match-0 ((t (:foreground ,themodor-bg :background ,themodor-magenta))))
    `(reb-match-1 ((t (:foreground ,themodor-bg :background ,themodor-blue))))
@@ -864,32 +775,6 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(sp-show-pair-match-face ((t (:background ,themodor-bg+3 :weight bold))))
 ;;;;; sml-mode-line
    '(sml-modeline-end-face ((t :inherit default :width condensed)))
-;;;;; SLIME
-   `(slime-repl-output-face ((t (:foreground ,themodor-red))))
-   `(slime-repl-inputed-output-face ((t (:foreground ,themodor-green))))
-   `(slime-error-face
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,themodor-red)))
-      (t
-       (:underline ,themodor-red))))
-   `(slime-warning-face
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,themodor-orange)))
-      (t
-       (:underline ,themodor-orange))))
-   `(slime-style-warning-face
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,themodor-yellow)))
-      (t
-       (:underline ,themodor-yellow))))
-   `(slime-note-face
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,themodor-green)))
-      (t
-       (:underline ,themodor-green))))
-   `(slime-highlight-face ((t (:inherit highlight))))
-;;;;; swiper
-   `(swiper-line-face ((t (:underline t))))
 ;;;;; term
    `(term-color-black ((t (:foreground ,themodor-bg
                                        :background ,themodor-bg-1))))
@@ -922,31 +807,6 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(vr/match-0 ((t (:inherit isearch))))
    `(vr/match-1 ((t (:foreground ,themodor-yellow-2 :background ,themodor-bg-1 :weight bold))))
    `(vr/match-separator-face ((t (:foreground ,themodor-red :weight bold))))
-;;;;; web-mode
-   `(web-mode-builtin-face ((t (:inherit ,font-lock-builtin-face))))
-   `(web-mode-comment-face ((t (:inherit ,font-lock-comment-face))))
-   `(web-mode-constant-face ((t (:inherit ,font-lock-constant-face))))
-   `(web-mode-css-at-rule-face ((t (:foreground ,themodor-orange ))))
-   `(web-mode-css-prop-face ((t (:foreground ,themodor-orange))))
-   `(web-mode-css-pseudo-class-face ((t (:foreground ,themodor-green+3 :weight bold))))
-   `(web-mode-css-rule-face ((t (:foreground ,themodor-blue))))
-   `(web-mode-doctype-face ((t (:inherit ,font-lock-comment-face))))
-   `(web-mode-folded-face ((t (:underline t))))
-   `(web-mode-function-name-face ((t (:foreground ,themodor-blue))))
-   `(web-mode-html-attr-name-face ((t (:foreground ,themodor-orange))))
-   `(web-mode-html-attr-value-face ((t (:inherit ,font-lock-string-face))))
-   `(web-mode-html-tag-face ((t (:foreground ,themodor-cyan))))
-   `(web-mode-keyword-face ((t (:inherit ,font-lock-keyword-face))))
-   `(web-mode-preprocessor-face ((t (:inherit ,font-lock-preprocessor-face))))
-   `(web-mode-string-face ((t (:inherit ,font-lock-string-face))))
-   `(web-mode-type-face ((t (:inherit ,font-lock-type-face))))
-   `(web-mode-variable-name-face ((t (:inherit ,font-lock-variable-name-face))))
-   `(web-mode-server-background-face ((t (:background ,themodor-bg))))
-   `(web-mode-server-comment-face ((t (:inherit web-mode-comment-face))))
-   `(web-mode-server-string-face ((t (:inherit web-mode-string-face))))
-   `(web-mode-symbol-face ((t (:inherit font-lock-constant-face))))
-   `(web-mode-warning-face ((t (:inherit font-lock-warning-face))))
-   `(web-mode-whitespaces-face ((t (:background ,themodor-red))))
 ;;;;; whitespace-mode
    `(whitespace-space ((t (:background ,themodor-bg+1 :foreground ,themodor-bg+1))))
    `(whitespace-hspace ((t (:background ,themodor-bg+1 :foreground ,themodor-bg+1))))
@@ -958,8 +818,6 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(whitespace-indentation ((t (:background ,themodor-yellow :foreground ,themodor-red))))
    `(whitespace-empty ((t (:background ,themodor-yellow))))
    `(whitespace-space-after-tab ((t (:background ,themodor-yellow :foreground ,themodor-red))))
-;;;;; which-func-mode
-   `(which-func ((t (:foreground ,themodor-green+4))))
    ))
 
 ;;; Theme Variables
