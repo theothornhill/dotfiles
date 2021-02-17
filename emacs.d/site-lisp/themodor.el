@@ -100,11 +100,11 @@ defining them in this alist."
     ("themodor-bg"       . "#0D1117")
     ("themodor-bg+05"    . "#0D1116")
     ("themodor-bg+1"     . "#161B22")
-    ("themodor-bg+2"     . "#5F5F5F")
+    ("themodor-bg+2"     . "#1d232b")
     ("themodor-bg+3"     . "#6F6F6F")
 
     ("themodor-grey"     . "#5A5B5A")
-    ("themodor-brown"    . "#C2AA7D")
+    ("themodor-brown"    . "#DCDCA4")
 
     ("themodor-red-4"    . "#B73F45")
     ("themodor-red-3"    . "#B74C51")
@@ -121,8 +121,8 @@ defining them in this alist."
     ("themodor-yellow-1" . "#E0CF9F")
     ("themodor-yellow"   . "#C1AE7C")
 
-    ("themodor-green-2"  . "#5F7F5F")
-    ("themodor-green-1"  . "#6F8F6F")
+    ("themodor-green-2"  . "#238636")
+    ("themodor-green-1"  . "#228769")
     ("themodor-green"    . "#3FB68B")
     ("themodor-green+1"  . "#8FB28F")
     ("themodor-green+2"  . "#9FC59F")
@@ -131,8 +131,8 @@ defining them in this alist."
 
     ("themodor-cyan"     . "#8ABEB7")
 
-    ("themodor-blue+1"   . "#ACEAEA")
-    ("themodor-blue"     . "#79C0FF")
+    ("themodor-blue+1"   . "#88DDFF")
+    ("themodor-blue"     . "#389EDB")
     ("themodor-blue-1"   . "#718CBC")
     ("themodor-blue-2"   . "#6CA0A3")
     ("themodor-blue-3"   . "#5C888B")
@@ -187,7 +187,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                                   :background ,themodor-bg-1
                                   :box (:line-width -1 :style released-button)
                                   :extend t))))
-   `(highlight ((t (:background ,themodor-bg-05))))
+   `(highlight ((t (:background ,themodor-bg-1))))
    `(success ((t (:foreground ,themodor-green))))
    `(warning ((t (:foreground ,themodor-orange))))
    `(error ((t (:foreground ,themodor-red))))
@@ -270,8 +270,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(font-lock-regexp-grouping-construct ((t (:foreground ,themodor-yellow :weight bold))))
    `(font-lock-regexp-grouping-backslash ((t (:foreground ,themodor-green :weight bold))))
    `(font-lock-string-face ((t (:foreground ,themodor-brown))))
-   `(font-lock-type-face ((t (:foreground ,themodor-red-1))))
-   `(font-lock-variable-name-face ((t (:foreground ,themodor-orange))))
+   `(font-lock-type-face ((t (:foreground ,themodor-green-1))))
+   `(font-lock-variable-name-face ((t (:foreground ,themodor-blue+1))))
    `(font-lock-warning-face ((t (:foreground ,themodor-yellow-2 :weight bold))))
 
    `(c-annotation-face ((t (:inherit font-lock-constant-face))))
@@ -537,12 +537,6 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; hl-sexp
    `(hl-sexp-face ((,class (:background ,themodor-bg+1))
                    (t :weight bold)))
-;;;;; hydra
-   `(hydra-face-red ((t (:foreground ,themodor-red-1 :background ,themodor-bg))))
-   `(hydra-face-amaranth ((t (:foreground ,themodor-red-3 :background ,themodor-bg))))
-   `(hydra-face-blue ((t (:foreground ,themodor-blue :background ,themodor-bg))))
-   `(hydra-face-pink ((t (:foreground ,themodor-magenta :background ,themodor-bg))))
-   `(hydra-face-teal ((t (:foreground ,themodor-cyan :background ,themodor-bg))))
 ;;;;; info+
    `(info-command-ref-item ((t (:background ,themodor-bg-1 :foreground ,themodor-orange))))
    `(info-constant-ref-item ((t (:background ,themodor-bg-1 :foreground ,themodor-magenta))))
@@ -576,90 +570,6 @@ Also bind `class' to ((class color) (min-colors 89))."
      ((t (:inherit highlight))))
    `(macrostep-macro-face
      ((t (:underline t))))
-;;;;; magit
-;;;;;; headings and diffs
-   ;; Please read (info "(magit)Theming Faces") before changing this.
-   `(magit-section-highlight           ((t (:background ,themodor-bg+05))))
-   `(magit-section-heading             ((t (:foreground ,themodor-yellow :weight bold))))
-   `(magit-section-heading-selection   ((t (:foreground ,themodor-orange :weight bold))))
-   `(magit-diff-file-heading           ((t (:weight bold))))
-   `(magit-diff-file-heading-highlight ((t (:background ,themodor-bg+05 :weight bold))))
-   `(magit-diff-file-heading-selection ((t (:background ,themodor-bg+05 :weight bold
-                                                        :foreground ,themodor-orange))))
-   `(magit-diff-added                  ((t (:background ,themodor-green-2))))
-   `(magit-diff-added-highlight        ((t (:background ,themodor-green))))
-   `(magit-diff-removed                ((t (:background ,themodor-red-4))))
-   `(magit-diff-removed-highlight      ((t (:background ,themodor-red-3))))
-   `(magit-diff-hunk-heading           ((t (:background ,themodor-bg+1))))
-   `(magit-diff-hunk-heading-highlight ((t (:background ,themodor-bg+2))))
-   `(magit-diff-hunk-heading-selection ((t (:background ,themodor-bg+2
-                                                        :foreground ,themodor-orange))))
-   `(magit-diff-lines-heading          ((t (:background ,themodor-orange
-                                                        :foreground ,themodor-bg+2))))
-   `(magit-diff-context-highlight      ((t (:background ,themodor-bg+05
-                                                        :foreground "grey70"))))
-   `(magit-diffstat-added              ((t (:foreground ,themodor-green+4))))
-   `(magit-diffstat-removed            ((t (:foreground ,themodor-red))))
-;;;;;; popup
-   `(magit-popup-heading             ((t (:foreground ,themodor-yellow  :weight bold))))
-   `(magit-popup-key                 ((t (:foreground ,themodor-green-2 :weight bold))))
-   `(magit-popup-argument            ((t (:foreground ,themodor-green   :weight bold))))
-   `(magit-popup-disabled-argument   ((t (:foreground ,themodor-fg-1    :weight normal))))
-   `(magit-popup-option-value        ((t (:foreground ,themodor-blue-2  :weight bold))))
-;;;;;; process
-   `(magit-process-ok    ((t (:foreground ,themodor-green  :weight bold))))
-   `(magit-process-ng    ((t (:foreground ,themodor-red    :weight bold))))
-;;;;;; log
-   `(magit-log-author    ((t (:foreground ,themodor-orange))))
-   `(magit-log-date      ((t (:foreground ,themodor-fg-1))))
-   `(magit-log-graph     ((t (:foreground ,themodor-fg+1))))
-;;;;;; sequence
-   `(magit-sequence-pick ((t (:foreground ,themodor-yellow-2))))
-   `(magit-sequence-stop ((t (:foreground ,themodor-green))))
-   `(magit-sequence-part ((t (:foreground ,themodor-yellow))))
-   `(magit-sequence-head ((t (:foreground ,themodor-blue))))
-   `(magit-sequence-drop ((t (:foreground ,themodor-red))))
-   `(magit-sequence-done ((t (:foreground ,themodor-fg-1))))
-   `(magit-sequence-onto ((t (:foreground ,themodor-fg-1))))
-;;;;;; bisect
-   `(magit-bisect-good ((t (:foreground ,themodor-green))))
-   `(magit-bisect-skip ((t (:foreground ,themodor-yellow))))
-   `(magit-bisect-bad  ((t (:foreground ,themodor-red))))
-;;;;;; blame
-   `(magit-blame-heading ((t (:background ,themodor-bg-1 :foreground ,themodor-blue-2))))
-   `(magit-blame-hash    ((t (:background ,themodor-bg-1 :foreground ,themodor-blue-2))))
-   `(magit-blame-name    ((t (:background ,themodor-bg-1 :foreground ,themodor-orange))))
-   `(magit-blame-date    ((t (:background ,themodor-bg-1 :foreground ,themodor-orange))))
-   `(magit-blame-summary ((t (:background ,themodor-bg-1 :foreground ,themodor-blue-2
-                                          :weight bold))))
-;;;;;; references etc
-   `(magit-dimmed         ((t (:foreground ,themodor-bg+3))))
-   `(magit-hash           ((t (:foreground ,themodor-bg+3))))
-   `(magit-tag            ((t (:foreground ,themodor-orange :weight bold))))
-   `(magit-branch-remote  ((t (:foreground ,themodor-green  :weight bold))))
-   `(magit-branch-local   ((t (:foreground ,themodor-blue   :weight bold))))
-   `(magit-branch-current ((t (:foreground ,themodor-blue   :weight bold :box t))))
-   `(magit-head           ((t (:foreground ,themodor-blue   :weight bold))))
-   `(magit-refname        ((t (:background ,themodor-bg+2 :foreground ,themodor-fg :weight bold))))
-   `(magit-refname-stash  ((t (:background ,themodor-bg+2 :foreground ,themodor-fg :weight bold))))
-   `(magit-refname-wip    ((t (:background ,themodor-bg+2 :foreground ,themodor-fg :weight bold))))
-   `(magit-signature-good      ((t (:foreground ,themodor-green))))
-   `(magit-signature-bad       ((t (:foreground ,themodor-red))))
-   `(magit-signature-untrusted ((t (:foreground ,themodor-yellow))))
-   `(magit-signature-expired   ((t (:foreground ,themodor-orange))))
-   `(magit-signature-revoked   ((t (:foreground ,themodor-magenta))))
-   '(magit-signature-error     ((t (:inherit    magit-signature-bad))))
-   `(magit-cherry-unmatched    ((t (:foreground ,themodor-cyan))))
-   `(magit-cherry-equivalent   ((t (:foreground ,themodor-magenta))))
-   `(magit-reflog-commit       ((t (:foreground ,themodor-green))))
-   `(magit-reflog-amend        ((t (:foreground ,themodor-magenta))))
-   `(magit-reflog-merge        ((t (:foreground ,themodor-green))))
-   `(magit-reflog-checkout     ((t (:foreground ,themodor-blue))))
-   `(magit-reflog-reset        ((t (:foreground ,themodor-red))))
-   `(magit-reflog-rebase       ((t (:foreground ,themodor-magenta))))
-   `(magit-reflog-cherry-pick  ((t (:foreground ,themodor-green))))
-   `(magit-reflog-remote       ((t (:foreground ,themodor-cyan))))
-   `(magit-reflog-other        ((t (:foreground ,themodor-cyan))))
 ;;;;; markup-faces
    `(markup-anchor-face ((t (:foreground ,themodor-blue+1))))
    `(markup-code-face ((t (:inherit font-lock-constant-face))))
@@ -806,7 +716,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(reb-match-2 ((t (:foreground ,themodor-bg :background ,themodor-orange))))
    `(reb-match-3 ((t (:foreground ,themodor-bg :background ,themodor-red))))
 ;;;;; selectrum
-   `(selectrum-current-candidate ((t (:foreground ,themodor-yellow :weight bold :background ,themodor-bg :underline t :inherit highlight))))
+   `(selectrum-current-candidate ((t (:foreground ,themodor-yellow :weight bold :background ,themodor-bg+2 :underline t :inherit highlight))))
    `(selectrum-primary-highlight ((t (:foreground ,themodor-green-1))))
    `(selectrum-secondary-highlight ((t (:background ,themodor-green-2))))
 ;;;;; sh-mode
@@ -815,11 +725,6 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; show-paren
    `(show-paren-mismatch ((t (:foreground ,themodor-red+1 :background ,themodor-bg+3 :weight bold))))
    `(show-paren-match ((t (:foreground ,themodor-fg :background ,themodor-bg+3 :weight bold))))
-;;;;; smartparens
-   `(sp-show-pair-mismatch-face ((t (:foreground ,themodor-red+1 :background ,themodor-bg+3 :weight bold))))
-   `(sp-show-pair-match-face ((t (:background ,themodor-bg+3 :weight bold))))
-;;;;; sml-mode-line
-   '(sml-modeline-end-face ((t :inherit default :width condensed)))
 ;;;;; term
    `(term-color-black ((t (:foreground ,themodor-bg
                                        :background ,themodor-bg-1))))
@@ -845,13 +750,6 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(undo-tree-visualizer-default-face ((t (:foreground ,themodor-fg))))
    `(undo-tree-visualizer-register-face ((t (:foreground ,themodor-yellow))))
    `(undo-tree-visualizer-unmodified-face ((t (:foreground ,themodor-cyan))))
-;;;;; visual-regexp
-   `(vr/group-0 ((t (:foreground ,themodor-bg :background ,themodor-green :weight bold))))
-   `(vr/group-1 ((t (:foreground ,themodor-bg :background ,themodor-orange :weight bold))))
-   `(vr/group-2 ((t (:foreground ,themodor-bg :background ,themodor-blue :weight bold))))
-   `(vr/match-0 ((t (:inherit isearch))))
-   `(vr/match-1 ((t (:foreground ,themodor-yellow-2 :background ,themodor-bg-1 :weight bold))))
-   `(vr/match-separator-face ((t (:foreground ,themodor-red :weight bold))))
 ;;;;; whitespace-mode
    `(whitespace-space ((t (:background ,themodor-bg+1 :foreground ,themodor-bg+1))))
    `(whitespace-hspace ((t (:background ,themodor-bg+1 :foreground ,themodor-bg+1))))
@@ -905,49 +803,6 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(vc-annotate-very-old-color ,themodor-magenta)
    `(vc-annotate-background ,themodor-bg-1)
    ))
-
-;;; Rainbow Support
-
-(declare-function rainbow-mode 'rainbow-mode)
-(declare-function rainbow-colorize-by-assoc 'rainbow-mode)
-
-(defcustom themodor-add-font-lock-keywords nil
-  "Whether to add font-lock keywords for themodor color names.
-
-In buffers visiting library `themodor-theme.el' the themodor
-specific keywords are always added, provided that library has
-been loaded (because that is where the code that does it is
-defined).  If you visit this file and only enable the theme,
-then you have to turn `rainbow-mode' off and on again for the
-themodor-specific font-lock keywords to be used.
-
-In all other Emacs-Lisp buffers this variable controls whether
-this should be done.  This requires library `rainbow-mode'."
-  :type 'boolean
-  :group 'themodor-theme)
-
-(defvar themodor-colors-font-lock-keywords nil)
-
-(defun themodor--rainbow-turn-on ()
-  "Maybe also add font-lock keywords for themodor colors."
-  (when (and (derived-mode-p 'emacs-lisp-mode)
-             (or themodor-add-font-lock-keywords
-                 (and (buffer-file-name)
-                      (equal (file-name-nondirectory (buffer-file-name))
-                             "themodor-theme.el"))))
-    (unless themodor-colors-font-lock-keywords
-      (setq themodor-colors-font-lock-keywords
-            `((,(regexp-opt (mapcar 'car themodor-default-colors-alist) 'words)
-               (0 (rainbow-colorize-by-assoc themodor-default-colors-alist))))))
-    (font-lock-add-keywords nil themodor-colors-font-lock-keywords 'end)))
-
-(defun themodor--rainbow-turn-off ()
-  "Also remove font-lock keywords for themodor colors."
-  (font-lock-remove-keywords nil themodor-colors-font-lock-keywords))
-
-(when (fboundp 'advice-add)
-  (advice-add 'rainbow-turn-on :after  #'themodor--rainbow-turn-on)
-  (advice-add 'rainbow-turn-off :after #'themodor--rainbow-turn-off))
 
 ;;; Footer
 
