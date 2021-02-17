@@ -6,7 +6,9 @@
   (setq elm-mode-indent-mode 'elm-indent-simple-mode))
 
 (use-package fsharp-mode
-  :load-path "~/Git/fsharp-mode")
+  :load-path "~/Git/fsharp-mode"
+  :config
+  (setq fsharp-mode-format-on-save t))
 
 (use-package tree-sitter
   :defer t)
@@ -28,12 +30,11 @@
               ("C-c t p" . #'dotnet-run-test-at-point)))
 
 ;; Common lisp
-(when (executable-find "sbcl")
+(use-package sly
+  :defer t
+  :config
   (cl-font-lock-built-in-mode)
-
-  (setq inferior-lisp-program "sbcl")
-
-  (use-package sly :defer t))
+  (setq inferior-lisp-program "sbcl"))
 
 ;; Rust
 (use-package rust-mode :defer t)
@@ -69,5 +70,10 @@
 (use-package json-mode :defer t)
 
 (use-package cider :defer t)
+
+(use-package diff-hl
+  :defer t
+  :config
+  (global-diff-hl-mode))
 
 (provide 'progmodes)

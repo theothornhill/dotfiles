@@ -7,6 +7,7 @@
          ("C-x |" . 'split-window-right)
          ("C-x C-b" . 'display-buffer)
          ("C-c v b" . 'view-this-buffer)
+         ("C-z" . 'repeat)
          ("C-." . 'imenu)
          ("M-'" . 'bookmark-map)
          ("M-j" . 'join-line)
@@ -17,7 +18,6 @@
   :config
   (global-unset-key (kbd "C-x C-z"))
   (global-unset-key (kbd "C-x C-c"))
-  (global-unset-key (kbd "C-z"))
   (define-key key-translation-map (kbd "M-|") (kbd "M-&"))
   (define-key key-translation-map (kbd "M-&") (kbd "M-|"))
   (when (fboundp 'set-charset-priority)
@@ -42,7 +42,6 @@
                                          ("#+BEGIN_SRC" . "λ")
                                          ("#+END_SRC" . "λ")))
   (setq ns-use-proxy-icon nil
-        ;; sentence-end-double-space t
         frame-title-format nil
         backup-inhibited t
         inhibit-startup-message t
