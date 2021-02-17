@@ -28,7 +28,8 @@
 
 ;;; Code:
 
-(deftheme themodor "The Themodor theme")
+(deftheme themodor
+  "The Themodor theme")
 
 (defgroup themodor-theme nil
   "Themodor theme."
@@ -96,20 +97,20 @@ defining them in this alist."
     ("themodor-bg-1"     . "#1B1B1B")
     ("themodor-bg-08"    . "#303030")
     ("themodor-bg-05"    . "#383838")
-    ("themodor-bg"       . "#252E37")
+    ("themodor-bg"       . "#0D1117")
     ("themodor-bg+05"    . "#2B3741")
-    ("themodor-bg+1"     . "#4F4F4F")
+    ("themodor-bg+1"     . "#3E5C75")
     ("themodor-bg+2"     . "#5F5F5F")
     ("themodor-bg+3"     . "#6F6F6F")
 
     ("themodor-grey"     . "#5A5B5A")
-    ("themodor-brown"    . "#CCB59B")
+    ("themodor-brown"    . "#C2AA7D")
 
     ("themodor-red-4"    . "#B73F45")
     ("themodor-red-3"    . "#B74C51")
     ("themodor-red-2"    . "#C26065")
     ("themodor-red-1"    . "#C17B7E")
-    ("themodor-red"      . "#DA9699")
+    ("themodor-red"      . "#D6867A")
     ("themodor-red+1"    . "#DCA3A3")
 
     ("themodor-purple"   . "#B294BB")
@@ -122,7 +123,7 @@ defining them in this alist."
 
     ("themodor-green-2"  . "#5F7F5F")
     ("themodor-green-1"  . "#6F8F6F")
-    ("themodor-green"    . "#94B68F")
+    ("themodor-green"    . "#9AC087")
     ("themodor-green+1"  . "#8FB28F")
     ("themodor-green+2"  . "#9FC59F")
     ("themodor-green+3"  . "#AFD8AF")
@@ -131,8 +132,8 @@ defining them in this alist."
     ("themodor-cyan"     . "#8ABEB7")
 
     ("themodor-blue+1"   . "#ACEAEA")
-    ("themodor-blue"     . "#839CC2")
-    ("themodor-blue-1"   . "#7CB8BB")
+    ("themodor-blue"     . "#79C0FF")
+    ("themodor-blue-1"   . "#718CBC")
     ("themodor-blue-2"   . "#6CA0A3")
     ("themodor-blue-3"   . "#5C888B")
     ("themodor-blue-4"   . "#4C7073")
@@ -177,11 +178,19 @@ Also bind `class' to ((class color) (min-colors 89))."
                                   :box (:line-width -1 :style released-button)
                                   :extend t))))
    `(highlight ((t (:background ,themodor-bg-05))))
-   `(success ((t (:foreground ,themodor-green :weight bold))))
-   `(warning ((t (:foreground ,themodor-orange :weight bold))))
+   `(success ((t (:foreground ,themodor-green))))
+   `(warning ((t (:foreground ,themodor-orange))))
+   `(error ((t (:foreground ,themodor-red))))
    `(tooltip ((t (:foreground ,themodor-fg :background ,themodor-bg+1))))
+;;;;; modeline
+   `(mode-line ((t (:foreground ,themodor-fg :background ,themodor-bg :box ,themodor-bg+2))))
+   `(mode-line-buffer-id ((t :inherit bold)))
+   `(mode-line-emphasis ((t :inherit bold :foreground ,themodor-blue)))
+   `(mode-line-highlight ((t :foreground ,themodor-blue :box (:line-width -1 :style pressed-button))))
+   `(mode-line-inactive ((t (:foreground ,themodor-fg :background ,themodor-bg+05 :box ,themodor-bg+2))))
 ;;;;; compilation
    `(compilation-column-face ((t (:foreground ,themodor-yellow))))
+   `(compilation-column-number ((t (:foreground ,themodor-yellow))))
    `(compilation-enter-directory-face ((t (:foreground ,themodor-green))))
    `(compilation-error-face ((t (:foreground ,themodor-red-1 :weight bold :underline t))))
    `(compilation-face ((t (:foreground ,themodor-fg))))
@@ -220,23 +229,20 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; info
    `(Info-quoted ((t (:inherit font-lock-constant-face))))
 ;;;;; isearch
-   `(isearch ((t (:foreground ,themodor-yellow-2 :weight bold :background ,themodor-bg+2))))
+   `(isearch ((t (:foreground ,themodor-yellow-2 :weight bold :background ,themodor-bg))))
    `(isearch-fail ((t (:foreground ,themodor-fg :background ,themodor-red-4))))
-   `(lazy-highlight ((t (:foreground ,themodor-yellow-2 :weight bold :background ,themodor-bg-05))))
+   `(lazy-highlight ((t (:foreground ,themodor-yellow-2 :weight bold :background ,themodor-bg))))
 
    `(menu ((t (:foreground ,themodor-fg :background ,themodor-bg))))
    `(minibuffer-prompt ((t (:foreground ,themodor-yellow))))
-   `(mode-line
-     ((,class (:foreground ,themodor-green+1
-                           :background ,themodor-bg-1
-                           :box (:line-width -1 :style released-button)))
-      (t :inverse-video t)))
-   `(mode-line-buffer-id ((t (:foreground ,themodor-yellow :weight bold))))
-   `(mode-line-inactive
-     ((t (:foreground ,themodor-green-2
-                      :background ,themodor-bg-05
-                      :box (:line-width -1 :style released-button)))))
-   `(region ((,class (:background ,themodor-bg-1 :extend t))
+;;;;; modeline
+   `(mode-line ((t (:foreground ,themodor-fg :background ,themodor-bg :box ,themodor-bg+2))))
+   `(mode-line-buffer-id ((t :inherit bold)))
+   `(mode-line-emphasis ((t :inherit bold :foreground ,themodor-blue)))
+   `(mode-line-highlight ((t :foreground ,themodor-blue :box (:line-width -1 :style pressed-button))))
+   `(mode-line-inactive ((t (:foreground ,themodor-fg :background ,themodor-bg+1 :box ,themodor-bg+2))))
+
+   `(region ((,class (:background ,themodor-bg+1 :extend t))
              (t :inverse-video t)))
    `(secondary-selection ((t (:background ,themodor-bg+2))))
    `(trailing-whitespace ((t (:background ,themodor-red))))
@@ -254,7 +260,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(font-lock-regexp-grouping-construct ((t (:foreground ,themodor-yellow :weight bold))))
    `(font-lock-regexp-grouping-backslash ((t (:foreground ,themodor-green :weight bold))))
    `(font-lock-string-face ((t (:foreground ,themodor-brown))))
-   `(font-lock-type-face ((t (:foreground ,themodor-blue+1))))
+   `(font-lock-type-face ((t (:foreground ,themodor-red-1))))
    `(font-lock-variable-name-face ((t (:foreground ,themodor-orange))))
    `(font-lock-warning-face ((t (:foreground ,themodor-yellow-2 :weight bold))))
 
@@ -279,10 +285,10 @@ Also bind `class' to ((class color) (min-colors 89))."
      ((t (:foreground ,themodor-fg-1 :background ,themodor-bg :inverse-video nil))))
    `(aw-leading-char-face ((t (:inherit aw-mode-line-face))))
 ;;;;; company-mode
-   `(company-tooltip ((t (:foreground ,themodor-fg :background ,themodor-bg+1))))
+   `(company-tooltip ((t (:foreground ,themodor-fg :background ,themodor-bg+05))))
    `(company-tooltip-annotation ((t (:foreground ,themodor-orange :background ,themodor-bg+1))))
    `(company-tooltip-annotation-selection ((t (:foreground ,themodor-orange :background ,themodor-bg-1))))
-   `(company-tooltip-selection ((t (:foreground ,themodor-fg :background ,themodor-bg-1))))
+   `(company-tooltip-selection ((t (:foreground ,themodor-fg :background ,themodor-bg+1))))
    `(company-tooltip-mouse ((t (:background ,themodor-bg-1))))
    `(company-tooltip-common ((t (:foreground ,themodor-green+2))))
    `(company-tooltip-common-selection ((t (:foreground ,themodor-green+2))))
@@ -301,6 +307,30 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(cider-test-error-face ((t (:background ,themodor-magenta))))
    `(cider-test-success-face ((t (:background ,themodor-green-2))))
    `(cider-fringe-good-face ((t (:foreground ,themodor-green+4))))
+;;;;; SLIME
+   `(sly-mrepl-output-face ((t (:foreground ,themodor-blue))))
+   `(slime-repl-inputed-output-face ((t (:foreground ,themodor-green))))
+   `(slime-error-face
+     ((((supports :underline (:style wave)))
+       (:underline (:style wave :color ,themodor-red)))
+      (t
+       (:underline ,themodor-red))))
+   `(slime-warning-face
+     ((((supports :underline (:style wave)))
+       (:underline (:style wave :color ,themodor-orange)))
+      (t
+       (:underline ,themodor-orange))))
+   `(slime-style-warning-face
+     ((((supports :underline (:style wave)))
+       (:underline (:style wave :color ,themodor-yellow)))
+      (t
+       (:underline ,themodor-yellow))))
+   `(slime-note-face
+     ((((supports :underline (:style wave)))
+       (:underline (:style wave :color ,themodor-green)))
+      (t
+       (:underline ,themodor-green))))
+   `(slime-highlight-face ((t (:inherit highlight))))
 ;;;;; diff
    ;; Please read (info "(magit)Theming Faces") before changing this.
    `(diff-added          ((t (:background "#335533" :foreground ,themodor-green))))
@@ -309,10 +339,10 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(diff-refine-added   ((t (:background "#338833" :foreground ,themodor-green+4))))
    `(diff-refine-changed ((t (:background "#888811" :foreground ,themodor-yellow))))
    `(diff-refine-removed ((t (:background "#883333" :foreground ,themodor-red))))
-   `(diff-header ((,class (:background ,themodor-bg+2))
+   `(diff-header ((,class (:background ,themodor-bg+05))
                   (t (:background ,themodor-fg :foreground ,themodor-bg))))
    `(diff-file-header
-     ((,class (:background ,themodor-bg+2 :foreground ,themodor-fg :weight bold))
+     ((,class (:background ,themodor-bg+05 :foreground ,themodor-fg :weight bold))
       (t (:background ,themodor-fg :foreground ,themodor-bg :weight bold))))
 ;;;;; diff-hl
    `(diff-hl-change ((,class (:foreground ,themodor-blue :background ,themodor-blue-2))))
@@ -665,6 +695,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(notmuch-tag-unread ((t (:foreground ,themodor-red))))
    `(notmuch-tree-match-author-face ((t (:foreground ,themodor-green+1))))
    `(notmuch-tree-match-tag-face ((t (:foreground ,themodor-green+1))))
+;;;;; markdown
+   `(markdown-code-face
+     ((t (:foreground ,themodor-green :inherit shadow '(:extend t)))))
 ;;;;; org-mode
    `(org-agenda-date-today
      ((t (:foreground ,themodor-fg+1 :slant italic :weight bold))) t)
@@ -761,9 +794,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(reb-match-2 ((t (:foreground ,themodor-bg :background ,themodor-orange))))
    `(reb-match-3 ((t (:foreground ,themodor-bg :background ,themodor-red))))
 ;;;;; selectrum
-   `(selectrum-current-candidate ((t (:foreground ,themodor-yellow :weight bold :underline t))))
-   `(selectrum-primary-highlight ((t (:background ,themodor-green-2))))
-   `(selectrum-secondary-highlight ((t (:background ,themodor-green))))
+   `(selectrum-current-candidate ((t (:foreground ,themodor-yellow :weight bold :background ,themodor-bg :underline t :inherit highlight))))
+   `(selectrum-primary-highlight ((t (:foreground ,themodor-green-1))))
+   `(selectrum-secondary-highlight ((t (:background ,themodor-green-2))))
 ;;;;; sh-mode
    `(sh-heredoc     ((t (:foreground ,themodor-yellow :weight bold))))
    `(sh-quoted-exec ((t (:foreground ,themodor-red))))
@@ -817,8 +850,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(whitespace-space-before-tab ((t (:background ,themodor-orange :foreground ,themodor-orange))))
    `(whitespace-indentation ((t (:background ,themodor-yellow :foreground ,themodor-red))))
    `(whitespace-empty ((t (:background ,themodor-yellow))))
-   `(whitespace-space-after-tab ((t (:background ,themodor-yellow :foreground ,themodor-red))))
-   ))
+   `(whitespace-space-after-tab ((t (:background ,themodor-yellow :foreground ,themodor-red))))))
 
 ;;; Theme Variables
 (themodor-with-color-variables
