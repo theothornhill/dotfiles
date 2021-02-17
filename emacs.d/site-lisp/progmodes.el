@@ -1,13 +1,11 @@
 ; -*- lexical-binding: t; -*-
 
 (use-package elm-mode
-  :defer t
   :load-path "~/Git/real-elm-mode"
   :init
   (setq elm-mode-indent-mode 'elm-indent-simple-mode))
 
 (use-package fsharp-mode
-  :defer t
   :load-path "~/Git/fsharp-mode")
 
 (use-package tree-sitter
