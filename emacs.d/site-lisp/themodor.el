@@ -94,12 +94,12 @@ defining them in this alist."
     ("themodor-fg"       . "#C5C8C6")
     ("themodor-fg+1"     . "#FFFFEF")
 
-    ("themodor-bg-1"     . "#1B1B1B")
+    ("themodor-bg-1"     . "#07090E")
     ("themodor-bg-08"    . "#303030")
     ("themodor-bg-05"    . "#383838")
     ("themodor-bg"       . "#0D1117")
-    ("themodor-bg+05"    . "#2B3741")
-    ("themodor-bg+1"     . "#3E5C75")
+    ("themodor-bg+05"    . "#0D1116")
+    ("themodor-bg+1"     . "#161B22")
     ("themodor-bg+2"     . "#5F5F5F")
     ("themodor-bg+3"     . "#6F6F6F")
 
@@ -123,7 +123,7 @@ defining them in this alist."
 
     ("themodor-green-2"  . "#5F7F5F")
     ("themodor-green-1"  . "#6F8F6F")
-    ("themodor-green"    . "#9AC087")
+    ("themodor-green"    . "#3FB68B")
     ("themodor-green+1"  . "#8FB28F")
     ("themodor-green+2"  . "#9FC59F")
     ("themodor-green+3"  . "#AFD8AF")
@@ -139,7 +139,17 @@ defining them in this alist."
     ("themodor-blue-4"   . "#4C7073")
     ("themodor-blue-5"   . "#366060")
 
-    ("themodor-magenta"  . "#C9B4CF"))
+    ("themodor-magenta"  . "#C9B4CF")
+
+    ("themodor-added"             . "#172E20")
+    ("themodor-changed"           . "#16252d")
+    ("themodor-removed"           . "#371A1E")
+    ("themodor-refine-added"      . "#256D33")
+    ("themodor-refine-changed"    . "#888811")
+    ("themodor-refine-removed"    . "#883333")
+    ("themodor-indicator-added"   . "#172E20")
+    ("themodor-indicator-removed" . "#371A1E")
+    )
   "List of Themodor colors.
 Each element has the form (NAME . HEX).
 
@@ -333,21 +343,23 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(slime-highlight-face ((t (:inherit highlight))))
 ;;;;; diff
    ;; Please read (info "(magit)Theming Faces") before changing this.
-   `(diff-added          ((t (:background "#335533" :foreground ,themodor-green))))
-   `(diff-changed        ((t (:background "#555511" :foreground ,themodor-yellow-1))))
-   `(diff-removed        ((t (:background "#553333" :foreground ,themodor-red-2))))
-   `(diff-refine-added   ((t (:background "#338833" :foreground ,themodor-green+4))))
-   `(diff-refine-changed ((t (:background "#888811" :foreground ,themodor-yellow))))
-   `(diff-refine-removed ((t (:background "#883333" :foreground ,themodor-red))))
-   `(diff-header ((,class (:background ,themodor-bg+05))
+   `(diff-added             ((t (:background ,themodor-added))))
+   `(diff-changed           ((t (:background ,themodor-changed))))
+   `(diff-removed           ((t (:background ,themodor-removed))))
+   `(diff-refine-added      ((t (:background ,themodor-refine-added))))
+   `(diff-refine-changed    ((t (:background ,themodor-refine-changed))))
+   `(diff-refine-removed    ((t (:background ,themodor-refine-removed))))
+   `(diff-indicator-added   ((t (:background ,themodor-indicator-added))))
+   `(diff-indicator-removed ((t (:background ,themodor-indicator-removed))))
+   `(diff-header ((,class (:background ,themodor-bg+1))
                   (t (:background ,themodor-fg :foreground ,themodor-bg))))
    `(diff-file-header
-     ((,class (:background ,themodor-bg+05 :foreground ,themodor-fg :weight bold))
+     ((,class (:background ,themodor-bg+1 :foreground ,themodor-fg :weight bold))
       (t (:background ,themodor-fg :foreground ,themodor-bg :weight bold))))
 ;;;;; diff-hl
-   `(diff-hl-change ((,class (:foreground ,themodor-blue :background ,themodor-blue-2))))
-   `(diff-hl-delete ((,class (:foreground ,themodor-red+1 :background ,themodor-red-1))))
-   `(diff-hl-insert ((,class (:foreground ,themodor-green+1 :background ,themodor-green-2))))
+   `(diff-hl-change ((,class (:foreground ,themodor-blue :background ,themodor-changed))))
+   `(diff-hl-delete ((,class (:foreground ,themodor-red+1 :background ,themodor-removed))))
+   `(diff-hl-insert ((,class (:foreground ,themodor-green+1 :background ,themodor-added))))
 ;;;;; dim-autoload
    `(dim-autoload-cookie-line ((t :foreground ,themodor-bg+1)))
 ;;;;; dired+
