@@ -71,9 +71,4 @@
 
 (use-package cider :defer t)
 
-(use-package diff-hl
-  :defer t
-  :config
-  (global-diff-hl-mode))
-
 (provide 'progmodes)

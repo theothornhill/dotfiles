@@ -144,9 +144,9 @@ defining them in this alist."
     ("themodor-added"             . "#172E20")
     ("themodor-changed"           . "#16252d")
     ("themodor-removed"           . "#371A1E")
-    ("themodor-refine-added"      . "#256D33")
+    ("themodor-refine-added"      . "#3CC156")
     ("themodor-refine-changed"    . "#888811")
-    ("themodor-refine-removed"    . "#883333")
+    ("themodor-refine-removed"    . "#BA3434")
     ("themodor-indicator-added"   . "#172E20")
     ("themodor-indicator-removed" . "#371A1E")
     )
@@ -346,9 +346,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(diff-added             ((t (:background ,themodor-added))))
    `(diff-changed           ((t (:background ,themodor-changed))))
    `(diff-removed           ((t (:background ,themodor-removed))))
-   `(diff-refine-added      ((t (:background ,themodor-refine-added))))
-   `(diff-refine-changed    ((t (:background ,themodor-refine-changed))))
-   `(diff-refine-removed    ((t (:background ,themodor-refine-removed))))
+   `(diff-refine-added      ((t (:foreground ,themodor-refine-added))))
+   `(diff-refine-changed    ((t (:foreground ,themodor-refine-changed))))
+   `(diff-refine-removed    ((t (:foreground ,themodor-refine-removed))))
    `(diff-indicator-added   ((t (:background ,themodor-indicator-added))))
    `(diff-indicator-removed ((t (:background ,themodor-indicator-removed))))
    `(diff-header ((,class (:background ,themodor-bg+1))
@@ -619,7 +619,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(notmuch-tree-match-tag-face ((t (:foreground ,themodor-green+1))))
 ;;;;; markdown
    `(markdown-code-face
-     ((t (:foreground ,themodor-green :inherit shadow '(:extend t)))))
+     ((t (:foreground ,themodor-green :background ,themodor-bg))))
 ;;;;; org-mode
    `(org-agenda-date-today
      ((t (:foreground ,themodor-fg+1 :slant italic :weight bold))) t)
