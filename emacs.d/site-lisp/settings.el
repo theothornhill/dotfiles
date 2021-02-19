@@ -73,10 +73,15 @@
 
 (use-package project)
 
+(use-package diff-hl
+  :init
+  (global-diff-hl-mode))
+
 (use-package dired
   :ensure nil
   :bind (("C-x C-d" . 'dired))
-  :hook ((dired-mode .  (lambda () (dired-hide-details-mode)))))
+  :hook ((dired-mode .  (lambda () (dired-hide-details-mode)))
+         (dired-mode .  (lambda () (diff-hl-dired-mode)))))
 
 (use-package paredit
   :hook ((scheme-mode
