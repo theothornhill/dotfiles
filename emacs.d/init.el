@@ -4,7 +4,10 @@
 
 (blink-cursor-mode -1)
 
-(set-face-attribute 'default nil :font "iosevka ss14-12")
+(if (member window-system '(ns))
+    (set-face-attribute 'default nil :font "JetBrains Mono-14")
+  (set-face-attribute 'default nil :font "JetBrains Mono-12"))
+
 
 ;; Initialize packages
 (unless (bound-and-true-p package--initialized)
@@ -26,8 +29,6 @@
   )
 
 (eval-when-compile (require 'use-package))
-
-(use-package benchmark-init :ensure t)
 
 ;;; Keep custom file in a different spot
 (setq custom-file (concat user-emacs-directory "custom.el"))
