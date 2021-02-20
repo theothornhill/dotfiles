@@ -11,3 +11,5 @@
 /emacs.d/custom.el
 /emacs.d/mssql/
 /emacs.d/straight/
+emacs.d/erc-auth.el
+emacs.d/request/
