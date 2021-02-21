@@ -100,11 +100,11 @@ defining them in this alist."
     ("themodor-bg"       . "#0D1117")
     ("themodor-bg+05"    . "#0D1116")
     ("themodor-bg+1"     . "#161B22")
-    ("themodor-bg+2"     . "#1d232b")
+    ("themodor-bg+2"     . "#1D232B")
     ("themodor-bg+3"     . "#6F6F6F")
 
     ("themodor-grey"     . "#5A5B5A")
-    ("themodor-brown"    . "#DCDCA4")
+    ("themodor-brown"    . "#DBCEA4")
 
     ("themodor-red-4"    . "#B73F45")
     ("themodor-red-3"    . "#B74C51")
