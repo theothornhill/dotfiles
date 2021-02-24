@@ -53,8 +53,15 @@
         ring-bell-function 'ignore
         initial-scratch-message ""))
 
-(when (fboundp 'display-buffer-use-least-recent-window)
-  (setq display-buffer-base-action '(display-buffer-use-least-recent-window)))
+
+;; (when (fboundp 'display-buffer-use-least-recent-window)
+;;   (setq display-buffer-base-action '(display-buffer-use-least-recent-window)))
+
+(setq display-buffer-base-action '(display-buffer-same-window))
+(setq display-buffer-alist
+      '(("*vc-diff*" display-buffer-use-some-window (inhibit-same-window . t))
+        ("*Help*" display-buffer-use-some-window (inhibit-same-window . t))
+        (\".*\" display-buffer-same-window)))
 
 (use-package company
   :defer t
