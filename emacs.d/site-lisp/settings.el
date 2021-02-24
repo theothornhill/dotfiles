@@ -102,10 +102,6 @@
           slime-repl-mode
           geiser-repl-mode) . paredit-mode))
 
-(use-package magit
-  :defer t
-  :bind (("C-x g" . magit-status)))
-
 (use-package ssh-agency :defer t)
 
 (use-package prescient

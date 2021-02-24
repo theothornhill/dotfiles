@@ -342,7 +342,6 @@ Also bind `class' to ((class color) (min-colors 89))."
        (:underline ,themodor-green))))
    `(slime-highlight-face ((t (:inherit highlight))))
 ;;;;; diff
-   ;; Please read (info "(magit)Theming Faces") before changing this.
    `(diff-added             ((t (:background ,themodor-added))))
    `(diff-changed           ((t (:background ,themodor-changed))))
    `(diff-removed           ((t (:background ,themodor-removed))))
