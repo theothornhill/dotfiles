@@ -40,8 +40,8 @@
 (add-to-list 'load-path (concat user-emacs-directory "site-lisp"))
 
 (mapc #'safe-require
-      '(defuns devenv ercodor langserver notmuch-settings
-	 org-settings progmodes settings))
+      '(defuns devenv progmodes ercodor notmuch-settings
+	 org-settings settings langserver))
 
 (load (concat user-emacs-directory "site-lisp/themodor.el"))
 (enable-theme 'themodor)
