@@ -197,7 +197,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(mode-line-buffer-id ((t :inherit bold)))
    `(mode-line-emphasis ((t :inherit bold :foreground ,themodor-blue)))
    `(mode-line-highlight ((t :foreground ,themodor-blue :box (:line-width -1 :style pressed-button))))
-   `(mode-line-inactive ((t (:foreground ,themodor-fg :background ,themodor-bg+05 :box ,themodor-bg+2))))
+   `(mode-line-inactive ((t (:foreground ,themodor-fg :background ,themodor-bg+2 :box ,themodor-bg+2))))
 ;;;;; compilation
    `(compilation-column-face ((t (:foreground ,themodor-yellow))))
    `(compilation-column-number ((t (:foreground ,themodor-yellow))))
