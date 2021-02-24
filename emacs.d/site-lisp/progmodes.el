@@ -3,7 +3,7 @@
 (use-package elm-mode
   :load-path "~/Git/real-elm-mode"
   :init
-  (setq elm-mode-indent-mode 'elm-indent-simple-mode))
+  (setq elm-mode-hook '(elm-indent-simple-mode)))
 
 (use-package fsharp-mode
   :load-path "~/Git/fsharp-mode"
