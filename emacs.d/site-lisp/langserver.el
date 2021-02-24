@@ -36,6 +36,7 @@
   :config
   (setq lsp-eslint-auto-fix-on-save t
         lsp-idle-delay 0.25
+        lsp-clients-typescript-javascript-server-args '("--stdio" "--tsserver-log-file" "/dev/stderr")
         ;; lsp-elm-only-update-diagnostics-on-save t
         read-process-output-max (* 1024 1024 10)
         lsp-rust-analyzer-server-display-inlay-hints t))

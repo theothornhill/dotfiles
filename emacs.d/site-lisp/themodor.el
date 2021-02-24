@@ -619,7 +619,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(notmuch-tree-match-tag-face ((t (:foreground ,themodor-green+1))))
 ;;;;; markdown
    `(markdown-code-face
-     ((t (:foreground ,themodor-green :background ,themodor-bg))))
+     ((t (:foreground ,themodor-green))))
 ;;;;; org-mode
    `(org-agenda-date-today
      ((t (:foreground ,themodor-fg+1 :slant italic :weight bold))) t)

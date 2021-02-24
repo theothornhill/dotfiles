@@ -19,6 +19,9 @@
 (use-package tree-sitter-indent
   :defer t)
 
+(use-package sharper
+  :demand t)
+
 ;; C#
 (use-package csharp-mode
   :defer t
@@ -27,7 +30,7 @@
   :mode (("\\.csproj$" . nxml-mode)
          ("\\.cake$" . csharp-tree-sitter-mode))
   :bind (:map csharp-tree-sitter-mode-map
-              ("C-c t p" . #'dotnet-run-test-at-point)))
+              ("C-c n" . sharper-main-transient)))
 
 ;; Common lisp
 (use-package sly
