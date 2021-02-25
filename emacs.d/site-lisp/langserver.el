@@ -29,9 +29,7 @@
           fsharp-mode) . lsp)
   :commands lsp
   :bind (:map lsp-mode-map
-              ("C-h ." . 'lsp-ui-doc-show)
-              ("C-." . 'lsp-ui-imenu)
-              ("M-i M-i" . 'lsp-format-buffer)
+              ("C-." . 'lsp-ui-doc-show)
               ("M-i c" . 'lsp-ui-flycheck-list))
   :config
   (setq lsp-eslint-auto-fix-on-save t
@@ -60,5 +58,12 @@
                 :database ""
                 :authenticationType "Integrated"
                 :password "")]))
+
+(defun lsp-format-hook ()
+  "Format buffer when using the provided major modes."
+  (when (eq major-mode 'elm-mode)
+    (lsp-format-buffer)))
+
+(add-hook 'before-save-hook 'lsp-format-hook)
 
 (provide 'langserver)

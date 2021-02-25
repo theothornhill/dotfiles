@@ -1,9 +1,9 @@
 ; -*- lexical-binding: t; -*-
 
 (use-package elm-mode
-  :load-path "~/Git/real-elm-mode"
-  :init
-  (setq elm-mode-hook '(elm-indent-simple-mode)))
+  :config
+  (setq elm-mode-hook '(elm-indent-simple-mode)
+        elm-format-on-save nil))
 
 (use-package fsharp-mode
   :load-path "~/Git/fsharp-mode"
