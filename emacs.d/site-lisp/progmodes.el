@@ -74,4 +74,8 @@
 
 (use-package cider :defer t)
 
+(use-package deadgrep
+  :defer t
+  :bind (("C-å" . 'deadgrep-without-asking)))
+
 (provide 'progmodes)

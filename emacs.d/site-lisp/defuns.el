@@ -32,4 +32,10 @@
   (interactive)
   (project-compile (format "dotnet test --filter %s" (symbol-at-point))))
 
+(defun deadgrep-without-asking (&optional arg)
+  (interactive "P")
+  (if arg
+      (deadgrep (list (deadgrep--read-search-term)))
+    (deadgrep (thing-at-point 'symbol))))
+
 (provide 'defuns)

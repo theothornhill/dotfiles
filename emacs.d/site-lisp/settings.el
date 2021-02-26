@@ -48,8 +48,8 @@
         x-select-enable-clipboard t
         require-final-newline t
         calendar-week-start-day 1
-        split-height-threshold 100
-        split-width-threshold 80
+        ;; split-height-threshold 100
+        ;; split-width-threshold 80
         ring-bell-function 'ignore
         initial-scratch-message ""))
 
@@ -61,6 +61,7 @@
 (setq display-buffer-alist
       '(("*vc-diff*" display-buffer-use-some-window (inhibit-same-window . t))
         ("*Help*" display-buffer-use-some-window (inhibit-same-window . t))
+        ("*eldoc*" display-buffer-use-some-window (inhibit-same-window . t))
         (".*" display-buffer-same-window)))
 
 (use-package company
