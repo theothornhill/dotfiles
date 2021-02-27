@@ -64,20 +64,20 @@
         ("*eldoc*" display-buffer-use-some-window (inhibit-same-window . t))
         (".*" display-buffer-same-window)))
 
-(use-package company
-  :defer t
-  :hook ((prog-mode . company-mode)
-         (sly-mrepl-mode . company-mode))
-  :bind (("C-x C-i" . 'company-complete)
-         (:map company-active-map
-               ("C-n" . company-select-next)
-               ("C-p" . company-select-previous)
-               ("C-d" . company-show-doc-buffer)))
-  :config
-  (setq company-tooltip-align-annotations t
-        company-minimum-prefix-length 3
-        company-tooltip-maximum-width 70
-        company-idle-delay 0.0))
+;; (use-package company
+;;   :defer t
+;;   :hook ((prog-mode . company-mode)
+;;          (sly-mrepl-mode . company-mode))
+;;   :bind (("C-x C-i" . 'company-complete)
+;;          (:map company-active-map
+;;                ("C-n" . company-select-next)
+;;                ("C-p" . company-select-previous)
+;;                ("C-d" . company-show-doc-buffer)))
+;;   :config
+;;   (setq company-tooltip-align-annotations t
+;;         company-minimum-prefix-length 3
+;;         company-tooltip-maximum-width 70
+;;         company-idle-delay 0.0))
 
 (use-package project)
 
@@ -102,8 +102,6 @@
           sly-mrepl-mode
           slime-repl-mode
           geiser-repl-mode) . paredit-mode))
-
-(use-package ssh-agency :defer t)
 
 (use-package prescient
   :config

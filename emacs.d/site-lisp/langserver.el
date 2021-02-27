@@ -6,14 +6,13 @@
 ;;               ("M-p" . 'flycheck-previous-error)))
 
 (use-package flymake
-  :defer t
   :config (setq flymake-no-changes-timeout 0.1)
   :bind (:map flymake-mode-map
               ("M-n" . 'flymake-goto-next-error)
               ("M-p" . 'flymake-goto-prev-error)))
 
 (use-package eglot
-  :defer t
+  :load-path "~/Git/eglot"
   :config
   (setq max-mini-window-height 4))
 

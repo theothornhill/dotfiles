@@ -7,8 +7,6 @@
     ',(mapcar (lambda (language) (cons language t))
               languages)))
 
-(use-package ob-restclient :defer t)
-
 (use-package verb :after org)
 
 (use-package org
@@ -47,7 +45,6 @@
     js
     python
     lisp
-    restclient
     verb))
 
 (defun find-org-index-file ()

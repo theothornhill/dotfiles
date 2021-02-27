@@ -15,7 +15,6 @@
   (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                            ("nongnu" . "https://elpa.nongnu.org/nongnu/")
                            ("melpa" . "https://melpa.org/packages/")))
-  ;; (setq package-check-signature nil)
   (package-initialize)
   )
 
