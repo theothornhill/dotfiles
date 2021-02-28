@@ -12,30 +12,20 @@
   :config
   (setq max-mini-window-height 4))
 
-(add-to-list 'eglot-server-programs
-             `(csharp-tree-sitter-mode
-               . (,(concat (expand-file-name "~/omnisharp-win-x64/") "OmniSharp.exe") "-lsp")))
-(add-to-list 'eglot-server-programs
-             `(fsharp-mode
-               . (eglot-fsautocomplete
-                  "dotnet" ,(concat (expand-file-name
-                                     "~/fsautocomplete.netcore(1)/")
-                                    "fsautocomplete.dll")
-                  "--background-service-enabled")))
-(add-to-list 'eglot-server-programs '((elm-mode) . (eglot-elm "elm-language-server")))
-
+;;; Servers
 (defclass eglot-elm (eglot-lsp-server) ()
   :documentation "A custom class for elm-language-server.")
 
+(defclass eglot-fsautocomplete (eglot-lsp-server) ()
+  :documentation "F# FsAutoComplete langserver.")
+
+
+;;; Inits
 (cl-defmethod eglot-initialization-options ((server eglot-elm))
   "Init options for elm-language-server.  
 
 Since the parser is so flaky, only update diagnostics on save."
 '(:onlyUpdateDiagnosticsOnSave t))
-
-
-(defclass eglot-fsautocomplete (eglot-lsp-server) ()
-  :documentation "F# FsAutoComplete langserver.")
 
 (cl-defmethod eglot-initialization-options ((_server eglot-fsautocomplete))
   "Passes through required FsAutoComplete initialization options.
@@ -43,6 +33,8 @@ Don't use them, since we implement the
   `eglot-signal-fsharp-workspace-load'."
   '())
 
+
+;;; Other handlers
 (defun eglot-signal-fsharp-workspace-load (server)
   (interactive (list (eglot--current-server-or-lose)))
   ;; Only run this hook if we are fsautocomplete
@@ -63,5 +55,18 @@ Don't use them, since we implement the
       (jsonrpc-request server :fsharp/workspaceLoad `(:textDocuments ,payload)))))
 
 (add-to-list 'eglot-server-initialized-hook 'eglot-signal-fsharp-workspace-load)
+
+;; Add modified servers
+(add-to-list 'eglot-server-programs
+             `(csharp-tree-sitter-mode . (,(concat (expand-file-name "~/omnisharp-win-x64/") "OmniSharp.exe") "-lsp")))
+(add-to-list 'eglot-server-programs
+             `(fsharp-mode
+               . (eglot-fsautocomplete
+                  "dotnet" ,(concat (expand-file-name
+                                     "~/fsautocomplete.netcore(1)/")
+                                    "fsautocomplete.dll")
+                  "--background-service-enabled")))
+(add-to-list 'eglot-server-programs '((elm-mode) . (eglot-elm "elm-language-server")))
+
 
 (provide 'eglot-extensions)
