@@ -58,13 +58,11 @@ Don't use them, since we implement the
 
 ;; Add modified servers
 (add-to-list 'eglot-server-programs
-             `(csharp-tree-sitter-mode . (,(concat (expand-file-name "~/omnisharp-win-x64/") "OmniSharp.exe") "-lsp")))
+             `(csharp-tree-sitter-mode . (,(expand-file-name "~/omnisharp-win-x64/OmniSharp.exe") "-lsp")))
 (add-to-list 'eglot-server-programs
              `(fsharp-mode
                . (eglot-fsautocomplete
-                  "dotnet" ,(concat (expand-file-name
-                                     "~/fsautocomplete.netcore(1)/")
-                                    "fsautocomplete.dll")
+                  "dotnet" ,(expand-file-name "~/fsautocomplete.netcore(1)/fsautocomplete.dll")
                   "--background-service-enabled")))
 (add-to-list 'eglot-server-programs '((elm-mode) . (eglot-elm "elm-language-server")))
 
