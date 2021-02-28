@@ -64,7 +64,7 @@ Don't use them, since we implement the
                . (eglot-fsautocomplete
                   "dotnet" ,(expand-file-name "~/fsautocomplete.netcore(1)/fsautocomplete.dll")
                   "--background-service-enabled")))
-(add-to-list 'eglot-server-programs '((elm-mode) . (eglot-elm "elm-language-server")))
+(add-to-list 'eglot-server-programs '(elm-mode . (eglot-elm "elm-language-server")))
 
 
 (provide 'eglot-extensions)
