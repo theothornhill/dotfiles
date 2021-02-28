@@ -10,11 +10,7 @@
           fsharp-mode
           csharp-tree-sitter-mode) . 'eglot-ensure)
   :config
-  (setq max-mini-window-height 4
-        eglot-workspace-configuration
-        '((FSharp
-           (KeywordsAutocomplete . t)
-           (ExternalAutocomplete . t)))))
+  (setq max-mini-window-height 4))
 
 (add-to-list 'eglot-server-programs
              `(csharp-tree-sitter-mode
