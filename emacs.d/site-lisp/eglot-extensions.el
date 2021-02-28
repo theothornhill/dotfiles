@@ -1,16 +1,13 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package eglot
-  :load-path "~/Git/theglot"
   :bind (:map eglot-mode-map
               ("C-c f" . 'eglot-format)
               ("C-c r" . 'eglot-rename)
               ("C-c h" . 'eldoc))
   :hook ((elm-mode
           fsharp-mode
-          csharp-tree-sitter-mode) . 'eglot-ensure)
-  :config
-  (setq max-mini-window-height 4))
+          csharp-tree-sitter-mode) . 'eglot-ensure))
 
 ;;; Servers
 (defclass eglot-elm (eglot-lsp-server) ()
@@ -22,10 +19,14 @@
 
 ;;; Inits
 (cl-defmethod eglot-initialization-options ((server eglot-elm))
-  "Init options for elm-language-server.  
-
-Since the parser is so flaky, only update diagnostics on save."
-'(:onlyUpdateDiagnosticsOnSave t))
+  "Init options for elm-language-server. "
+  (list
+   :onlyUpdateDiagnosticsOnSave t
+   :elmPath ""
+   :elmFormatPath ""
+   :elmTestPath ""
+   :disableElmLSDiagnostics :json-false
+   :skipInstallPackageConfirmation t))
 
 (cl-defmethod eglot-initialization-options ((_server eglot-fsautocomplete))
   "Passes through required FsAutoComplete initialization options.

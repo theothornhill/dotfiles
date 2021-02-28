@@ -14,7 +14,8 @@
          ("M-o" . 'other-window)
          ("C-o" . 'open-line-above)
          ("C-M-o" . 'open-line-below)
-         ("C-c e" . 'find-dotfiles-folder))
+         ("C-c e" . 'find-dotfiles-folder)
+         ("C-å" . 'project-grep-dwim))
   :config
   (global-unset-key (kbd "C-x C-z"))
   (global-unset-key (kbd "C-x C-c"))
@@ -33,6 +34,7 @@
   (column-number-mode)
   (line-number-mode)
   (global-prettify-symbols-mode t)
+  (setq xref-search-program 'ripgrep)
   (setq-default fill-column 80
                 indent-tabs-mode nil
                 truncate-lines t
@@ -58,22 +60,8 @@
       '(("*vc-diff*" display-buffer-use-some-window (inhibit-same-window . t))
         ("*Help*" display-buffer-use-some-window (inhibit-same-window . t))
         ("*eldoc*" display-buffer-use-some-window (inhibit-same-window . t))
+        ("*xref*" display-buffer-use-some-window (inhibit-same-window . t))
         (".*" display-buffer-same-window)))
-
-(use-package company
-  :defer t
-  :hook ((prog-mode . company-mode)
-         (sly-mrepl-mode . company-mode))
-  :bind (("C-x C-i" . 'company-complete)
-         (:map company-active-map
-               ("C-n" . company-select-next)
-               ("C-p" . company-select-previous)
-               ("C-d" . company-show-doc-buffer)))
-  :config
-  (setq company-tooltip-align-annotations t
-        company-minimum-prefix-length 1
-        company-tooltip-maximum-width 70
-        company-idle-delay 0.2))
 
 (use-package project)
 

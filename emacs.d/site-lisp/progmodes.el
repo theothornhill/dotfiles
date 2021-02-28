@@ -1,9 +1,7 @@
 ; -*- lexical-binding: t; -*-
 
 (use-package elm-mode
-  :config
-  (setq elm-mode-hook '(elm-indent-simple-mode)
-        elm-format-on-save nil))
+  :load-path "~/Git/elm-mode")
 
 (use-package fsharp-mode
   :load-path "~/Git/fsharp-mode"
@@ -18,9 +16,6 @@
 
 (use-package tree-sitter-indent
   :defer t)
-
-(use-package sharper
-  :demand t)
 
 ;; C#
 (use-package csharp-mode
@@ -53,12 +48,7 @@
 
 (use-package json-mode :defer t :pin gnu)
 
-(use-package deadgrep
-  :defer t
-  :bind (("C-å" . 'deadgrep-without-asking)))
-
 (use-package flymake
-  :config (setq flymake-no-changes-timeout nil)
   :bind (:map flymake-mode-map
               ("M-n" . 'flymake-goto-next-error)
               ("M-p" . 'flymake-goto-prev-error)))
