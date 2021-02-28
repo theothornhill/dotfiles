@@ -57,4 +57,10 @@
   :defer t
   :bind (("C-å" . 'deadgrep-without-asking)))
 
+(use-package flymake
+  :config (setq flymake-no-changes-timeout nil)
+  :bind (:map flymake-mode-map
+              ("M-n" . 'flymake-goto-next-error)
+              ("M-p" . 'flymake-goto-prev-error)))
+
 (provide 'progmodes)

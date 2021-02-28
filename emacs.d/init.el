@@ -40,7 +40,7 @@
 
 (mapc #'safe-require
       '(defuns devenv progmodes ercodor notmuch-settings
-	 org-settings settings langserver))
+	 org-settings settings eglot-extensions))
 
 (load (concat user-emacs-directory "site-lisp/themodor.el"))
 (enable-theme 'themodor)

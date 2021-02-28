@@ -48,14 +48,10 @@
         x-select-enable-clipboard t
         require-final-newline t
         calendar-week-start-day 1
-        ;; split-height-threshold 100
-        ;; split-width-threshold 80
+        split-height-threshold 100
+        split-width-threshold 80
         ring-bell-function 'ignore
         initial-scratch-message ""))
-
-
-;; (when (fboundp 'display-buffer-use-least-recent-window)
-;;   (setq display-buffer-base-action '(display-buffer-use-least-recent-window)))
 
 (setq display-buffer-base-action '(display-buffer-same-window))
 (setq display-buffer-alist
@@ -64,20 +60,20 @@
         ("*eldoc*" display-buffer-use-some-window (inhibit-same-window . t))
         (".*" display-buffer-same-window)))
 
-;; (use-package company
-;;   :defer t
-;;   :hook ((prog-mode . company-mode)
-;;          (sly-mrepl-mode . company-mode))
-;;   :bind (("C-x C-i" . 'company-complete)
-;;          (:map company-active-map
-;;                ("C-n" . company-select-next)
-;;                ("C-p" . company-select-previous)
-;;                ("C-d" . company-show-doc-buffer)))
-;;   :config
-;;   (setq company-tooltip-align-annotations t
-;;         company-minimum-prefix-length 3
-;;         company-tooltip-maximum-width 70
-;;         company-idle-delay 0.0))
+(use-package company
+  :defer t
+  :hook ((prog-mode . company-mode)
+         (sly-mrepl-mode . company-mode))
+  :bind (("C-x C-i" . 'company-complete)
+         (:map company-active-map
+               ("C-n" . company-select-next)
+               ("C-p" . company-select-previous)
+               ("C-d" . company-show-doc-buffer)))
+  :config
+  (setq company-tooltip-align-annotations t
+        company-minimum-prefix-length 1
+        company-tooltip-maximum-width 70
+        company-idle-delay 0.2))
 
 (use-package project)
 
