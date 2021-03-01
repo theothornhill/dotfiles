@@ -25,7 +25,7 @@
   :mode (("\\.csproj$" . nxml-mode)
          ("\\.cake$" . csharp-tree-sitter-mode))
   :bind (:map csharp-tree-sitter-mode-map
-              ("C-c n" . sharper-main-transient)))
+              ("C-c t" . 'dotnet-run-test-at-point)))
 
 ;; Common lisp
 (use-package sly

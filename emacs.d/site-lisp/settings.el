@@ -2,6 +2,8 @@
 
 (use-package emacs
   :ensure nil
+  ;; TODO: Hack for windows version of emacs saving on each keystroke
+  :hook ((prog-mode) . (lambda () (auto-save-mode -1)))
   :bind (("C-x r q" . 'save-buffers-kill-terminal)
          ("C-x -" . 'split-window-below)
          ("C-x |" . 'split-window-right)
@@ -61,6 +63,7 @@
         ("*Help*" display-buffer-use-some-window (inhibit-same-window . t))
         ("*eldoc*" display-buffer-use-some-window (inhibit-same-window . t))
         ("*xref*" display-buffer-use-some-window (inhibit-same-window . t))
+        ("*Completions*" display-buffer-use-some-window (inhibit-same-window . t))
         (".*" display-buffer-same-window)))
 
 (use-package project)

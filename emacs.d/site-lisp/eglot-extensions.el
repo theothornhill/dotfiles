@@ -4,10 +4,13 @@
   :bind (:map eglot-mode-map
               ("C-c f" . 'eglot-format)
               ("C-c r" . 'eglot-rename)
+              ("C-c x" . 'eglot-code-actions)
               ("C-c h" . 'eldoc))
   :hook ((elm-mode
           fsharp-mode
-          csharp-tree-sitter-mode) . 'eglot-ensure))
+          csharp-tree-sitter-mode) . 'eglot-ensure)
+  :config
+  (setq eglot-confirm-server-initiated-edits nil))
 
 ;;; Servers
 (defclass eglot-elm (eglot-lsp-server) ()
