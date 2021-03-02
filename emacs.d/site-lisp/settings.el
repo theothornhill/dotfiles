@@ -122,6 +122,8 @@
 (use-package xref
   :ensure nil
   :config
-  (setq xref-file-name-display 'project-relative))
+  (setq xref-file-name-display 'project-relative)
+  (add-to-list 'xref-search-program-alist
+               '(ripgrep . "xargs -0 rg <C> -nH --no-messages -g '!*/' -e <R> -M 400 --max-columns-preview | sort -t: -k1,1 -k2n,2")))
 
 (provide 'settings)
