@@ -5,6 +5,7 @@
               ("C-c f" . 'eglot-format)
               ("C-c r" . 'eglot-rename)
               ("C-c x" . 'eglot-code-actions)
+              ("C-c i" . 'eglot-find-implementation)
               ("C-c h" . 'eldoc))
   :hook ((elm-mode
           fsharp-mode
