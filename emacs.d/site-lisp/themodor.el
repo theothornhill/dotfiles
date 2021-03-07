@@ -812,7 +812,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                   (file-name-as-directory
                    (file-name-directory load-file-name))))
 
-(provide-theme 'themodor)
+(provide 'themodor)
 
 ;; Local Variables:
 ;; no-byte-compile: t

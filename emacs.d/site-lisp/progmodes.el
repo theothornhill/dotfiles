@@ -45,7 +45,7 @@
         js--prettify-symbols-alist nil)
   (unbind-key "M-." js-mode-map))
 
-(use-package markdown-mode :defer t)
+(use-package markdown-mode :defer t :pin nongnu)
 
 (use-package json-mode :defer t :pin gnu)
 

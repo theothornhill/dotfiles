@@ -8,8 +8,6 @@
     (set-face-attribute 'default nil :font "JetBrains Mono-14")
   (set-face-attribute 'default nil :font "iosevka ss14-12"))
 
-
-;; Initialize packages
 (unless (bound-and-true-p package--initialized)
   (require 'package)
   (setq package-archives
@@ -31,18 +29,21 @@
 ;;; Keep custom file in a different spot
 (setq custom-file (concat user-emacs-directory "custom.el"))
 
-(defun safe-require (package)
-  (condition-case err (require package)
-    ((debug error) (message "%s" (error-message-string err)))))
+(defmacro site-lisp (name &rest args)
+  (declare (indent defun))
+  `(use-package ,name
+     :ensure nil
+     :load-path "site-lisp"
+     ,@args))
 
-(add-to-list 'load-path (concat user-emacs-directory "site-lisp"))
-
-(mapc #'safe-require
-      '(defuns devenv progmodes notmuch-settings
-	 org-settings settings eglot-extensions))
-
-(load (concat user-emacs-directory "site-lisp/themodor.el"))
-(enable-theme 'themodor)
+(site-lisp defuns)
+(site-lisp devenv)
+(site-lisp progmodes)
+(site-lisp notmuch-settings)
+(site-lisp org-settings)
+(site-lisp settings)
+(site-lisp eglot-extensions)
+(site-lisp themodor :config (enable-theme 'themodor))
 
 (mapc (lambda (feature) (put feature 'disabled nil)) 
       (list 'upcase-region
