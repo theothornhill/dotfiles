@@ -1,6 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package eglot
+  :load-path "~/Git/eglot"
   :bind (:map eglot-mode-map
               ("C-c f" . 'eglot-format)
               ("C-c r" . 'eglot-rename)
@@ -25,7 +26,7 @@
 (cl-defmethod eglot-initialization-options ((server eglot-elm))
   "Init options for elm-language-server. "
   (list
-   :onlyUpdateDiagnosticsOnSave t
+   :onlyUpdateDiagnosticsOnSave :json-false
    :elmPath ""
    :elmFormatPath ""
    :elmTestPath ""
