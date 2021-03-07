@@ -30,6 +30,7 @@
 ;; Common lisp
 (use-package sly
   :defer t
+  :pin nongnu
   :config
   (cl-font-lock-built-in-mode)
   (setq inferior-lisp-program "sbcl"))

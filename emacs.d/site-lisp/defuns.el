@@ -1,10 +1,5 @@
 ;; -*- lexical-binding: t; -*-
 
-(defun fetch-mail ()
-  (interactive)
-  (async-shell-command
-   "mbsync -a && ~/dotfiles/notmuch.sh"))
-
 (defun open-line-above ()
   (interactive)
   (beginning-of-line)

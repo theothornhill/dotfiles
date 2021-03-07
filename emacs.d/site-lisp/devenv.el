@@ -16,9 +16,6 @@
 (when (memq window-system '(mac ns x))
   (use-package exec-path-from-shell
     :config
-    (exec-path-from-shell-initialize))
-  (use-package nvm
-    :config
-    (nvm-use "15.9.0")))
+    (exec-path-from-shell-initialize)))
 
 (provide 'devenv)
