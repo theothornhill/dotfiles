@@ -7,7 +7,7 @@
               ("C-c r" . 'eglot-rename)
               ("C-c x" . 'eglot-code-actions)
               ("C-c i" . 'eglot-find-implementation)
-              ("C-c h" . 'eldoc))
+              ("C-c d" . 'eglot-find-workspace-diagnostics))
   :hook ((elm-mode
           fsharp-mode
           csharp-tree-sitter-mode) . 'eglot-ensure)

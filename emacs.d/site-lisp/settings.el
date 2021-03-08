@@ -68,6 +68,11 @@
 
 (use-package project)
 
+(use-package eldoc
+  :ensure nil
+  :config
+  (setq eldoc-echo-area-use-multiline-p nil))
+
 (use-package diff-hl
   :init
   (global-diff-hl-mode))

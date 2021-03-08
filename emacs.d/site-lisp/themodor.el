@@ -359,6 +359,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(diff-hl-change ((,class (:foreground ,themodor-blue :background ,themodor-changed))))
    `(diff-hl-delete ((,class (:foreground ,themodor-red+1 :background ,themodor-removed))))
    `(diff-hl-insert ((,class (:foreground ,themodor-green+1 :background ,themodor-added))))
+   `(diff-hl-reverted-hunk-highlight ((,class (:background ,themodor-yellow))))
 ;;;;; dim-autoload
    `(dim-autoload-cookie-line ((t :foreground ,themodor-bg+1)))
 ;;;;; dired+
