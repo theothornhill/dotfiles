@@ -33,7 +33,8 @@
   :pin nongnu
   :config
   (cl-font-lock-built-in-mode)
-  (setq inferior-lisp-program "sbcl"))
+  (setq inferior-lisp-program "sbcl"
+        sly-symbol-completion-mode nil))
 
 (use-package js
   :defer t
