@@ -17,7 +17,8 @@
          ("C-o" . 'open-line-above)
          ("C-M-o" . 'open-line-below)
          ("C-c e" . 'find-dotfiles-folder)
-         ("C-å" . 'project-grep-dwim))
+         ("C-å" . 'project-grep-dwim)
+         ("C-ø" . 'switch-to-completions))
   :config
   (global-unset-key (kbd "C-x C-z"))
   (global-unset-key (kbd "C-x C-c"))
@@ -55,7 +56,11 @@
         split-height-threshold 100
         split-width-threshold 80
         ring-bell-function 'ignore
-        initial-scratch-message ""))
+        initial-scratch-message ""
+        ;; completions
+        completion-show-help nil
+        completions-format 'one-column)
+  (fido-mode t))
 
 (setq display-buffer-base-action '(display-buffer-same-window))
 (setq display-buffer-alist
@@ -63,10 +68,16 @@
         ("*Help*" display-buffer-use-some-window (inhibit-same-window . t))
         ("*eldoc*" display-buffer-use-some-window (inhibit-same-window . t))
         ("*xref*" display-buffer-use-some-window (inhibit-same-window . t))
-        ("*Completions*" display-buffer-use-some-window (inhibit-same-window . t))
+        ("*Completions*"
+         (display-buffer-in-side-window)
+         (side . right)
+         (width . 1))
         (".*" display-buffer-same-window)))
 
+
+
 (use-package project)
+
 
 (use-package eldoc
   :ensure nil
@@ -94,19 +105,6 @@
           sly-mrepl-mode
           slime-repl-mode
           geiser-repl-mode) . paredit-mode))
-
-(use-package prescient
-  :config
-  (setq prescient-filter-method '(fuzzy literal regexp initialism)))
-
-(use-package selectrum-prescient
-  :config
-  (selectrum-prescient-toggle-fuzzy +1))
-
-(use-package selectrum
-  :config
-  (selectrum-mode +1)
-  (selectrum-prescient-mode +1))
 
 (use-package yasnippet
   :config
