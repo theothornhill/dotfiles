@@ -86,22 +86,39 @@
 (when (eq system-type 'darwin)
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier nil)
-  (setenv "PATH" "/opt/homebrew/opt/llvm/bin:/opt/homebrew/opt/openjdk/bin:/Users/theodor/.nvm/versions/node/v15.9.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Apple/usr/bin:/Users/theodor/.cargo/bin")
-  (setq exec-path (append exec-path '("/Users/theodor/.nvm/versions/node/v15.9.0/bin"
-                                      "/opt/homebrew/opt/llvm/bin"
-                                      "/opt/homebrew/opt/openjdk/bin"
-                                      "/Users/theodor/.nvm/versions/node/v15.9.0/bin"
-                                      "/opt/homebrew/bin"
-                                      "/opt/homebrew/sbin"
-                                      "/usr/local/bin"
-                                      "/usr/bin"
-                                      "/bin"
-                                      "/usr/sbin"
-                                      "/sbin"
-                                      "/usr/local/share/dotnet"
-                                      "~/.dotnet/tools"
-                                      "/Library/Apple/usr/bin"
-                                      "/Users/theodor/.cargo/bin"))))
+  (setenv "PATH"
+          (concat "/opt/homebrew/opt/llvm/bin:"
+                  "/opt/homebrew/opt/openjdk/bin:"
+                  "/Users/theodor/.nvm/versions/node/v15.9.0/bin:"
+                  "/opt/homebrew/bin:"
+                  "/opt/homebrew/sbin:"
+                  "/usr/local/bin:"
+                  "/usr/bin:"
+                  "/bin:"
+                  "/usr/sbin:"
+                  "/sbin:"
+                  "/usr/local/share/dotnet:"
+                  "~/.dotnet/tools:"
+                  "/Library/Apple/usr/bin:"
+                  "/Users/theodor/.cargo/bin"))
+  (setq exec-path
+        (append exec-path
+                '("/opt/homebrew/opt/llvm/bin"
+                  "/opt/homebrew/opt/openjdk/bin"
+                  "/Users/theodor/.nvm/versions/node/v15.9.0/bin"
+                  "/opt/homebrew/bin"
+                  "/opt/homebrew/sbin"
+                  "/usr/local/bin"
+                  "/usr/bin"
+                  "/bin"
+                  "/usr/sbin"
+                  "/sbin"
+                  "/usr/local/share/dotnet"
+                  "~/.dotnet/tools"
+                  "/Library/Apple/usr/bin"
+                  "/Users/theodor/.cargo/bin"))))
+
+
 
 (when (memq window-system '(mac ns))
   (add-to-list 'default-frame-alist '(ns-appearance . dark)) ; nil for dark text
