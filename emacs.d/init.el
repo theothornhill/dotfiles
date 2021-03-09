@@ -33,16 +33,10 @@
   (declare (indent defun))
   `(use-package ,name
      :ensure nil
-     :load-path "site-lisp"
+     :load-path "lisp"
      ,@args))
 
-(site-lisp defuns)
-(site-lisp devenv)
-(site-lisp progmodes)
-(site-lisp notmuch-settings)
-(site-lisp org-settings)
 (site-lisp settings)
-(site-lisp eglot-extensions)
 (site-lisp themodor :config (enable-theme 'themodor))
 
 (mapc (lambda (feature) (put feature 'disabled nil)) 
