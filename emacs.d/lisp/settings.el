@@ -94,6 +94,7 @@
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns x))
   :config
+  (setq exec-path-from-shell-arguments '("-l" "-i"))
   (exec-path-from-shell-initialize))
 
 (use-package project :defer t)
@@ -151,10 +152,10 @@
                '(ripgrep . "xargs -0 rg <C> -nH --no-messages -g '!*/' -e <R> -M 400 --max-columns-preview | sort -t: -k1,1 -k2n,2")))
 
 (use-package elm-mode
-  :load-path "~/Git/elm-mode")
+  :defer t)
 
 (use-package fsharp-mode
-  :load-path "~/Git/fsharp-mode"
+  :defer t
   :config
   (setq fsharp-mode-format-on-save t))
 
@@ -261,7 +262,8 @@
   (project-find-regexp (thing-at-point 'symbol)))
 
 (use-package eglot
-  :load-path "~/Git/eglot"
+  :ensure nil
+  :defer t
   :bind (:map eglot-mode-map
               ("C-c f" . 'eglot-format)
               ("C-c r" . 'eglot-rename)

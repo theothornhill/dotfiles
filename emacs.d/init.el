@@ -5,17 +5,10 @@
 (blink-cursor-mode -1)
 
 (if (member window-system '(ns))
-    (set-face-attribute 'default nil :font "JetBrains Mono-14")
-  (set-face-attribute 'default nil :font "iosevka ss14-12"))
+    (add-to-list 'default-frame-alist '(font . "JetBrains Mono-14"))
+  (add-to-list 'default-frame-alist '(font . "JetBrains Mono-12")))
 
-(unless (bound-and-true-p package--initialized)
-  (require 'package)
-  (setq package-archives
-        '(("gnu" . "http://elpa.gnu.org/packages/")
-          ("nongnu" . "https://elpa.nongnu.org/nongnu/")
-          ("melpa" . "https://melpa.org/packages/")))
-  (package-initialize))
-
+(package-initialize)
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
