@@ -138,8 +138,8 @@
 (use-package dired
   :ensure nil
   :bind (("C-x C-d" . 'dired))
-  :hook ((dired-mode .  (lambda () (dired-hide-details-mode)))
-         (dired-mode .  (lambda () (diff-hl-dired-mode)))
+  :hook ((dired-mode . (lambda () (dired-hide-details-mode)))
+         (dired-mode . (lambda () (diff-hl-dired-mode)))
          (dired-mode . (lambda () (turn-on-gnus-dired-mode)))))
 
 (use-package paredit
@@ -179,10 +179,12 @@
                '(ripgrep . "xargs -0 rg <C> -nH --no-messages -g '!*/' -e <R> -M 400 --max-columns-preview | sort -t: -k1,1 -k2n,2")))
 
 (use-package elm-mode
-  :defer t)
+  :defer t
+  :ensure nil)
 
 (use-package fsharp-mode
   :defer t
+  :ensure nil
   :config
   (setq fsharp-mode-format-on-save t))
 
