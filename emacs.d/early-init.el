@@ -11,3 +11,5 @@
       '(("gnu" . "http://elpa.gnu.org/packages/")
         ("nongnu" . "https://elpa.nongnu.org/nongnu/")
         ("melpa" . "https://melpa.org/packages/")))
+
+(setq package-enable-at-startup nil)

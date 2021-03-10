@@ -22,15 +22,14 @@
 ;;; Keep custom file in a different spot
 (setq custom-file (concat user-emacs-directory "custom.el"))
 
-(defmacro site-lisp (name &rest args)
-  (declare (indent defun))
-  `(use-package ,name
-     :ensure nil
-     :load-path "lisp"
-     ,@args))
+(use-package settings
+  :ensure nil
+  :load-path "lisp")
 
-(site-lisp settings)
-(site-lisp themodor :config (enable-theme 'themodor))
+(use-package themodor
+  :ensure nil
+  :load-path "lisp"
+  :config (enable-theme 'themodor))
 
 (mapc (lambda (feature) (put feature 'disabled nil)) 
       (list 'upcase-region

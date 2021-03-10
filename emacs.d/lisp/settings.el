@@ -60,7 +60,9 @@
   (fido-mode t)
   (setq completion-show-help nil
         completions-format 'one-column
-        icomplete-compute-delay 0))
+        icomplete-compute-delay 0.0
+        icomplete-show-matches-on-no-input t
+        icomplete-in-buffer t))
 
 ;; Display buffer madness
 (setq display-buffer-base-action '(display-buffer-same-window))
