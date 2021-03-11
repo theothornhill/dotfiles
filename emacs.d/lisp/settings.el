@@ -380,14 +380,11 @@ Don't use them, since we implement the
   :config
   (setq org-hide-leading-stars nil
         org-outline-path-complete-in-steps nil
-        org-agenda-files '("~/Dropbox/org")
         org-hide-emphasis-markers t
         org-use-speed-commands t
         org-refile-allow-creating-parent-nodes t
         org-refile-use-outline-path t
         org-log-done 'time
-        org-default-notes-file "~/Dropbox/org/index.org"
-        org-refile-targets '(("~/Dropbox/org/index.org" :maxlevel . 5))
         org-latex-packages-alist '(("margin=2cm" "geometry" nil))
         org-todo-keywords '((sequence "TODO" "|" "DONE"))
         org-capture-templates '(("i"
@@ -395,7 +392,6 @@ Don't use them, since we implement the
                                  entry
                                  (file+headline org-default-notes-file "Innboks")
                                  "* %?\n%a"))
-        org-babel-clojure-backend 'cider
         org-indirect-buffer-display 'other-window)
   (org-block-set-languages
     emacs-lisp
@@ -405,10 +401,6 @@ Don't use them, since we implement the
     clojure
     js
     python
-    lisp)
-
-  (defun find-org-index-file ()
-    (interactive)
-    (find-file "~/Dropbox/org/index.org")))
+    lisp))
 
 (provide 'settings)
