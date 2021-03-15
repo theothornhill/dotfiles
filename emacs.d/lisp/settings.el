@@ -91,7 +91,7 @@
   (setenv "PATH"
           (concat "/opt/homebrew/opt/llvm/bin:"
                   "/opt/homebrew/opt/openjdk/bin:"
-                  "/Users/theodor/.nvm/versions/node/v15.9.0/bin:"
+                  "/Users/theo/.nvm/versions/node/v15.11.0/bin:"
                   "/opt/homebrew/bin:"
                   "/opt/homebrew/sbin:"
                   "/usr/local/bin:"
@@ -100,14 +100,15 @@
                   "/usr/sbin:"
                   "/sbin:"
                   "/usr/local/share/dotnet:"
-                  "~/.dotnet/tools:"
+                  "/Users/theo/.dotnet/tools:"
                   "/Library/Apple/usr/bin:"
-                  "/Users/theodor/.cargo/bin"))
+                  "/Library/Frameworks/Mono.framework/Versions/Current/Commands:"
+                  "~/.cargo/bin"))
   (setq exec-path
         (append exec-path
                 '("/opt/homebrew/opt/llvm/bin"
                   "/opt/homebrew/opt/openjdk/bin"
-                  "/Users/theodor/.nvm/versions/node/v15.9.0/bin"
+                  "/Users/theo/.nvm/versions/node/v15.11.0/bin"
                   "/opt/homebrew/bin"
                   "/opt/homebrew/sbin"
                   "/usr/local/bin"
@@ -116,9 +117,10 @@
                   "/usr/sbin"
                   "/sbin"
                   "/usr/local/share/dotnet"
-                  "~/.dotnet/tools"
+                  "/Users/theo/.dotnet/tools"
                   "/Library/Apple/usr/bin"
-                  "/Users/theodor/.cargo/bin"))))
+                  "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
+                  "~/.cargo/bin"))))
 
 
 
@@ -202,10 +204,11 @@
 (use-package csharp-mode
   :defer t
   :mode (("\\.csproj$" . nxml-mode)
-         ("\\.cake$" . csharp-tree-sitter-mode)
-         ("\\.cs\\'" . csharp-tree-sitter-mode))
-  :bind (:map csharp-tree-sitter-mode-map
-              ("C-c t" . 'dotnet-run-test-at-point)))
+         ("\\.cake$" . csharp-mode)
+         ("\\.cs\\'" . csharp-mode))
+  ;; :bind (:map csharp-tree-sitter-mode-map
+  ;;             ("C-c t" . 'dotnet-run-test-at-point))
+  )
 
 (use-package sly
   :defer t
@@ -303,6 +306,7 @@
               ("C-c d" . 'eglot-find-workspace-diagnostics))
   :hook ((elm-mode
           fsharp-mode
+          csharp-mode
           csharp-tree-sitter-mode) . 'eglot-ensure)
   :config
   (setq eglot-confirm-server-initiated-edits nil)
@@ -314,6 +318,8 @@
   (defclass eglot-fsautocomplete (eglot-lsp-server) ()
     :documentation "F# FsAutoComplete langserver.")
 
+  (defclass eglot-omnisharp (eglot-lsp-server) ()
+    :documentation "OmniSharp server")
 
 ;;; Inits
   (cl-defmethod eglot-initialization-options ((server eglot-elm))
@@ -332,6 +338,9 @@ Don't use them, since we implement the
   `eglot-signal-fsharp-workspace-load'."
     '())
 
+  (cl-defmethod eglot-initialization-options ((_server eglot-omnisharp))
+    '())
+  
 ;;; Other handlers
   (defun eglot-signal-fsharp-workspace-load (server)
     (interactive (list (eglot--current-server-or-lose)))
@@ -356,12 +365,19 @@ Don't use them, since we implement the
 
   ;; Add modified servers
   (add-to-list 'eglot-server-programs
-               `(csharp-tree-sitter-mode . (,(expand-file-name "~/omnisharp-win-x64/OmniSharp.exe") "-lsp")))
+               `(csharp-mode
+                 . (eglot-omnisharp
+                    "mono"
+                    ,(expand-file-name "~/LSP/omnisharp-roslyn/v1.37.7/omnisharp/OmniSharp.exe")
+                    "-lsp")))
+
   (add-to-list 'eglot-server-programs
                `(fsharp-mode
                  . (eglot-fsautocomplete
-                    "dotnet" ,(expand-file-name "~/fsautocomplete.netcore(1)/fsautocomplete.dll")
+                    "dotnet"
+                    ,(expand-file-name "~/LSP/FsAutoComplete/bin/release_netcore/fsautocomplete.dll")
                     "--background-service-enabled")))
+
   (add-to-list 'eglot-server-programs '(elm-mode . (eglot-elm "elm-language-server"))))
 
 
