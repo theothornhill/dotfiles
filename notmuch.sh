@@ -11,3 +11,5 @@
 /opt/homebrew/bin/notmuch tag -inbox +bugs +sourcehut to:~*@todo.sr.ht OR from:~outgoing@sr.ht
 /opt/homebrew/bin/notmuch tag -inbox +sbcl-devel to:sbcl-devel@lists.sourceforge.net
 /opt/homebrew/bin/notmuch tag +allegria from:ensemble.allegria@gmail.com
+/opt/homebrew/bin/notmuch tag -inbox +frende to:theodor.thornhill@frende.no
+/opt/homebrew/bin/notmuch tag -inbox +frende from:*@frende.no

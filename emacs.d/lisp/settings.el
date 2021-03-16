@@ -87,7 +87,7 @@
 
 (when (eq system-type 'darwin)
   (setq mac-command-modifier 'meta)
-  (setq mac-option-modifier nil)
+  (setq mac-option-modifier 'super)
   (setenv "PATH"
           (concat "/opt/homebrew/opt/llvm/bin:"
                   "/opt/homebrew/opt/openjdk/bin:"
@@ -243,7 +243,10 @@
   :if (executable-find "notmuch")
   :defer t
   :bind (("C-x m" . 'notmuch-mua-new-mail)
+         ("C-x n m" . 'notmuch)
          ("C-x n m" . 'notmuch))
+  :bind (:map notmuch-message-mode-map
+              ("C-M-i" . 'complete-symbol))
   :config
   (setq message-sendmail-f-is-evil nil
         notmuch-show-logo nil
@@ -257,7 +260,7 @@
         send-mail-function 'sendmail-send-it
         message-sendmail-envelope-from 'header
         mail-envelope-from 'header
-        notmuch-fcc-dirs "main/Sent +sent -inbox -unread"
+        notmuch-fcc-dirs "+sent -inbox -unread"
         notmuch-saved-searches '((:name "inbox" :query "tag:inbox" :key "i" :sort-order newest-first)
                                  (:name "unread" :query "tag:unread" :key "u" :sort-order newest-first)
                                  (:name "flagged" :query "tag:flagged" :key "f" :sort-order newest-first)
@@ -266,7 +269,8 @@
                                  (:name "emacs" :query "to:emacs-devel@gnu.org OR to:*@debbugs.gnu.org" :key "e" :sort-order newest-first)
                                  (:name "bugs" :query "tag:bugs" :key "b" :sort-order newest-first)
                                  (:name "sbcl-devel" :query "tag:sbcl-devel" :key "l" :sort-order newest-first)
-                                 (:name "all mail" :query "*" :key "a" :sort-order newest-first))))
+                                 (:name "all mail" :query "*" :key "a" :sort-order newest-first)
+                                 (:name "work" :query "to:theodor.thornhill@frende.no OR from:*@frende.no" :key "w" :sort-order newest-first))))
 
 (defun open-line-above ()
   (interactive)
