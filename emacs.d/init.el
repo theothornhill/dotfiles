@@ -31,6 +31,10 @@
   :load-path "lisp"
   :config (enable-theme 'themodor))
 
+(use-package eglot-x
+  :ensure nil
+  :load-path "lisp")
+
 (mapc (lambda (feature) (put feature 'disabled nil)) 
       (list 'upcase-region
             'narrow-to-region
