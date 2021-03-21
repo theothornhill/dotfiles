@@ -70,9 +70,10 @@ Don't use them, since we implement the
 
 (add-to-list 'eglot-server-initialized-hook 'eglot-signal-fsharp-workspace-load)
 
-;; Add modified servers
+;; Add modified servers - Some of these require lots of manual hand-holding to
+;; behave properly.  Most notably omnisharp is very difficult to get right.
 (add-to-list 'eglot-server-programs
-             `(csharp-mode
+             `(csharp-tree-sitter-mode
                . (eglot-omnisharp
                   ;; Hacked version of this file that runs mono from brew 
                   ,(expand-file-name "~/LSP/omnisharp-roslyn/v1.37.7/run")
@@ -86,5 +87,6 @@ Don't use them, since we implement the
                   "--background-service-enabled")))
 
 (add-to-list 'eglot-server-programs '(elm-mode . (eglot-elm "elm-language-server")))
+
 (provide 'eglot-x)
 ;;; eglot-x.el ends here

@@ -10,6 +10,7 @@
          ("C-c v b" . 'view-this-buffer)
          ("C-z"     . 'repeat)
          ("C-."     . 'imenu)
+         ("C-c C-r" . 'query-replace-regexp)
          ("M-'"     . 'bookmark-map)
          ("M-j"     . 'join-line)
          ("M-o"     . 'other-window)
@@ -103,6 +104,7 @@
                   "/Users/theo/.dotnet/tools:"
                   "/Library/Apple/usr/bin:"
                   "/Library/Frameworks/Mono.framework/Versions/Current/Commands:"
+                  "/Users/theo/.cask/bin:"
                   "~/.cargo/bin"))
   (setq exec-path
         (append exec-path
@@ -119,6 +121,7 @@
                   "/usr/local/share/dotnet"
                   "/Users/theo/.dotnet/tools"
                   "/Library/Apple/usr/bin"
+                  "/Users/theo/.cask/bin"
                   "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
                   "~/.cargo/bin"))))
 
@@ -199,16 +202,16 @@
   :defer t)
 
 (use-package tree-sitter-indent
+  :ensure nil
   :defer t)
 
 (use-package csharp-mode
   :defer t
   :mode (("\\.csproj$" . nxml-mode)
-         ("\\.cake$" . csharp-mode)
-         ("\\.cs\\'" . csharp-mode))
-  ;; :bind (:map csharp-tree-sitter-mode-map
-  ;;             ("C-c t" . 'dotnet-run-test-at-point))
-  )
+         ("\\.cake$" . csharp-tree-sitter-mode)
+         ("\\.cs\\'" . csharp-tree-sitter-mode))
+  :bind (:map csharp-tree-sitter-mode-map
+              ("C-c t" . 'dotnet-run-test-at-point)))
 
 (use-package sly
   :defer t
@@ -338,3 +341,5 @@
     lisp))
 
 (provide 'settings)
+
+;;; settings.el ends here
