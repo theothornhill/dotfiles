@@ -62,6 +62,8 @@
   (setq completion-show-help nil
         completions-format 'one-column
         icomplete-compute-delay 0.0
+        icomplete-separator "\n"
+        icomplete-prospects-height 10
         icomplete-show-matches-on-no-input t
         icomplete-in-buffer t))
 
