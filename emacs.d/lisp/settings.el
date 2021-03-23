@@ -265,7 +265,8 @@
         send-mail-function 'sendmail-send-it
         message-sendmail-envelope-from 'header
         mail-envelope-from 'header
-        notmuch-fcc-dirs "+sent -inbox -unread"
+        notmuch-fcc-dirs '(("theo@thornhill.no" . "main/Sent +sent -inbox -unread")
+                           ("theodor.thornhill@frende.no" . "\"frende/Sendte elementer\" +sent -inbox -unread"))
         notmuch-saved-searches '((:name "inbox" :query "tag:inbox" :key "i" :sort-order newest-first)
                                  (:name "unread" :query "tag:unread" :key "u" :sort-order newest-first)
                                  (:name "flagged" :query "tag:flagged" :key "f" :sort-order newest-first)
