@@ -51,21 +51,29 @@
         help-window-select t
         compilation-scroll-output t))
 
-(use-package icomplete
-  :ensure nil
-  :bind ("C-ø" . 'switch-to-completions)
-  :bind (:map icomplete-fido-mode-map
-              ("C-n" . 'icomplete-forward-completions)
-              ("C-p" . 'icomplete-backward-completions))
+(use-package helm
+  :bind (("C-." . 'helm-imenu)
+         ("C-x C-f" . 'helm-find-files)
+         ("M-x" . 'helm-M-x))
   :config
-  (fido-mode t)
-  (setq completion-show-help nil
-        completions-format 'one-column
-        icomplete-compute-delay 0.0
-        icomplete-separator "\n"
-        icomplete-prospects-height 10
-        icomplete-show-matches-on-no-input t
-        icomplete-in-buffer t))
+  (helm-mode 1)
+  (setq completion-styles '(flex)))
+
+;; (use-package icomplete
+;;   :ensure nil
+;;   :bind ("C-ø" . 'switch-to-completions)
+;;   :bind (:map icomplete-fido-mode-map
+;;               ("C-n" . 'icomplete-forward-completions)
+;;               ("C-p" . 'icomplete-backward-completions))
+;;   :config
+;;   (fido-mode t)
+;;   (setq completion-show-help nil
+;;         completions-format 'one-column
+;;         icomplete-compute-delay 0.0
+;;         icomplete-separator "\n"
+;;         icomplete-prospects-height 10
+;;         icomplete-show-matches-on-no-input t
+;;         icomplete-in-buffer t))
 
 ;; Display buffer madness
 (setq display-buffer-base-action '(display-buffer-same-window))
@@ -80,6 +88,10 @@
          (display-buffer-in-side-window)
          (side . right)
          (width . 1))
+        ("*helm-mode-completion-at-point*"
+         (display-buffer-in-side-window)
+         (side . bottom)
+         (height . 1.5))
         (".*" display-buffer-same-window)))
 
 ;; Devenv

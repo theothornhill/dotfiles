@@ -285,6 +285,56 @@ Also bind `class' to ((class color) (min-colors 89))."
    '(woman-bold   ((t (:inherit font-lock-keyword-face))))
    '(woman-italic ((t (:inherit (font-lock-string-face italic)))))
 ;;;; Third-party
+;;;;; helm
+   `(helm-header
+     ((t (:foreground ,themodor-green
+                      :background ,themodor-bg
+                      :underline nil
+                      :box nil
+                      :extend t))))
+   `(helm-source-header
+     ((t (:foreground ,themodor-yellow
+                      :background ,themodor-bg
+                      :underline nil
+                      :box ,themodor-bg+2
+                      :extend t))))
+   `(helm-selection ((t (:background ,themodor-bg+1 :underline nil))))
+   `(helm-selection-line ((t (:background ,themodor-bg+1))))
+   `(helm-visible-mark ((t (:foreground ,themodor-bg :background ,themodor-yellow-2))))
+   `(helm-candidate-number ((t (:foreground ,themodor-green+4 :background ,themodor-bg-1))))
+   `(helm-separator ((t (:foreground ,themodor-red :background ,themodor-bg))))
+   `(helm-time-zone-current ((t (:foreground ,themodor-green+2 :background ,themodor-bg))))
+   `(helm-time-zone-home ((t (:foreground ,themodor-red :background ,themodor-bg))))
+   `(helm-bookmark-addressbook ((t (:foreground ,themodor-orange :background ,themodor-bg))))
+   `(helm-bookmark-directory ((t (:foreground nil :background nil :inherit helm-ff-directory))))
+   `(helm-bookmark-file ((t (:foreground nil :background nil :inherit helm-ff-file))))
+   `(helm-bookmark-gnus ((t (:foreground ,themodor-magenta :background ,themodor-bg))))
+   `(helm-bookmark-info ((t (:foreground ,themodor-green+2 :background ,themodor-bg))))
+   `(helm-bookmark-man ((t (:foreground ,themodor-yellow :background ,themodor-bg))))
+   `(helm-bookmark-w3m ((t (:foreground ,themodor-magenta :background ,themodor-bg))))
+   `(helm-buffer-not-saved ((t (:foreground ,themodor-red :background ,themodor-bg))))
+   `(helm-buffer-process ((t (:foreground ,themodor-cyan :background ,themodor-bg))))
+   `(helm-buffer-saved-out ((t (:foreground ,themodor-fg :background ,themodor-bg))))
+   `(helm-buffer-size ((t (:foreground ,themodor-fg-1 :background ,themodor-bg))))
+   `(helm-ff-directory ((t (:foreground ,themodor-cyan :background ,themodor-bg :weight bold))))
+   `(helm-ff-file ((t (:foreground ,themodor-fg :background ,themodor-bg :weight normal))))
+   `(helm-ff-executable ((t (:foreground ,themodor-green+2 :background ,themodor-bg :weight normal))))
+   `(helm-ff-invalid-symlink ((t (:foreground ,themodor-red :background ,themodor-bg :weight bold))))
+   `(helm-ff-symlink ((t (:foreground ,themodor-yellow :background ,themodor-bg :weight bold))))
+   `(helm-ff-prefix ((t (:foreground ,themodor-bg :background ,themodor-yellow :weight normal))))
+   `(helm-ff-file-extension ((,class :foreground ,themodor-fg)))
+   `(helm-ff-dotted-directory ((,class :inherit bold :background ,themodor-bg :foreground ,themodor-fg)))
+   `(helm-ff-dotted-symlink-directory ((,class :inherit (button helm-ff-dotted-directory))))
+   `(helm-grep-cmd-line ((t (:foreground ,themodor-cyan :background ,themodor-bg))))
+   `(helm-grep-file ((t (:foreground ,themodor-fg :background ,themodor-bg))))
+   `(helm-grep-finish ((t (:foreground ,themodor-green+2 :background ,themodor-bg))))
+   `(helm-grep-lineno ((t (:foreground ,themodor-fg-1 :background ,themodor-bg))))
+   `(helm-grep-match ((t (:foreground nil :background nil :inherit helm-match))))
+   `(helm-grep-running ((t (:foreground ,themodor-red :background ,themodor-bg))))
+   `(helm-match ((t (:foreground ,themodor-orange :background ,themodor-bg-1 :weight bold))))
+   `(helm-moccur-buffer ((t (:foreground ,themodor-cyan :background ,themodor-bg))))
+   `(helm-mu-contacts-address-face ((t (:foreground ,themodor-fg-1 :background ,themodor-bg))))
+   `(helm-mu-contacts-name-face ((t (:foreground ,themodor-fg :background ,themodor-bg))))
 ;;;;; ace-jump
    `(ace-jump-face-background
      ((t (:foreground ,themodor-fg-1 :background ,themodor-bg :inverse-video nil))))
