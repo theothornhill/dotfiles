@@ -6,6 +6,7 @@
   :hook ((prog-mode) . (lambda () (auto-save-mode -1)))
   :bind (("C-x -"   . 'split-window-below)
          ("C-x |"   . 'split-window-right)
+         ("C-x ~"   . 'cd)
          ("C-x C-b" . 'display-buffer)
          ("C-c v b" . 'view-this-buffer)
          ("C-z"     . 'repeat)
@@ -59,22 +60,6 @@
   (helm-mode 1)
   (setq completion-styles '(flex)))
 
-;; (use-package icomplete
-;;   :ensure nil
-;;   :bind ("C-ø" . 'switch-to-completions)
-;;   :bind (:map icomplete-fido-mode-map
-;;               ("C-n" . 'icomplete-forward-completions)
-;;               ("C-p" . 'icomplete-backward-completions))
-;;   :config
-;;   (fido-mode t)
-;;   (setq completion-show-help nil
-;;         completions-format 'one-column
-;;         icomplete-compute-delay 0.0
-;;         icomplete-separator "\n"
-;;         icomplete-prospects-height 10
-;;         icomplete-show-matches-on-no-input t
-;;         icomplete-in-buffer t))
-
 ;; Display buffer madness
 (setq display-buffer-base-action '(display-buffer-same-window))
 (setq display-buffer-alist
@@ -94,52 +79,16 @@
          (height . 1.5))
         (".*" display-buffer-same-window)))
 
-;; Devenv
+;;; Windows
 (when (memq window-system '(w32))
   (setenv "PATH" (concat "C:\\Program Files\\Git\\usr\\bin" ";" (getenv "PATH")))
   (setq w32-use-visible-system-caret nil)
   (setq ediff-diff-program "C:\\Program Files\\Git\\usr\\bin\\diff.exe"))
 
+;;; Mac
 (when (eq system-type 'darwin)
   (setq mac-command-modifier 'meta)
-  (setq mac-option-modifier nil)
-  (setenv "PATH"
-          (concat "/opt/homebrew/opt/llvm/bin:"
-                  "/opt/homebrew/opt/openjdk/bin:"
-                  "/Users/theo/.nvm/versions/node/v15.11.0/bin:"
-                  "/opt/homebrew/bin:"
-                  "/opt/homebrew/sbin:"
-                  "/usr/local/bin:"
-                  "/usr/bin:"
-                  "/bin:"
-                  "/usr/sbin:"
-                  "/sbin:"
-                  "/usr/local/share/dotnet:"
-                  "/Users/theo/.dotnet/tools:"
-                  "/Library/Apple/usr/bin:"
-                  "/Library/Frameworks/Mono.framework/Versions/Current/Commands:"
-                  "/Users/theo/.cask/bin:"
-                  "~/.cargo/bin"))
-  (setq exec-path
-        (append exec-path
-                '("/opt/homebrew/opt/llvm/bin"
-                  "/opt/homebrew/opt/openjdk/bin"
-                  "/Users/theo/.nvm/versions/node/v15.11.0/bin"
-                  "/opt/homebrew/bin"
-                  "/opt/homebrew/sbin"
-                  "/usr/local/bin"
-                  "/usr/bin"
-                  "/bin"
-                  "/usr/sbin"
-                  "/sbin"
-                  "/usr/local/share/dotnet"
-                  "/Users/theo/.dotnet/tools"
-                  "/Library/Apple/usr/bin"
-                  "/Users/theo/.cask/bin"
-                  "/Library/Frameworks/Mono.framework/Versions/Current/Commands"
-                  "~/.cargo/bin"))))
-
-
+  (setq mac-option-modifier nil))
 
 (when (memq window-system '(mac ns))
   (add-to-list 'default-frame-alist '(ns-appearance . dark)) ; nil for dark text
