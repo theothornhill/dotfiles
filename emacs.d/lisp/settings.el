@@ -155,6 +155,7 @@
 (use-package fsharp-mode
   :defer t
   :ensure nil
+  :mode (("\\.fsproj$" . nxml-mode))
   :config
   (setq fsharp-mode-format-on-save t))
 
