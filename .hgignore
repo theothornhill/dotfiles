@@ -1,5 +1,9 @@
 syntax: glob
 
+**/*.fasl
+
+lisp/bin/
+
 emacs.d/auto-save-list/
 emacs.d/elpa/
 emacs.d/eshell/
