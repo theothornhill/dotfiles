@@ -1,0 +1,9 @@
+[user]
+	name = Theodor Thornhill
+	email = theo@thornhill.no
+
+[core]
+	editor = emacs
+
+[includeIf "gitdir:~/Frende/"]
+    path = ~/Frende/.gitconfig
