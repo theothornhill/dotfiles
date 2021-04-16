@@ -126,7 +126,7 @@
                       :background ,background
                       :underline nil
                       :box ,background
-                      :height 1.4
+                      :height 2.0
                       :extend t))))
    `(helm-selection ((t (:background ,hl-background :underline nil))))
    ;; `(helm-selection-line ((t (:background ,themodor-bg+1))))
@@ -165,6 +165,10 @@
    ;; `(helm-moccur-buffer ((t (:foreground ,themodor-cyan :background ,themodor-bg))))
    ;; `(helm-mu-contacts-address-face ((t (:foreground ,themodor-fg-1 :background ,themodor-bg))))
    ;; `(helm-mu-contacts-name-face ((t (:foreground ,themodor-fg :background ,themodor-bg))))
+
+   ;; erc
+   `(erc-notice-face ((,class (:inherit ,font-lock-comment-face))))
+   `(erc-timestamp-face ((,class (:inherit ,font-lock-comment-face))))
 
    ;; org-mode
    `(org-level-1 ((,class (:foreground ,foreground :height 1.6))))

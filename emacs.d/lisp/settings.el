@@ -13,6 +13,8 @@
          ("C-."     . 'imenu)
          ("C-c C-r" . 'query-replace-regexp)
          ("M-'"     . 'bookmark-map)
+         ("M-' M-'" . 'point-to-register)
+         ("M-' j"   . 'jump-to-register)
          ("M-j"     . 'join-line)
          ("M-o"     . 'other-window)
          ("C-o"     . 'open-line-above)
@@ -55,7 +57,10 @@
 (use-package helm
   :bind (("C-." . 'helm-imenu)
          ("C-x C-f" . 'helm-find-files)
-         ("M-x" . 'helm-M-x))
+         ("M-å" . 'helm-command-prefix)
+         ("M-x" . 'helm-M-x)
+         ("M-å r" . 'helm-register)
+         ("M-å o" . 'helm-occur))
   :config
   (helm-mode 1)
   (setq completion-styles '(flex)))
@@ -74,6 +79,10 @@
          (side . right)
          (width . 1))
         ("*helm-mode-completion-at-point*"
+         (display-buffer-in-side-window)
+         (side . bottom)
+         (height . 1.5))
+        ("*Register Preview*"
          (display-buffer-in-side-window)
          (side . bottom)
          (height . 1.5))
@@ -304,6 +313,11 @@
     js
     python
     lisp))
+
+(use-package diff-mode
+  :ensure nil
+  :config
+  (setq diff-font-lock-syntax nil))
 
 (provide 'settings)
 
