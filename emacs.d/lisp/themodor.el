@@ -126,7 +126,7 @@
                       :background ,background
                       :underline nil
                       :box ,background
-                      :height 2.0
+                      :height 1.8
                       :extend t))))
    `(helm-selection ((t (:background ,hl-background :underline nil))))
    ;; `(helm-selection-line ((t (:background ,themodor-bg+1))))
