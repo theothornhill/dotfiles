@@ -1,0 +1,14 @@
+[ui]
+username = Theodor Thornhill <theo@thornhill.no>
+editor = emacs
+
+[extensions]
+hgext.convert   =
+hgext.bookmarks =
+hggit           = 
+
+[diff]
+git = True
+
+[subrepos]
+git:allowed = true
