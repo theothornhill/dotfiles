@@ -170,6 +170,9 @@
    `(erc-notice-face ((,class (:inherit ,font-lock-comment-face))))
    `(erc-timestamp-face ((,class (:inherit ,font-lock-comment-face))))
 
+   ;; Markdown
+   `(markdown-code-face ((,class nil)))
+
    ;; org-mode
    `(org-level-1 ((,class (:foreground ,foreground :height 1.6))))
    `(org-level-2 ((,class (:foreground ,foreground :height 1.5))))
