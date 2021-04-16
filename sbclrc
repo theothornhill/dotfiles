@@ -7,5 +7,5 @@
     (load quicklisp-init)))
 
 #+quicklisp
-(push #P"/Users/theo/Repos/" ql:*local-project-directories*)
-(push #P"/Users/theo/Frende/" ql:*local-project-directories*)
+(push #P"/Users/theo/Play/" ql:*local-project-directories*)
+(push #P"/Users/theo/Work/" ql:*local-project-directories*)
