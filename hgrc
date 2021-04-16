@@ -12,3 +12,6 @@ git = True
 
 [subrepos]
 git:allowed = true
+
+[alias]
+pg = !"$HG" push; "$HG" push git
