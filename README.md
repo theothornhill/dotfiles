@@ -1,3 +1,3 @@
 # dotfiles
 
-These are my dotfiles - use with caution :)
+These dotfiles doesn't work for you :)
