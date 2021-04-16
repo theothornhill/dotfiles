@@ -5,5 +5,5 @@
 [core]
 	editor = emacs
 
-[includeIf "gitdir:~/Frende/"]
-    path = ~/Frende/.gitconfig
+[includeIf "gitdir:~/Work/"]
+    path = ~/Work/.gitconfig
