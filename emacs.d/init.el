@@ -31,6 +31,10 @@
   :load-path "lisp"
   :config (enable-theme 'themodor))
 
+(use-package themodor-dark
+  :ensure nil
+  :load-path "lisp")
+
 (use-package eglot-x
   :ensure nil
   :load-path "lisp")
