@@ -94,6 +94,9 @@
    `(show-paren-mismatch
      ((,class (:foreground ,failure :weight bold))))
 
+   ;; eshell
+   `(eshell-prompt ((,class (:foreground ,foreground :weight bold))))
+
    ;; modeline
    `(mode-line
      ((,class (:inverse-video unspecified

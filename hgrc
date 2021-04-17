@@ -18,3 +18,8 @@ git:allowed = true
 
 [alias]
 pg = !"$HG" push; "$HG" push git
+
+# Push to all
+pa = !"$HG" paths -q | xargs -l1 "$HG" push
+
+fuckit = revert --all --no-backup
