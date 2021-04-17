@@ -1,12 +1,14 @@
+;;; Small utility to fetch weather.
+
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (ql:quickload '(:yason :drakma :flexi-streams :unix-opts :cl-ppcre :alexandria) :silent t))
 
-(defpackage :weather
+(defpackage :we
   (:use :cl)
   (:local-nicknames (#:a #:alexandria))
   (:export :toplevel))
 
-(in-package :weather)
+(in-package :we)
 
 (defvar *weather* nil)
 (defvar *default-offset* 3)
