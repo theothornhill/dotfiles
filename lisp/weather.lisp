@@ -1,19 +1,15 @@
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (ql:quickload '(:yason :dexador :unix-opts :cl-ppcre :alexandria) :silent t))
+  (ql:quickload '(:yason :drakma :flexi-streams :unix-opts :cl-ppcre :alexandria) :silent t))
 
 (defpackage :weather
   (:use :cl)
   (:local-nicknames (#:a #:alexandria))
-  (:export
-   :toplevel
-   :get-weather
-   :get-weather-verbose
-   :now
-   :*weather*))
+  (:export :toplevel))
 
 (in-package :weather)
 
 (defvar *weather* nil)
+(defvar *default-offset* 3)
 
 (defclass weather ()
   ((response :initarg :response
@@ -207,12 +203,13 @@ One city is on the form (:TROFIMOVSK (72.5997 . 127.0337))"
   "Sends http request to api.met.no to fetch the weather.
 Sets latitude and longitude in request url."
   (with-input-from-string
-      (s (dex:get
-          (concatenate
-           'string
-           "https://api.met.no/weatherapi/locationforecast/2.0/compact?"
-           (format nil "lat=~a" (car town))
-           (format nil "&lon=~a" (cdr town)))))
+      (s (flexi-streams:octets-to-string
+          (drakma:http-request
+           (concatenate
+            'string
+            "https://api.met.no/weatherapi/locationforecast/2.0/compact?"
+            (format nil "lat=~a" (car town))
+            (format nil "&lon=~a" (cdr town))))))
     (decode-json s)))
 
 (defun timeseries-offset (timeseries offset)
@@ -222,7 +219,7 @@ Sets latitude and longitude in request url."
       (error "Not possible to offset this much")))
 
 (defun get-weather (city &key
-                           (offset 0)
+                           (offset *default-offset*)
                            (range 1)
                            (format-fn #'format-weather-instant))
   "Get the verbose information about the weather this instant in UTC."
@@ -294,7 +291,7 @@ Sets latitude and longitude in request url."
 
 (defun run-with-city (city options)
   (let ((verbose (getf options :verbose))
-        (offset (or (getf options :offset) 0))
+        (offset (or (getf options :offset) *default-offset*))
         (range (or (getf options :range) 1)))
     (cond
       (verbose
@@ -321,10 +318,12 @@ Sets latitude and longitude in request url."
           (format t "fatal: cannot parse ~s as argument of ~s~%"
                   (opts:raw-arg condition)
                   (opts:option condition)))
-        (opts:missing-required-option (con)
-          (format t "fatal: ~a~%" con)
+        (opts:missing-required-option (condition)
+          (format t "fatal: ~a~%" condition)
           (opts:exit 1)))
-    (opts:get-opts)
+    (when (null options)
+      (run-with-city "bergen" options)
+      (uiop:quit))
     (with-option (options :help) (show-help))
     (with-option (options :city)
       (run-with-city it options)))
