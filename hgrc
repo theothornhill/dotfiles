@@ -5,7 +5,10 @@ editor = emacs
 [extensions]
 hgext.convert   =
 hgext.bookmarks =
-hggit           = 
+hggit           =
+graphlog        =
+rebase          =
+mq              =
 
 [diff]
 git = True
