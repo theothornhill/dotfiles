@@ -5,7 +5,7 @@ names := $(files:.lisp=)
 
 all: $(names)
 
-$(names): %: bin/% man/man1/%.1
+$(names): %: bin/% # man/man1/%.1
 
 bin/%: %.lisp build-binary.sh Makefile
 	mkdir -p bin
