@@ -53,13 +53,13 @@
   "Generate a Norwegian National Identity Number, using randomized values.
 Should be used only to mock up test data.  If either `k1' or `k2' returns NIL,
 do it again."
-  ;; Investigate why this can return NIL - just run one more time if you get
-  ;; NIL.
   (a:when-let*
       ((nnin (append (birth-date) (individual-numbers)))
        (k1 (apply #'k1 nnin))
        (x (append nnin (list k1)))
-       (k2 (apply #'k2 x)))
-    (format t "~a~%" (concatenate 'string (mapcar #'digit-char (append x (list k2)))))))
+       (k2 (apply #'k2 x))
+       (res (append x (list k2)))
+       (result (concatenate 'string (mapcar #'digit-char res))))
+    (format t "~a~%" result)))
 
 
