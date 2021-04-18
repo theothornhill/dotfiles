@@ -10,6 +10,16 @@ graphlog        =
 rebase          =
 mq              =
 histedit        =
+patchbomb       =
+
+[smtp]
+host = smtp.migadu.com
+port = 587
+username = theo@thornhill.no
+tls = starttls
+
+[email]
+from = Theodor Thornhill <theo@thornhill.no>
 
 [diff]
 git = True
@@ -22,5 +32,6 @@ pg = !"$HG" push; "$HG" push git
 
 # Push to all
 pa = !"$HG" paths -q | xargs -l1 "$HG" push
-
 fuckit = revert --all --no-backup
+
+%include ~/.hgrc-local
