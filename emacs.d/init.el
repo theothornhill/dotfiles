@@ -4,7 +4,7 @@
 
 (blink-cursor-mode -1)
 
-(if (member window-system '(ns))
+(if (eq system-type 'darwin)
     (add-to-list 'default-frame-alist '(font . "JetBrains Mono-14"))
   (add-to-list 'default-frame-alist '(font . "JetBrains Mono-12")))
 
@@ -28,12 +28,12 @@
 
 (use-package themodor
   :ensure nil
-  :load-path "lisp"
-  :config (enable-theme 'themodor))
+  :load-path "lisp")
 
 (use-package themodor-dark
   :ensure nil
-  :load-path "lisp")
+  :load-path "lisp"
+  :config (enable-theme 'themodor-dark))
 
 (use-package eglot-x
   :ensure nil
