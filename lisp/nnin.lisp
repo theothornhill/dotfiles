@@ -1,5 +1,5 @@
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (ql:quickload '(:alexandria :adopt :with-user-abort) :silent t))
+  (ql:quickload '(:alexandria :adopt :with-user-abort :trivial-clipboard) :silent t))
 
 (defpackage :nnin
   (:use :cl)
@@ -68,7 +68,9 @@ do it again."
 ;;; UI
 
 (adopt:define-string *help-text*
-  "nnin will generage and display a randomly generated norwegian national identity number.~@
+  "nnin will generage and random norwegian national identity number.  ~
+   If successful, it copies the nnin to your clipboard.  Otherwise, error~
+   with a message to try again.
    ~@
    This program was made to make generation of test clients easier when testing ~
    and debugging.")
@@ -119,6 +121,6 @@ do it again."
           (cond ((gethash 'help options) (adopt:print-help-and-exit *ui* :option-width 24))
                 ((gethash 'version options) (write-line *version*) (adopt:exit)))
           (a:if-let ((nnin (nnin)))
-            (format t "~a~%" nnin)
+            (trivial-clipboard:text (format nil "~a" nnin))
             (format t "One of the checksums failed - run again~%")))
       (error (c) (adopt:print-error-and-exit c)))))
