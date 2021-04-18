@@ -503,7 +503,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(ert-test-result-expected ((t (:foreground ,themodor-dark-green+4 :background ,themodor-dark-bg))))
    `(ert-test-result-unexpected ((t (:foreground ,themodor-dark-red :background ,themodor-dark-bg))))
 ;;;;; eshell
-   `(eshell-prompt ((t (:foreground ,themodor-dark-yellow :weight bold))))
+   `(eshell-prompt ((t (:foreground ,themodor-dark-green :weight bold))))
    `(eshell-ls-archive ((t (:foreground ,themodor-dark-red-1 :weight bold))))
    `(eshell-ls-backup ((t (:inherit font-lock-comment-face))))
    `(eshell-ls-clutter ((t (:inherit font-lock-comment-face))))
