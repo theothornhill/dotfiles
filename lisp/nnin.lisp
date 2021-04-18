@@ -68,9 +68,8 @@ do it again."
 ;;; UI
 
 (adopt:define-string *help-text*
-  "nnin will generage and random norwegian national identity number.  ~
-   If successful, it copies the nnin to your clipboard.  Otherwise, error~
-   with a message to try again.
+  "nnin will generage an random norwegian national identity number ~
+   and copy it to your clipboard.
    ~@
    This program was made to make generation of test clients easier when testing ~
    and debugging.")
@@ -86,7 +85,7 @@ do it again."
 
 (defparameter *option-help*
   (adopt:make-option 'help
-    :help "Display this help and exit."
+    :help "Display help and exit."
     :long "help"
     :short #\h
     :reduce (constantly t)))
@@ -102,7 +101,7 @@ do it again."
   (adopt:make-interface
     :name "nnin"
     :usage "[OPTIONS]"
-    :summary "generate and display random norwegian national identity numbers"
+    :summary "generate a random norwegian national identity number"
     :help *help-text*
     :examples *examples*
     :contents (list *option-help*
@@ -120,7 +119,9 @@ do it again."
           (declare (ignorable arguments))
           (cond ((gethash 'help options) (adopt:print-help-and-exit *ui* :option-width 24))
                 ((gethash 'version options) (write-line *version*) (adopt:exit)))
-          (a:if-let ((nnin (nnin)))
-            (trivial-clipboard:text (format nil "~a" nnin))
-            (format t "One of the checksums failed - run again~%")))
+          (loop
+            with nnin = (nnin)
+            until nnin
+            do (setf nnin (nnin))
+            finally (trivial-clipboard:text (format nil "~a" nnin))))
       (error (c) (adopt:print-error-and-exit c)))))
