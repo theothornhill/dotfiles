@@ -8,7 +8,6 @@ hgext.bookmarks =
 hggit           =
 graphlog        =
 rebase          =
-mq              =
 histedit        =
 patchbomb       =
 
