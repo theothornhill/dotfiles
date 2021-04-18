@@ -9,6 +9,7 @@ hggit           =
 graphlog        =
 rebase          =
 mq              =
+histedit        =
 
 [diff]
 git = True
