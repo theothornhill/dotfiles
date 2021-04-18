@@ -89,7 +89,7 @@
         (".*" display-buffer-same-window)))
 
 ;;; Windows
-(when (memq window-system '(w32))
+(when (eq system-type 'w32)
   (setenv "PATH" (concat "C:\\Program Files\\Git\\usr\\bin" ";" (getenv "PATH")))
   (setq w32-use-visible-system-caret nil)
   (setq ediff-diff-program "C:\\Program Files\\Git\\usr\\bin\\diff.exe"))
@@ -99,7 +99,7 @@
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier nil))
 
-(when (memq window-system '(mac ns))
+(when (eq system-type 'darwin)
   (add-to-list 'default-frame-alist '(ns-appearance . dark)) ; nil for dark text
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
 

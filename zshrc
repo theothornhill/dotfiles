@@ -4,6 +4,7 @@ alias gcheck='git checkout'
 alias gc='git commit'
 alias gl='git log --oneline --graph -15'
 alias guile='guile3.0'
+alias emacs='emacsclient -c -a="" &'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
