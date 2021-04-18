@@ -103,7 +103,9 @@
   (add-to-list 'default-frame-alist '(ns-appearance . dark)) ; nil for dark text
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
 
-(use-package project :defer t)
+(use-package project
+  :defer t
+  :bind (("C-x p D" . 'vc-root-diff)))
 
 (use-package eldoc
   :ensure nil
