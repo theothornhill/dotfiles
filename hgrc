@@ -34,4 +34,5 @@ pg = !"$HG" push; "$HG" push git
 pa = !"$HG" paths -q | xargs -l1 "$HG" push
 fuckit = revert --all --no-backup
 
+# Local settings
 %include ~/.hgrc-local
